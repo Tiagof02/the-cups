@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>the cup's — click & collect</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  
+  
+  
+  
+  
+ <link href="account.css" rel="stylesheet"><link href="brand.css" rel="stylesheet"></head>
+ <body>
+  <header class="sticky top-0 z-40 w-full border-b-2 border-[#1E1513] bg-[#F6EFE3]">
+   <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 header-inner"><a href="#top" class="brand-home"><img src="assets/brand/wordmark-dark.png" alt="The Cup's" width="1218" height="363"></a>
+    <nav data-i18n-aria="aria.nav" aria-label="Primary navigation" class="hidden items-center gap-5 md:flex header-nav"><a data-i18n="nav.menu" class="nav-link" href="#menu">Menu</a> <a data-i18n="nav.pickup" class="nav-link" href="#pickup">Pickup</a> <a data-i18n="nav.loyalty" class="nav-link" href="#loyalty">Loyalty</a> <a data-i18n="nav.find" class="nav-link" href="#find-us">Find us</a>
+    </nav>
+    <div class="flex items-center gap-2 header-controls">
+     <div data-i18n-aria="aria.language" class="rounded-full border-2 border-[#1E1513] p-1 sm:flex language-picker" aria-label="Language selection"><button type="button" class="lang active rounded-full px-2 py-1 text-xs font-bold" data-lang="EN">EN</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="PT">PT</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="DE">DE</button>
+     </div><a data-i18n="order.cta" href="#pickup" class="pill bg-[#FF5A36] px-3 py-2 text-xs lowercase md:px-4 header-order">order for pickup</a>
+    <div class="header-account" id="header-account"><button type="button" class="account-link" data-open-account="login" data-i18n="account.login">Log in</button><button type="button" class="pill account-create" data-open-account="create" data-i18n="account.create">Create account</button></div></div>
+   </div>
+  </header>
+  <main id="top">
+   <section class="brand-hero w-full overflow-hidden bg-[#FF9DC4] border-b-2 border-[#1E1513]">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 pb-9 pt-12 md:grid-cols-2 md:items-center md:px-8 md:py-20">
+     <div class="reveal">
+      <p data-i18n="hero.eyebrow" class="eyebrow">café rituals, ready when you are</p>
+      <h1 data-i18n="hero.title" class="display mt-4 max-w-xl text-[clamp(3.7rem,11vw,8rem)] lowercase">your cup. your time.</h1>
+      <p data-i18n="hero.subline" class="mt-6 max-w-md text-lg font-semibold lowercase">order ahead, pick up, keep moving.</p><a data-i18n="order.cta" href="#menu" class="pill mt-7 inline-block bg-[#FF5A36] px-6 py-4 lowercase">order for pickup</a>
+     </div>
+     <div class="hero-art reveal"><img src="assets/brand/hero-cup.png" alt="" width="1283" height="1226" fetchpriority="high"></div>
+    </div>
+    <div id="next-pickup" class="mx-auto mb-8 w-fit rounded-full border-2 border-[#1E1513] bg-[#C8E36B] px-5 py-3 font-bold lowercase">
+     next pickup slot: 10:45 · 12 min
+    </div>
+   </section>
+   <div data-i18n="hero.ticker" class="overflow-hidden bg-[#1E1513] py-3 text-center text-sm font-black tracking-[.14em] text-[#F6EFE3]">
+    ORDER AHEAD ✦ PICK UP ✦ KEEP MOVING ✦
+   </div>
+   <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-7xl">
+     <p data-i18n="steps.label" class="eyebrow">01 / how it works</p>
+     <h2 data-i18n="steps.title" class="display mt-3 max-w-2xl text-[clamp(2.7rem,6vw,5.2rem)]">three taps to pickup.</h2>
+     <div class="mt-9 grid gap-4 md:grid-cols-3">
+      <article class="outline bg-[#FF9DC4] p-6">
+       <p data-i18n="steps.one" class="display text-3xl">1 / choose</p>
+       <p data-i18n="steps.oneCopy" class="mt-5 font-semibold lowercase">your coffee, snack, or full lunch ritual.</p>
+      </article>
+      <article class="outline bg-[#FF5A36] p-6">
+       <p data-i18n="steps.two" class="display text-3xl">2 / customise</p>
+       <p data-i18n="steps.twoCopy" class="mt-5 font-semibold lowercase">make it yours, then choose your pickup minute.</p>
+      </article>
+      <article class="outline bg-[#C8E36B] p-6">
+       <p data-i18n="steps.three" class="display text-3xl">3 / collect</p>
+       <p data-i18n="steps.threeCopy" class="mt-5 font-semibold lowercase">walk in, say hi, pick up and go.</p>
+      </article>
+     </div>
+     <p data-i18n="steps.guest" class="mt-7 font-bold lowercase">guest checkout, no account needed.</p>
+    </div>
+   </section>
+   <section id="menu" class="w-full border-y-2 border-[#1E1513] bg-[#F6EFE3] px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-7xl"><div id="personal-area" class="personal-area" hidden><div class="personal-heading"><p id="personal-greeting" class="font-black"></p><button type="button" class="account-link" data-open-account="profile" data-i18n="account.profile">My account</button></div><p class="eyebrow" data-i18n="profile.favorites">Your favorites</p><div id="personal-favorites" class="favorite-list"></div><div id="personal-last-order" class="personal-last-order"></div></div>
+     <p data-i18n="menu.label" class="eyebrow">04 / MENU</p>
+     <div class="flex flex-wrap items-end justify-between gap-5">
+      <h2 data-i18n="menu.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">your pickup menu.</h2>
+      <p id="language-feedback" class="text-sm font-bold lowercase" aria-live="polite">english menu active.</p>
+     </div>
+     <div data-i18n-aria="aria.categories" class="mt-8 flex gap-2 overflow-x-auto pb-3" role="tablist" aria-label="Menu categories"><button data-i18n="category.drinks" class="tab active pill shrink-0 px-4 py-2 lowercase" data-category="drinks" role="tab" aria-selected="true">Drinks</button> <button data-i18n="category.breakfast" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="breakfast" role="tab" aria-selected="false">Breakfast</button> <button data-i18n="category.lunch" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="lunch" role="tab" aria-selected="false">Lunch</button> <button data-i18n="category.pastries" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="pastries" role="tab" aria-selected="false">Pastries &amp; Snacks</button> <button data-i18n="category.bundles" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="bundles" role="tab" aria-selected="false">Bundles</button>
+     </div>
+     <div class="mt-6">
+      <p id="menu-group-title" class="eyebrow mb-3">classics</p>
+      <div class="product-grid grid gap-4">
+       <article data-product-id="espresso" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="classics" data-product="espresso" data-price="0.75">
+        <div class="food-visual bg-[#FF9DC4]">
+         <div class="blob bg-[#C8E36B] left-5 top-3"></div>
+         <div class="cup"></div>
+        <button aria-label="Save espresso as a favorite" aria-pressed="false" data-favorite="espresso" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.espresso" class="font-black lowercase">espresso</h3><span data-price-value="0.75" class="font-black product-price">€0.75</span>
+         </div><span data-i18n="tag.single" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">single / double</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="espresso" aria-label="Add espresso" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="espresso" data-price="0.75">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="cappuccino" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="classics" data-product="cappuccino" data-price="2.30">
+        <div class="food-visual bg-[#C8E36B]">
+         <div class="blob bg-[#FF9DC4] right-4 top-1"></div>
+         <div class="cup"></div>
+        <button aria-label="Save cappuccino as a favorite" aria-pressed="false" data-favorite="cappuccino" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.cappuccino" class="font-black lowercase">cappuccino</h3><span data-price-value="2.30" class="font-black product-price">€2.30</span>
+         </div><span data-i18n="tag.oat" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">oat friendly</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="cappuccino" aria-label="Add cappuccino" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="cappuccino" data-price="2.30">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="galao" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="classics" data-product="galão" data-price="2.20">
+        <div class="food-visual bg-[#FF5A36]">
+         <div class="blob bg-[#F6EFE3] left-8 top-1"></div>
+         <div class="cup"></div>
+        <button aria-label="Save galão as a favorite" aria-pressed="false" data-favorite="galao" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.galao" class="font-black lowercase">galão</h3><span data-price-value="2.20" class="font-black product-price">€2.20</span>
+         </div><span data-i18n="tag.glass" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">big glass</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="galao" aria-label="Add galão" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="galão" data-price="2.20">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="iced" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="seasonal" data-product="iced coffee" data-price="2.90">
+        <div class="food-visual bg-[#FF9DC4]">
+         <div class="blob bg-[#FF5A36] right-3 top-2"></div>
+         <div class="cup"></div>
+        <button aria-label="Save iced coffee as a favorite" aria-pressed="false" data-favorite="iced" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.iced" class="font-black lowercase">iced coffee</h3><span data-price-value="2.90" class="font-black product-price">€2.90</span>
+         </div><span data-i18n="tag.ice" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">extra ice</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.limited" class="text-xs font-bold lowercase">limited-time</span><button data-product-id="iced" aria-label="Add iced coffee" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="iced coffee" data-price="2.90">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="green" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="cold drinks & juices" data-product="Ultimate Green" data-price="4.00">
+        <div class="food-visual bg-[#C8E36B]">
+         <div class="blob bg-[#FF9DC4] left-4 top-2"></div>
+         <div class="cup"></div>
+        <button aria-label="Save Ultimate Green as a favorite" aria-pressed="false" data-favorite="green" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.green" class="font-black lowercase">fresh juice “Ultimate Green”</h3><span data-price-value="4.00" class="font-black product-price">€4.00</span>
+         </div><span data-i18n="tag.fresh" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">fresh pressed</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="green" aria-label="Add Ultimate Green juice" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="Ultimate Green" data-price="4">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="tonic" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="community special" data-product="orange tonic" data-price="3.40">
+        <div class="food-visual bg-[#FF5A36]">
+         <div class="blob bg-[#C8E36B] right-4 top-1"></div>
+         <div class="cup"></div>
+        <button aria-label="Save orange tonic as a favorite" aria-pressed="false" data-favorite="tonic" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.tonic" class="font-black lowercase">orange tonic</h3><span data-price-value="3.40" class="font-black product-price">€3.40</span>
+         </div><span data-i18n="tag.fizz" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">espresso fizz</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.community" class="text-xs font-bold lowercase">community choice</span><button data-product-id="tonic" aria-label="Add orange tonic" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="orange tonic" data-price="3.40">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="croissant" class="product-card outline bg-[#F6EFE3]" data-category-card="breakfast pastries" data-group="breakfast" data-product="croissant" data-price="1.50">
+        <div class="food-visual bg-[#FF9DC4]">
+         <div class="blob bg-[#C8E36B] right-4 top-3"></div>
+         <div class="pastry left-[32%] top-[39px]"></div>
+        <button aria-label="Save croissant as a favorite" aria-pressed="false" data-favorite="croissant" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.croissant" class="font-black lowercase">croissant</h3><span data-price-value="1.50" class="font-black product-price">€1.50</span>
+         </div><span data-i18n="tag.butter" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">butter baked</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="croissant" aria-label="Add croissant" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="croissant" data-price="1.5">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="nata" class="product-card outline bg-[#F6EFE3]" data-category-card="pastries" data-group="pastries" data-product="pastel de nata" data-price="1.20">
+        <div class="food-visual bg-[#C8E36B]">
+         <div class="blob bg-[#FF5A36] left-5 top-2"></div>
+         <div class="nata left-[35%] top-[42px]"></div>
+        <button aria-label="Save pastel de nata as a favorite" aria-pressed="false" data-favorite="nata" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.nata" class="font-black lowercase">pastel de nata</h3><span data-price-value="1.20" class="font-black product-price">€1.20</span>
+         </div><span data-i18n="tag.warm" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">warm if you like</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="nata" aria-label="Add pastel de nata" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="pastel de nata" data-price="1.2">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="tosta" class="product-card outline bg-[#F6EFE3]" data-category-card="lunch" data-group="lunch" data-product="tosta mista" data-price="3.70">
+        <div class="food-visual bg-[#FF5A36]">
+         <div class="blob bg-[#C8E36B] right-3 top-1"></div>
+         <div class="sandwich left-[30%] top-[37px]"></div>
+        <button aria-label="Save tosta mista as a favorite" aria-pressed="false" data-favorite="tosta" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.tosta" class="font-black lowercase">tosta mista</h3><span data-price-value="3.70" class="font-black product-price">€3.70</span>
+         </div><span data-i18n="tag.ham" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">ham + cheese</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="tosta" aria-label="Add tosta mista" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="tosta mista" data-price="3.7">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="club" class="product-card outline bg-[#F6EFE3]" data-category-card="lunch" data-group="lunch" data-product="club sandwich" data-price="6.50">
+        <div class="food-visual bg-[#FF9DC4]">
+         <div class="blob bg-[#C8E36B] left-3 top-1"></div>
+         <div class="sandwich left-[29%] top-[37px]"></div>
+        <button aria-label="Save club sandwich as a favorite" aria-pressed="false" data-favorite="club" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.club" class="font-black lowercase">club sandwich</h3><span data-price-value="6.50" class="font-black product-price">€6.50</span>
+         </div><span data-i18n="tag.lunch" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">proper lunch</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="club" aria-label="Add club sandwich" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="club sandwich" data-price="6.5">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="acai" class="product-card outline bg-[#F6EFE3]" data-category-card="breakfast lunch" data-group="breakfast" data-product="açaí bowl" data-price="6.00">
+        <div class="food-visual bg-[#C8E36B]">
+         <div class="blob bg-[#FF9DC4] right-4 top-1"></div>
+         <div class="bowl left-[32%] top-[48px]"></div>
+        <button aria-label="Save açaí bowl as a favorite" aria-pressed="false" data-favorite="acai" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.acai" class="font-black lowercase">açaí bowl</h3><span data-price-value="6.00" class="font-black product-price">€6.00</span>
+         </div><span data-i18n="tag.fruit" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">fruit + crunch</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="acai" aria-label="Add açaí bowl" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="açaí bowl" data-price="6">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="breakfast" class="product-card outline bg-[#F6EFE3]" data-category-card="bundles" data-group="bundles" data-product="breakfast combo" data-price="3.50">
+        <div class="food-visual bg-[#FF9DC4]">
+         <div class="cup left-[36%] scale-[.7] origin-top"></div>
+         <div class="pastry right-[14%] top-[62px] scale-[.7]"></div>
+        <button aria-label="Save breakfast combo as a favorite" aria-pressed="false" data-favorite="breakfast" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.breakfast" class="font-black lowercase">breakfast combo: coffee + pastry</h3><span data-price-value="3.50" class="font-black product-price">€3.50</span>
+         </div><span data-i18n="tag.morning" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">morning hero</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="breakfast" aria-label="Add breakfast combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="breakfast combo" data-price="3.5">+</button>
+         </div>
+        </div>
+       </article>
+       <article data-product-id="lunch" class="product-card outline bg-[#F6EFE3]" data-category-card="bundles" data-group="bundles" data-product="lunch combo" data-price="8.50">
+        <div class="food-visual bg-[#FF5A36]">
+         <div class="sandwich left-[17%] top-[42px] scale-[.75]"></div>
+         <div class="cup right-[16%] top-[24px] scale-[.65] origin-top"></div>
+        <button aria-label="Save lunch combo as a favorite" aria-pressed="false" data-favorite="lunch" class="favorite-button" type="button">♡</button></div>
+        <div class="flex flex-1 flex-col p-4">
+         <div class="flex items-start justify-between gap-2">
+          <h3 data-i18n="product.lunch" class="font-black lowercase">lunch combo: sandwich + drink</h3><span data-price-value="8.50" class="font-black product-price">€8.50</span>
+         </div><span data-i18n="tag.midday" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">midday sorted</span>
+         <div class="mt-auto flex items-center justify-between pt-4">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="lunch" aria-label="Add lunch combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="lunch combo" data-price="8.5">+</button>
+         </div>
+        </div>
+       </article>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="w-full bg-[#C8E36B] px-5 py-8 md:px-8">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-3">
+     <p data-i18n="suggestions.title" class="mr-auto font-black lowercase">tiny good ideas for your order.</p><button data-product-id="nata" data-i18n="suggestions.pastry" class="suggestion pill bg-[#F6EFE3] px-4 py-3 lowercase" data-product="pastel de nata" data-price="1.2">add a pastry</button> <button data-product-id="iced" data-i18n="suggestions.drink" class="suggestion pill bg-[#F6EFE3] px-4 py-3 lowercase" data-product="iced coffee" data-price="2.9">make it lunch: add a drink</button> <button data-i18n="suggestions.usual" id="usual-button" class="pill bg-[#FF5A36] px-4 py-3 lowercase">reorder your usual</button> <span id="suggestion-feedback" class="w-full text-sm font-bold lowercase" aria-live="polite"></span>
+    </div>
+   </section>
+   <section id="pickup" class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
+    <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_.9fr]">
+     <div>
+      <p data-i18n="pickup.label" class="eyebrow">05 / PICKUP</p>
+      <h2 data-i18n="pickup.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">pick your minute.</h2>
+      <p data-i18n="pickup.copy" class="mt-5 max-w-lg font-semibold lowercase">we only show slots we can really fulfil</p>
+      <div id="quick-slots" class="quick-slots" role="group" data-i18n-aria="aria.slots" aria-label="Pickup slots">
+       <button type="button" class="quick-slot" data-quick-index="0" aria-pressed="false"><span class="quick-slot-label"></span><span class="quick-slot-time"></span></button>
+       <button type="button" class="quick-slot" data-quick-index="1" aria-pressed="false"><span class="quick-slot-label"></span><span class="quick-slot-time"></span></button>
+       <button type="button" class="quick-slot" data-quick-index="2" aria-pressed="false"><span class="quick-slot-label"></span><span class="quick-slot-time"></span></button>
+      </div>
+      <button type="button" id="slot-toggle" class="more-times" aria-expanded="false" aria-controls="slot-options"><span data-i18n="pickup.moreTimes">More times</span><span class="more-times-arrow" aria-hidden="true">⌄</span></button>
+      <div id="slot-options" class="slot-options" hidden><label for="pickup-time-select" data-i18n="pickup.choose">Choose a pickup time</label><select id="pickup-time-select" size="5"></select><p class="account-hint" data-i18n="pickup.zone">Lisbon time · demo availability</p></div>
+      <p id="slot-feedback" class="mt-4 font-bold lowercase" aria-live="polite">10:45 is selected.</p>
+     </div>
+     <aside data-i18n-aria="aria.order" class="outline bg-[#FF9DC4] p-5 md:p-7" aria-label="Order summary">
+      <div class="flex items-center justify-between">
+       <h2 data-i18n="cart.title" class="display text-3xl">your order.</h2><span id="cart-count" class="rounded-full border-2 border-[#1E1513] bg-[#C8E36B] px-3 py-1 text-sm font-black">0</span>
+      </div>
+      <p id="cart-pickup" class="mt-4 font-bold" aria-live="polite"></p>
+      <div id="cart-items" class="mt-5 min-h-20">
+       <p data-i18n="cart.empty" id="cart-empty" class="py-4 font-semibold lowercase">your basket is ready for a ritual.</p>
+      </div>
+      <div class="mt-5 border-t-2 border-[#1E1513] pt-4">
+       <div class="flex justify-between font-bold">
+        <span data-i18n="cart.subtotal" class="lowercase">subtotal</span><span id="subtotal">€0.00</span>
+       </div>
+       <div class="mt-2 flex justify-between text-lg font-black">
+        <span data-i18n="cart.total" class="lowercase">total</span><span id="total">€0.00</span>
+       </div>
+       <p data-i18n="cart.fees" class="mt-2 text-sm font-bold lowercase">no hidden fees. ever.</p><button data-i18n="cart.pay" id="pay-button" class="pill mt-5 w-full bg-[#FF5A36] px-5 py-4 lowercase">pay online &amp; confirm pickup</button><p class="demo-checkout-note" data-i18n="cart.demo">demo checkout only — no payment is taken.</p>
+       <p id="payment-feedback" class="mt-4 font-bold lowercase" aria-live="polite"></p>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section class="brand-community w-full bg-[#1E1513] px-5 py-16 text-[#F6EFE3] md:px-8">
+    <div class="mx-auto max-w-7xl">
+     <p data-i18n="community.label" class="eyebrow !text-[#C8E36B]">06 / community</p>
+     <h2 data-i18n="community.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">community special.</h2>
+     <p data-i18n="community.copy" class="mt-4 max-w-lg font-semibold lowercase">vote on the monthly special via Instagram</p>
+     <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <article class="border-2 border-[#C8E36B] bg-[#1E1513] p-5">
+       <h3 data-i18n="special.matcha" class="text-xl font-black lowercase">strawberry matcha</h3><button data-i18n="community.vote" class="vote-button pill mt-5 bg-[#C8E36B] px-4 py-2 text-[#1E1513] lowercase" data-vote="strawberry matcha">vote for this</button>
+      </article>
+      <article class="border-2 border-[#C8E36B] bg-[#1E1513] p-5">
+       <h3 data-i18n="special.pistachio" class="text-xl font-black lowercase">pistachio cold foam</h3><button data-i18n="community.vote" class="vote-button pill mt-5 bg-[#C8E36B] px-4 py-2 text-[#1E1513] lowercase" data-vote="pistachio cold foam">vote for this</button>
+      </article>
+      <article class="border-2 border-[#C8E36B] bg-[#1E1513] p-5">
+       <h3 data-i18n="special.toastie" class="text-xl font-black lowercase">chilli cheese toastie</h3><button data-i18n="community.vote" class="vote-button pill mt-5 bg-[#C8E36B] px-4 py-2 text-[#1E1513] lowercase" data-vote="chilli cheese toastie">vote for this</button>
+      </article>
+     </div>
+     <p id="vote-feedback" class="mt-5 font-bold lowercase text-[#C8E36B]" aria-live="polite"></p>
+     <div class="mt-10 flex flex-col justify-between gap-5 border-t-2 border-[#C8E36B] pt-7 md:flex-row md:items-center">
+      <div>
+       <p data-i18n="coffee.label" class="eyebrow !text-[#C8E36B]">coffee break / friday 16:00</p>
+       <h3 data-i18n="coffee.title" class="mt-2 text-2xl font-black lowercase">tiny coffee break. big chat.</h3>
+       <p data-i18n="coffee.copy" class="mt-2 lowercase">8 places only. coffee and a neighbourly pause.</p>
+      </div><button data-i18n="coffee.register" id="coffee-break-button" class="pill bg-[#FF5A36] px-5 py-3 lowercase">register for coffee break</button>
+     </div>
+     <p id="coffee-feedback" class="mt-3 font-bold lowercase text-[#C8E36B]" aria-live="polite"></p>
+    </div>
+   </section>
+   <section id="loyalty" class="w-full bg-[#C8E36B] px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-7xl">
+     <p data-i18n="loyalty.label" class="eyebrow">07 / LOYALTY</p>
+     <h2 data-i18n="loyalty.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">seven visits → one reward.</h2>
+     <div data-i18n-aria="loyalty.guest" id="loyalty-stamps" class="mt-8 flex flex-wrap gap-3"><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span>
+     </div><div id="loyalty-customer" class="loyalty-customer" hidden></div>
+     <p data-i18n="loyalty.copy" class="mt-5 text-lg font-bold lowercase">every seventh drink is on us.</p>
+    </div>
+   </section>
+   <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-7xl">
+     <p data-i18n="reviews.label" class="eyebrow">08 / neighbours say</p>
+     <div class="mt-5 flex flex-wrap items-end gap-x-5 gap-y-1">
+      <p class="display text-7xl">4.9 ★</p>
+      <p data-i18n="reviews.rating" class="text-xl font-bold">Google rating</p>
+      <p data-i18n="reviews.count" class="text-xl font-bold">121 reviews</p>
+     </div>
+     <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <blockquote data-i18n="reviews.one" class="outline bg-[#FF9DC4] p-5 font-bold lowercase">
+       “my 9am galão spot. fast, kind, always right.”
+      </blockquote>
+      <blockquote data-i18n="reviews.two" class="outline bg-[#C8E36B] p-5 font-bold lowercase">
+       “the toastie has become a weekly personality trait.”
+      </blockquote>
+      <blockquote data-i18n="reviews.three" class="outline bg-[#FF5A36] p-5 font-bold lowercase">
+       “tiny place, huge good energy.”
+      </blockquote>
+     </div>
+     <p data-i18n="reviews.owner" class="mt-6 font-black lowercase">the owner replies personally.</p>
+    </div>
+   </section>
+   <section id="find-us" class="w-full border-y-2 border-[#1E1513] bg-[#FF9DC4] px-5 py-16 md:px-8">
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
+     <div>
+      <p data-i18n="find.label" class="eyebrow">09 / FIND US</p>
+      <h2 data-i18n="find.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">come say hi.</h2>
+      <p class="mt-6 text-lg font-black">Rua das Laranjeiras 47C, 1600-140 Lisboa</p><a class="mt-2 inline-block font-bold underline" href="tel:+351920588166">+351 920 588 166</a>
+      <p data-i18n="find.week" class="mt-6 font-bold">Mon–Fri 8:00–00:30</p>
+      <p data-i18n="find.weekend" class="font-bold">Sat–Sun 8:30–00:30</p>
+      <p data-i18n="find.metro" class="mt-5 font-bold lowercase">nearest metro: Laranjeiras</p>
+      <p data-i18n="find.copy" class="mt-8 max-w-md text-lg font-black lowercase">close enough for routine. human enough for loyalty.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+       <a data-i18n="find.map" class="pill bg-[#C8E36B] px-4 py-3 lowercase" href="https://maps.google.com/?q=Rua+das+Laranjeiras+47C+Lisboa" target="_blank" rel="noopener noreferrer">open map</a><a data-i18n="find.whatsapp" class="pill bg-[#F6EFE3] px-4 py-3 lowercase" href="https://wa.me/351920588166" target="_blank" rel="noopener noreferrer">whatsapp us</a>
+      </div>
+     </div><a data-i18n-aria="aria.map" href="https://maps.google.com/?q=Rua+das+Laranjeiras+47C+Lisboa" target="_blank" rel="noopener noreferrer" class="map-lines outline relative min-h-[310px] bg-[#C8E36B] p-6" aria-label="Open location in Google Maps">
+      <div class="absolute left-[44%] top-[38%] h-16 w-16 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36] shadow-[5px_5px_0_#1E1513]"></div>
+      <div class="absolute left-[48%] top-[43%] h-6 w-6 rounded-full border-[3px] border-[#1E1513] bg-[#F6EFE3]"></div><span class="absolute bottom-5 left-5 border-2 border-[#1E1513] bg-[#F6EFE3] px-3 py-2 font-black lowercase">the cup's / Laranjeiras</span> </a>
+    </div>
+   </section>
+   <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
+    <div class="mx-auto max-w-4xl">
+     <p data-i18n="faq.label" class="eyebrow">10 / FAQ</p>
+     <h2 data-i18n="faq.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">small questions.</h2>
+     <div class="mt-8 border-y-2 border-[#1E1513]">
+      <div class="faq-item border-b-2 border-[#1E1513]">
+       <button aria-controls="faq-answer-1" aria-expanded="false" class="flex w-full items-center justify-between py-5 text-left text-lg font-black lowercase"><span data-i18n="faq.q1">how does pickup work</span><span class="faq-plus text-3xl">+</span></button>
+       <div id="faq-answer-1" class="faq-answer pb-5">
+        <p data-i18n="faq.a1" class="lowercase">choose your favourites, choose a real slot, pay online, then collect at the counter.</p>
+       </div>
+      </div>
+      <div class="faq-item border-b-2 border-[#1E1513]">
+       <button aria-controls="faq-answer-2" aria-expanded="false" class="flex w-full items-center justify-between py-5 text-left text-lg font-black lowercase"><span data-i18n="faq.q2">where do i collect</span><span class="faq-plus text-3xl">+</span></button>
+       <div id="faq-answer-2" class="faq-answer pb-5">
+        <p data-i18n="faq.a2" class="lowercase">come to the pickup counter at the cup's on Rua das Laranjeiras 47C and share your order number.</p>
+       </div>
+      </div>
+      <div class="faq-item border-b-2 border-[#1E1513]">
+       <button aria-controls="faq-answer-3" aria-expanded="false" class="flex w-full items-center justify-between py-5 text-left text-lg font-black lowercase"><span data-i18n="faq.q3">what if my order is late or wrong</span><span class="faq-plus text-3xl">+</span></button>
+       <div id="faq-answer-3" class="faq-answer pb-5">
+        <p data-i18n="faq.a3" class="lowercase">tell us straight away. we will sort it with you.</p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button aria-controls="faq-answer-4" aria-expanded="false" class="flex w-full items-center justify-between py-5 text-left text-lg font-black lowercase"><span data-i18n="faq.q4">do i need an account</span><span class="faq-plus text-3xl">+</span></button>
+       <div id="faq-answer-4" class="faq-answer pb-5">
+        <p data-i18n="faq.a4" class="lowercase">nope. guest checkout is here for the busy days.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="w-full bg-[#1E1513] px-5 py-12 text-[#F6EFE3] md:px-8">
+   <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+     <img class="footer-wordmark" src="assets/brand/wordmark-light.png" alt="The Cup's" width="1218" height="363">
+     <p data-i18n="footer.tagline" class="mt-4 max-w-xs font-semibold lowercase">your small neighbourhood stop between plans.</p>
+    </div>
+    <div>
+     <p data-i18n="footer.social" class="eyebrow !text-[#C8E36B]">keep in the loop</p>
+     <div class="mt-4 grid gap-2 font-bold">
+      <a class="underline" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a><a class="underline" href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a><a class="underline" href="https://maps.google.com/?q=Rua+das+Laranjeiras+47C+Lisboa" target="_blank" rel="noopener noreferrer">Google Maps</a><a class="underline" href="https://wa.me/351920588166" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+     </div>
+    </div>
+    <div>
+     <p data-i18n="newsletter.title" class="font-black lowercase">monthly update, only if you want it</p>
+     <form novalidate id="newsletter-form" class="mt-4 flex gap-2">
+      <label data-i18n="field.email" class="sr-only" for="newsletter-email">Email</label><input data-i18n-placeholder="placeholder.email" id="newsletter-email" type="email" required placeholder="your@email.com" class="min-w-0 flex-1 rounded-full border-2 border-[#F6EFE3] bg-transparent px-4 py-3 text-[#F6EFE3] placeholder:text-[#F6EFE3]/70"><button data-i18n="newsletter.submit" class="pill bg-[#C8E36B] px-4 py-3 text-[#1E1513] lowercase" type="submit">opt in</button>
+     </form>
+     <p id="newsletter-feedback" class="mt-3 font-bold lowercase text-[#C8E36B]" aria-live="polite"></p>
+    </div>
+   </div>
+   <div class="mx-auto mt-10 flex max-w-7xl flex-wrap justify-between gap-4 border-t border-[#F6EFE3]/40 pt-5 text-xs font-bold">
+    <div class="flex gap-3">
+     <button class="lang active underline" data-lang="EN">EN</button><button class="lang underline" data-lang="PT">PT</button><button class="lang underline" data-lang="DE">DE</button>
+    </div>
+    <div class="flex gap-3">
+     <a data-i18n="footer.privacy" class="underline" href="#top">privacy</a><a data-i18n="footer.terms" class="underline" href="#top">terms</a>
+    </div>
+    <p data-i18n="footer.campus">CATÓLICA-LISBON · DIGITAL MARKETING 2026</p>
+   </div>
+  </footer>
+  
+ <p id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></p><dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title"><div id="account-content"></div></dialog><dialog id="payment-dialog" class="account-dialog payment-dialog" aria-labelledby="payment-title"><div id="payment-content"></div></dialog><script src="i18n.js"></script><script src="products.js"></script><script src="account-store.js"></script><script src="pickup-times.js"></script><script src="app.js"></script></body>
+</html>

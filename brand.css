@@ -1,0 +1,145 @@
+/* Presentation identity, layered onto the existing storefront and its sections.
+   Palette sampled from slides 1, 21 and 42; assets extracted from the supplied PDF. */
+html { font-size:16px; scroll-padding-top:165px; }
+body { line-height:1.5; }
+.display, .account-title, .profile-block > h3 { font-family:'League Spartan','DM Sans',sans-serif; font-weight:800; letter-spacing:-.045em; line-height:1; }
+.display { text-wrap:balance; }
+.lowercase { text-transform:none; }
+.eyebrow { color:#AC3821; font-size:.75rem; letter-spacing:.18em; }
+header { border-bottom:1px solid #2b191218 !important; background:var(--cream); }
+.header-inner { background:white; border-radius:22px; margin:10px auto; max-width:calc(1280px - 32px); padding:10px 18px; gap:12px; }
+.brand-home { display:flex; align-items:center; flex-shrink:0; }
+.brand-home img { width:132px; height:auto; }
+.header-nav { gap:20px; }
+.nav-link { font-size:.73rem; min-height:44px; display:flex; align-items:center; }
+.header-controls { gap:8px; }
+.header-order { background:var(--orange); color:var(--ink); font-size:.82rem; padding:12px 18px; text-align:center; }
+.header-account .account-link, .account-create { font-size:.78rem; }
+.header-account { gap:8px; }
+.account-create { border:1px solid #2b19122b; background:var(--cream); }
+.account-link { min-height:44px; }
+.language-picker, .account-top .language-picker { border:1px solid #2b191224; padding:2px; background:var(--cream); }
+.lang { min-width:40px; min-height:40px; font-size:.72rem; }
+.pill { min-height:44px; border:1px solid transparent; border-radius:999px; box-shadow:none; }
+.pill:hover { transform:translateY(-1px); box-shadow:0 4px 14px #2b191214; }
+.pill:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid #8A301D; outline-offset:3px; }
+.tab { background:white; border-color:#2b19121f; }
+.tab.active { background:var(--ink); }
+.outline { outline:none; border:0; border-radius:22px; box-shadow:none; }
+.brand-hero { background:var(--cream); border:0; position:relative; }
+.brand-hero > .grid { padding-top:36px; padding-bottom:30px; gap:32px; }
+.brand-hero h1 { font-size:clamp(4rem,8vw,7.3rem); line-height:.92; max-width:600px; }
+.brand-hero .eyebrow { max-width:350px; }
+.brand-hero .pill { padding:17px 30px; }
+.hero-art { position:relative; max-width:520px; width:100%; justify-self:center; }
+.hero-art img { display:block; width:auto; height:auto; max-width:100%; max-height:550px; object-fit:contain; margin:0 auto; border-radius:0; }
+#next-pickup { background:var(--pink); border:0; max-width:calc(100% - 40px); text-align:center; }
+main > section { border-color:#2b19121a; }
+.product-card { overflow:hidden; background:white; border-radius:20px; min-height:300px; }
+.food-visual { height:145px; border:0; }
+.product-card .p-4 { padding:18px; }
+.product-card h3 { font-family:'League Spartan','DM Sans',sans-serif; font-weight:700; font-size:1.4rem; line-height:1.12; letter-spacing:-.025em; }
+.add-product { min-width:44px; min-height:44px; background:var(--orange); border:0; }
+.favorite-button { width:44px; height:44px; border:0; box-shadow:0 2px 8px #2b191214; }
+.cup:before { background:var(--ink); }
+.cup:after { border:0; border-radius:45% 20% 45% 20%; width:100%; left:0; height:28px; background:var(--orange); transform:rotate(-10deg); }
+#pickup aside { align-self:start; background:var(--pink); }
+#cart-count { background:var(--cream); border:0; }
+.qty { min-width:44px; min-height:44px; border:1px solid #2b191233; }
+.remove { min-height:44px; }
+.slot { background:white; border:1px solid #2b191233; padding:13px 8px; }
+.slot.selected { background:var(--ink); color:var(--cream); }
+.quick-slots { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:26px; }
+.quick-slot { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; min-width:0; min-height:104px; padding:12px 8px; border:2px solid transparent; border-radius:18px; background:white; color:var(--ink); }
+.quick-slot:first-child { border-color:var(--orange); }
+.quick-slot[aria-pressed="true"] { background:var(--ink); color:var(--cream); border-color:var(--orange); }
+.quick-slot-label { display:flex; align-items:center; justify-content:center; min-height:2.5em; font-size:.72rem; line-height:1.2; font-weight:700; }
+.quick-slot[aria-pressed="true"] .quick-slot-label { color:var(--pink); }
+.quick-slot-time { font-family:'League Spartan','DM Sans',sans-serif; font-size:clamp(1.3rem,4vw,1.8rem); font-weight:700; line-height:1; }
+.more-times { display:inline-flex; align-items:center; gap:10px; min-height:44px; margin-top:12px; padding:8px 15px; border-radius:999px; background:var(--orange); color:var(--ink); font-size:.85rem; font-weight:700; }
+.more-times-arrow { font-size:22px; line-height:1; }
+.more-times[aria-expanded="true"] .more-times-arrow { transform:rotate(180deg); }
+.slot-options { margin-top:12px; padding:16px; background:white; border:1px solid #2b191224; border-radius:18px; max-width:380px; box-shadow:0 10px 25px #2b19120c; }
+.slot-options label { display:block; font-weight:700; margin-bottom:8px; }
+.slot-options select { width:100%; max-height:230px; border-radius:10px; border:1px solid #2b191238; padding:4px; font:inherit; background:var(--cream); }
+.slot-options option { padding:12px; min-height:44px; }
+.brand-community { position:relative; padding-bottom:130px; background-image:url('assets/brand/orange-wave.png'),url('assets/brand/pink-splash.png'); background-repeat:no-repeat; background-position:center bottom -65px,right 24px top 26px; background-size:110% 190px,68px; }
+.brand-community .eyebrow, footer .eyebrow { color:var(--pink) !important; }
+.brand-community .outline { border:1px solid #f7ede244; }
+#loyalty { background:var(--pink); }
+#loyalty-stamps { padding:22px; border-radius:22px; background:var(--cream); width:fit-content; max-width:100%; }
+#loyalty-stamps > span { width:44px; height:44px; border-width:2px; }
+#loyalty-stamps > span:last-child { border-color:var(--orange); }
+#find-us { background:var(--cream); border-top:1px solid #2b19121a; }
+.personal-area { background:var(--pink); border:0; border-radius:22px; box-shadow:none; }
+.favorite-chip { min-height:44px; border:1px solid #2b19121f; }
+.account-dialog { border:0; border-radius:24px; box-shadow:0 20px 90px #2b19124d; }
+.account-dialog::backdrop { background:#2b1912b8; backdrop-filter:blur(3px); }
+.account-title { letter-spacing:-.04em; }
+.account-close { width:44px; height:44px; border:0; background:var(--pink); flex-shrink:0; }
+.account-field input, .account-field select { border:1px solid #2b19124d; border-radius:12px; background:white; }
+.account-check { min-height:44px; align-items:center; }
+.account-check input { width:20px; height:20px; }
+.account-field [aria-invalid="true"], .payment-field [aria-invalid="true"] { border:2px solid #B23424; background:#fff0ea; box-shadow:0 0 0 2px #b2342414; }
+.account-order { border:0; border-radius:18px; }
+.account-demo { border:0; padding:12px 16px; background:#fff; border-radius:12px; }
+.profile-block { border-width:1px; border-color:#2b19122a; }
+.site-notice { border:0; border-radius:18px; box-shadow:0 5px 25px #2b19122b; }
+footer { position:relative; padding-bottom:125px !important; background-image:url('assets/brand/orange-wave.png'); background-repeat:no-repeat; background-position:center bottom -80px; background-size:110% 180px; }
+.footer-wordmark { width:min(290px,100%); height:auto; }
+footer input { border-radius:999px; }
+.payment-dialog { width:min(580px,calc(100% - 24px)); }
+#payment-content { padding:clamp(18px,4vw,30px); }
+.payment-summary { margin:20px 0; padding:18px; border-radius:18px; background:var(--pink); }
+.payment-summary > div { display:flex; gap:16px; justify-content:space-between; font-weight:800; font-size:1.25rem; }
+.payment-summary p { margin-top:8px; }
+.payment-methods { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+.payment-method { min-height:64px; padding:12px; border-radius:16px; border:1px solid #2b191233; font-weight:800; background:white; }
+.payment-method small { display:block; font-size:.72rem; font-weight:500; }
+.payment-method[aria-pressed="true"] { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.payment-fields { margin-top:18px; }
+.payment-field { min-width:0; margin-top:12px; }
+.payment-field label { display:block; font-weight:700; margin-bottom:5px; }
+.payment-field input { min-height:48px; width:100%; min-width:0; font:inherit; border:1px solid #2b191266; border-radius:12px; padding:10px 12px; background:white; }
+.payment-pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.payment-demo { font-size:.85rem; margin:12px 0; padding:12px 14px; border-left:3px solid var(--orange); background:white; border-radius:0 12px 12px 0; }
+.payment-submit { width:100%; margin-top:18px; padding:15px; background:var(--orange); }
+.payment-success { text-align:center; padding-top:8px; }
+.payment-success-mark { margin:0 auto 16px; display:grid; place-items:center; width:70px; height:70px; font-size:38px; border-radius:50%; background:var(--pink); }
+.payment-success p { margin:14px 0; overflow-wrap:anywhere; }
+@media (min-width:768px) and (max-width:1250px) {
+  .header-nav { order:3; flex-basis:100%; justify-content:center; }
+}
+@media (min-width:768px) { .product-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (min-width:1100px) { .product-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:767px) {
+  html { scroll-padding-top:180px; }
+  .header-inner { margin:8px; padding:10px 12px; max-width:none; gap:8px; }
+  .brand-home img { width:110px; }
+  .header-order { font-size:.75rem; padding:12px; max-width:calc(100% - 122px); }
+  .header-account { flex:1; gap:8px; }
+  .header-account .account-link, .account-create { font-size:.73rem; }
+  .account-create { padding:8px 10px; }
+  .lang { min-width:36px; min-height:44px; }
+  .header-controls > .language-picker { margin-left:0; }
+  .brand-hero > .grid { padding-top:30px; }
+  .brand-hero h1 { font-size:clamp(3.8rem,15vw,6rem); }
+  .hero-art { max-width:360px; }
+  .hero-art img { max-height:340px; object-position:center; }
+  .product-card .p-4 { padding:12px; }
+  .product-card h3 { font-size:1.2rem; }
+  .product-price { font-size:.85rem; }
+  .product-card .flex.items-start { flex-wrap:wrap; gap:8px; }
+  .brand-community { padding-bottom:110px; }
+}
+@media (max-width:360px) {
+  .header-account { flex-basis:100%; order:3; justify-content:center; }
+  .header-controls > .language-picker { order:2; margin:0 auto; }
+  .header-inner > .brand-home { flex:1; }
+  .product-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media (prefers-reduced-motion:reduce) { .pill, .more-times-arrow { transition:none; transform:none; } }
+
+/* Same-day pickup: expired options stay visible in the compact panel. */
+.slot-options option:disabled { color:#827871; background:#e9e4df; }
+#pay-button:disabled, #demo-pay-submit:disabled { opacity:.5; cursor:not-allowed; }
