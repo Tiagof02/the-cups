@@ -254,7 +254,11 @@ window.CupsTranslations = {
     "pickup.selected": "Selected pickup time",
     "pickup.todayOnly": "Same-day pickup only",
     "pickup.none": "No pickup times remain today.",
-    "pickup.moreTimes": "More times"
+    "pickup.moreTimes": "More times",
+    "mobile.account": "Account",
+    "mobile.navigation": "Navigation menu",
+    "cart.inBasket": "{count} in basket",
+    "aria.basketQuantity": "{product}: {count} in basket"
   },
   "PT": {
     "nav.menu": "Menu",
@@ -509,7 +513,11 @@ window.CupsTranslations = {
     "pickup.selected": "Horário de recolha selecionado",
     "pickup.todayOnly": "Recolha apenas no próprio dia",
     "pickup.none": "Já não há horários de recolha disponíveis hoje.",
-    "pickup.moreTimes": "Mais horários"
+    "pickup.moreTimes": "Mais horários",
+    "mobile.account": "Conta",
+    "mobile.navigation": "Menu de navegação",
+    "cart.inBasket": "{count} no carrinho",
+    "aria.basketQuantity": "{product}: {count} no carrinho"
   },
   "DE": {
     "nav.menu": "Menü",
@@ -764,6 +772,10 @@ window.CupsTranslations = {
     "pickup.selected": "Gewählte Abholzeit",
     "pickup.todayOnly": "Abholung nur am selben Tag",
     "pickup.none": "Heute sind keine Abholzeiten mehr verfügbar.",
-    "pickup.moreTimes": "Weitere Zeiten"
+    "pickup.moreTimes": "Weitere Zeiten",
+    "mobile.account": "Konto",
+    "mobile.navigation": "Navigationsmenü",
+    "cart.inBasket": "{count} im Warenkorb",
+    "aria.basketQuantity": "{product}: {count} im Warenkorb"
   }
 };

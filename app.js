@@ -113,6 +113,12 @@
     });
     $('#cart-empty').hidden=count>0;$('#cart-count').textContent=count;
     $('#subtotal').textContent=money(total);$('#total').textContent=money(total);
+    $$('[data-basket-quantity]').forEach(badge=>{
+      const id=badge.dataset.basketQuantity,qty=cart.get(id)||0;
+      badge.hidden=qty===0;badge.textContent=qty?t('cart.inBasket',{count:qty}):'';
+      if(qty)badge.setAttribute('aria-label',t('aria.basketQuantity',{count:qty,product:productName(id)}));
+      else badge.removeAttribute('aria-label');
+    });
   }
   function addProduct(id,qty=1) {
     if(!productById[id])return;
@@ -274,6 +280,7 @@
     header.innerHTML=user?
       `<button type="button" class="account-link" data-open-account="profile" data-i18n="account.profile">${escapeHTML(t('account.profile'))}</button><button type="button" class="account-link" data-logout data-i18n="account.logout">${escapeHTML(t('account.logout'))}</button>`:
       `<button type="button" class="account-link" data-open-account="login" data-i18n="account.login">${escapeHTML(t('account.login'))}</button><button type="button" class="pill account-create" data-open-account="create" data-i18n="account.create">${escapeHTML(t('account.create'))}</button>`;
+    $('#mobile-account-panel').innerHTML=header.innerHTML;
     $$('.favorite-button').forEach(b=>{
       const saved=!!user?.favorites.includes(b.dataset.favorite);b.setAttribute('aria-pressed',String(saved));b.textContent=saved?'♥':'♡';
       b.setAttribute('aria-label',t(saved?'aria.unfavorite':'aria.favorite',{product:productName(b.dataset.favorite)}));
@@ -456,12 +463,46 @@
     if(dialog.open)dialog.close();dialogView=null;
     $('#account-content').replaceChildren();renderAccountSurfaces();notice('account.loggedOut');
   }
+  // Mobile-only disclosures use the existing navigation targets and account flows.
+  const mobileHeader=$('.mobile-header');
+  function closeMobilePanels(returnFocus=false) {
+    for(const kind of ['nav','account']){
+      const toggle=$('#mobile-'+kind+'-toggle'),panel=$('#mobile-'+kind+'-panel');
+      const wasOpen=!panel.hidden;panel.hidden=true;toggle.setAttribute('aria-expanded','false');
+      if(returnFocus&&wasOpen)toggle.focus();
+    }
+  }
+  function toggleMobilePanel(kind) {
+    const panel=$('#mobile-'+kind+'-panel'),opening=panel.hidden;
+    closeMobilePanels();
+    if(opening){panel.hidden=false;$('#mobile-'+kind+'-toggle').setAttribute('aria-expanded','true');$('a,button',panel)?.focus();}
+  }
+  document.addEventListener('click',e=>{
+    if(!mobileHeader.contains(e.target))closeMobilePanels();
+    const link=e.target.closest('.mobile-header a[href^="#"]');
+    if(link){
+      closeMobilePanels();
+      // Let the anchor perform its normal hash/scroll navigation; move keyboard focus
+      // to the destination instead of leaving it inside the now-hidden disclosure.
+      const target=document.getElementById(link.getAttribute('href').slice(1));
+      if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
+    }
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&(!$('#mobile-nav-panel').hidden||!$('#mobile-account-panel').hidden)){
+      e.preventDefault();closeMobilePanels(true);
+    }
+  });
+  document.addEventListener('focusin',e=>{if(!mobileHeader.contains(e.target))closeMobilePanels();});
+  window.addEventListener('resize',()=>{if(window.innerWidth>=768)closeMobilePanels();});
   document.addEventListener('click',e=>{
     const b=e.target.closest('button');if(!b)return;
+    if(b.id==='mobile-nav-toggle'){toggleMobilePanel('nav');return;}
+    if(b.id==='mobile-account-toggle'){toggleMobilePanel('account');return;}
     if(b.dataset.lang){setLanguage(b.dataset.lang);return;}
-    if(b.dataset.openAccount){openAccount(b.dataset.openAccount);return;}
+    if(b.dataset.openAccount){const mobile=mobileHeader.contains(b);closeMobilePanels();openAccount(b.dataset.openAccount);if(mobile)previousFocus=$('#mobile-account-toggle');return;}
     if(b.hasAttribute('data-close-account')){if(!authBusy)dialog.close();return;}
-    if(b.hasAttribute('data-logout')){logout();return;}
+    if(b.hasAttribute('data-logout')){const mobile=mobileHeader.contains(b);closeMobilePanels();logout();if(mobile)$('#mobile-account-toggle').focus();return;}
     if(b.dataset.favorite){toggleFavorite(b.dataset.favorite);return;}
     if(b.dataset.favoriteAdd){addProduct(b.dataset.favoriteAdd);if(dialog.open)message('account-message','cart.added',{productId:b.dataset.favoriteAdd});return;}
     if(b.dataset.orderAgain){orderAgain(b.dataset.orderAgain);return;}

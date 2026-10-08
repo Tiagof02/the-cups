@@ -188,6 +188,39 @@ function createValues(a,email='ana@example.test'){
  for(const iso of ['2026-10-25T00:30:00Z','2026-10-25T01:30:00Z']){
    const dst=a.window.CupsPickup.schedule(new Date(iso));ok(dst.every(x=>x.date==='2026-10-25'));eq(dst.find(x=>!x.disabled).time,'08:30');
  }
+ // Mobile navigation/account disclosures and per-product basket badges.
+ cache.clear();a=boot();
+ ok(a.q('#mobile-nav-panel').hidden);ok(a.q('#mobile-account-panel').hidden);
+ a.click('#mobile-nav-toggle');ok(!a.q('#mobile-nav-panel').hidden);eq(a.q('#mobile-nav-toggle').getAttribute('aria-expanded'),'true');
+ eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#menu,#pickup,#loyalty,#find-us');
+ for(const el of a.qa('#mobile-nav-panel a'))ok(a.q(el.getAttribute('href')));
+ a.click('#mobile-nav-panel a[href="#menu"]');ok(a.q('#mobile-nav-panel').hidden);
+ a.click('#mobile-nav-toggle');a.click('#mobile-account-toggle');ok(a.q('#mobile-nav-panel').hidden);ok(!a.q('#mobile-account-panel').hidden);
+ a.click('#mobile-account-panel [data-open-account="create"]');ok(a.q('#mobile-account-panel').hidden);ok(a.q('#create-account-form'));
+ a.click('[data-close-account]');a.click('#mobile-nav-toggle');
+ const escape=new a.window.Event('keydown',{bubbles:true,cancelable:true});escape.key='Escape';a.document.dispatchEvent(escape);ok(a.q('#mobile-nav-panel').hidden);
+ a.click('#mobile-nav-toggle');a.click('.add-product[data-product-id="espresso"]');ok(a.q('#mobile-nav-panel').hidden);
+ for(const lang of ['EN','PT','DE']){
+   a.click(`.mobile-header .lang[data-lang="${lang}"]`);
+   eq(a.q('#mobile-nav-toggle').getAttribute('aria-label'),langs[lang]['mobile.navigation']);
+   eq(text(a,'[data-basket-quantity="espresso"]'),langs[lang]['cart.inBasket'].replace('{count}','1'));
+   a.click('#mobile-account-toggle');eq(text(a,'#mobile-account-panel [data-open-account="login"]'),langs[lang]['account.login']);a.click('#mobile-account-toggle');
+ }
+ a.click('.add-product[data-product-id="espresso"]');eq(text(a,'[data-basket-quantity="espresso"]'),langs.DE['cart.inBasket'].replace('{count}','2'));
+ ok(a.q('[data-basket-quantity="cappuccino"]').hidden);
+ a.click('.add-product[data-product-id="cappuccino"]');eq(text(a,'[data-basket-quantity="cappuccino"]'),langs.DE['cart.inBasket'].replace('{count}','1'));
+ a.click('.qty[data-id="espresso"][data-change="-1"]');eq(text(a,'[data-basket-quantity="espresso"]'),langs.DE['cart.inBasket'].replace('{count}','1'));
+ a.click('.qty[data-id="espresso"][data-change="1"]');eq(text(a,'[data-basket-quantity="espresso"]'),langs.DE['cart.inBasket'].replace('{count}','2'));
+ a.click('[data-remove-product="espresso"]');ok(a.q('[data-basket-quantity="espresso"]').hidden);ok(!a.q('[data-basket-quantity="cappuccino"]').hidden);
+ pay(a,'apple');ok(a.qa('[data-basket-quantity]').every(e=>e.hidden));
+ a.click('#mobile-account-toggle');a.click('#mobile-account-panel [data-open-account="create"]');createValues(a,'mobile@example.test');a.submit('#create-account-form');await until(()=>a.q('#profile-form'));a.click('[data-close-account]');
+ a.click('#mobile-account-toggle');ok(a.q('#mobile-account-panel [data-open-account="profile"]'));ok(a.q('#mobile-account-panel [data-logout]'));
+ a.click('#mobile-account-panel [data-open-account="profile"]');ok(a.q('#profile-form'));a.click('[data-close-account]');
+ for(const product of a.window.CupsProducts){
+   a.click(`.add-product[data-product-id="${product.id}"]`);ok(!a.q(`[data-basket-quantity="${product.id}"]`).hidden);
+   eq(text(a,`[data-basket-quantity="${product.id}"]`),langs.DE['cart.inBasket'].replace('{count}','1'));
+ }
+ a.click('#mobile-account-toggle');a.click('#mobile-account-panel [data-logout]');eq(a.window.CupsStore.user,null);ok(a.qa('[data-basket-quantity]').every(e=>e.hidden));
  console.log(`${checks} assertions passed: translations, validation, account creation/login/logout, profile editing, favorites, reload persistence, account isolation, cart, required/optional fields, pickup intervals/dropdown, four simulated payment methods, guest/logged-in checkout, payment-data disposal, demo orders, reorder, loyalty, FAQ, newsletter and storage failures.`);
  process.exit(0);
 })().catch(e=>{console.error(e);process.exit(1)});

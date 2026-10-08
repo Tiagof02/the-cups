@@ -1,4 +1,4 @@
-THE CUP'S — LOCAL WEBSITE, STAGE 3 · TRANSPARENT CUP / QUICK PICKUP SLOTS
+THE CUP'S — LOCAL WEBSITE, STAGE 3 · MOBILE HEADER / PRODUCT QUANTITY BADGES
 
 RUN IN VS CODE
 1. Extract this complete archive and open the the-cups-local folder in VS Code.
@@ -13,6 +13,27 @@ before. The existing thecups.demo.v2 storage key/schema is retained: accounts,
 password verifiers, favorites, preferences, orders and stamps are preserved.
 Do not clear browser storage when updating. Different hostnames/ports use
 separate browser storage. Use fictional account details and a demo password.
+
+LATEST CHANGES — 8 OCTOBER 2026
+- Below 768px, a compact two-row header keeps the logo, pickup CTA and EN/PT/DE
+  controls visible. A hamburger opens Menu / Pickup / Loyalty / Find Us links.
+- A small account icon opens Login / Create account, or My account / Log out
+  when signed in. Both panels close via their toggle, Escape, outside click,
+  or navigation/account action. Only one opens at once; keyboard focus returns
+  appropriately. Anchor navigation clears the sticky header.
+- Each product shows a compact translated quantity badge beside its existing
+  orange + button, hidden at zero. Counts come from the existing cart and update
+  on adding, quantity changes, removal, reorder, payment completion and logout.
+- The desktop header is unchanged. A mobile-only minimum-width correction keeps
+  the existing newsletter row from causing horizontal overflow in Portuguese.
+  The hero, same-day pickup slots, account storage, pricing and checkout stay intact.
+
+REPLACE FILES IN YOUR EXISTING GITHUB REPOSITORY
+Copy the contents of the extracted the-cups-local folder into the existing site
+folder in your repository, replacing the matching files and adding mobile-cart.css.
+Include the entire updated project; do not upload just index.html. Keep your own
+repository configuration and Git history. No build step is required for GitHub
+Pages. Saved accounts remain compatible on the same deployed website origin.
 
 PRESENTATION-INSPIRED VISUAL UPDATE
 The supplied The Cup's Presentation is now the visual reference. The project
@@ -122,22 +143,23 @@ index.html        Existing storefront and dialogs.
 styles.css        Original layout/utilities, updated brand color values.
 account.css       Existing account and personalization structure.
 brand.css         Presentation identity, responsive styling, payment/slot UI.
+mobile-cart.css   Mobile-only header and shared product quantity badge styles.
 i18n.js           Shared EN/PT/DE translations; add keys to all three locales.
 products.js       Stable products/categories/prices/translation keys.
 account-store.js  Compatible local account storage and password verification.
 pickup-times.js   Lisbon-time demo schedule and 15-minute intervals.
 app.js            Localization, account, cart, favorites, pickup and checkout.
 assets/           Local fonts/licenses and presentation brand artwork.
-tests/            Optional automated DOM and responsive-CSS tests.
+tests/            Optional DOM, responsive-CSS and rendered browser tests.
 
 VERIFICATION
-2,056 DOM/translation assertions pass, including all required blank fields in
+2,157 DOM/translation assertions pass, including all required blank fields in
 EN/PT/DE, optional-only preferences, signup, login/logout, profile editing,
 favorites, refresh persistence, customer isolation, pickup dropdown/intervals,
 Card and MB WAY dummy validation, four payment methods, guest/signed-in orders,
 payment input disposal, history, reorder, loyalty, FAQ and storage errors.
 Most assertions check translation coverage; these are DOM simulations.
-91 source-level responsive CSS assertions pass at 320, 375, 390, 560, 768, 1024
+113 source-level responsive CSS assertions pass at 320, 375, 390, 430, 560, 768, 1024
 and 1366px. Additional checks cover the complete same-day schedule, disabled
 past slots, consistent time selection, late-day closure, midnight rollover and
 Lisbon daylight-saving boundaries. The hero PNG matches the attachment byte-for-byte, including its alpha
@@ -146,14 +168,21 @@ quick-button selection in EN/PT/DE, synchronization with the full schedule,
 cart and checkout, and one/two-slot end-of-day availability.
 JavaScript syntax and local asset references also pass.
 
-Actual desktop/mobile screenshots and native dialog/select behavior could not
-be verified in this environment: no runnable browser was available and the
-browser download endpoint returned HTML instead of the browser archive.
-CSS/DOM checks are not a substitute for rendered browser QA.
+Rendered Chromium verification also passed: 334 assertions across 375px, 390px,
+430px and 1366px in EN/PT/DE. Checks included global horizontal overflow, header
+control overlap, compact header height, correct section scrolling, disclosure
+opening/closing, Escape/focus handling, mobile account access, signup/login/
+logout and refresh persistence, per-product quantity changes/removal, badge
+placement and no browser runtime errors. Mobile/desktop screenshots were
+visually inspected. The desktop header screenshot was pixel-identical to the
+previous version. Physical iPhone/Safari testing was not performed.
 
 Optional developer tests: npm install, then npm test (Node.js).
+For rendered tests: npm install --no-save playwright; npx playwright install
+chromium; node tests/browser.cjs. These dependencies are for testing only.
+CHROMIUM_EXECUTABLE can point to an existing compatible Chromium binary.
 Suggested browser smoke check in Live Server:
-- At desktop and 390px/320px mobile widths, switch EN/PT/DE and scroll sections.
+- At desktop and 375px/390px/430px mobile widths, switch EN/PT/DE and scroll sections.
 - Submit blank signup: four required fields highlight. Enter the four core
   details only; leave all preferences empty/default and create the account.
 - Edit preferences, favorite a product, reload, log out/in, verify saved state.

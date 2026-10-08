@@ -11,7 +11,7 @@
   
   
   
- <link href="account.css" rel="stylesheet"><link href="brand.css" rel="stylesheet"></head>
+ <link href="account.css" rel="stylesheet"><link href="brand.css" rel="stylesheet"><link href="mobile-cart.css" rel="stylesheet"></head>
  <body>
   <header class="sticky top-0 z-40 w-full border-b-2 border-[#1E1513] bg-[#F6EFE3]">
    <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 header-inner"><a href="#top" class="brand-home"><img src="assets/brand/wordmark-dark.png" alt="The Cup's" width="1218" height="363"></a>
@@ -21,6 +21,21 @@
      <div data-i18n-aria="aria.language" class="rounded-full border-2 border-[#1E1513] p-1 sm:flex language-picker" aria-label="Language selection"><button type="button" class="lang active rounded-full px-2 py-1 text-xs font-bold" data-lang="EN">EN</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="PT">PT</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="DE">DE</button>
      </div><a data-i18n="order.cta" href="#pickup" class="pill bg-[#FF5A36] px-3 py-2 text-xs lowercase md:px-4 header-order">order for pickup</a>
     <div class="header-account" id="header-account"><button type="button" class="account-link" data-open-account="login" data-i18n="account.login">Log in</button><button type="button" class="pill account-create" data-open-account="create" data-i18n="account.create">Create account</button></div></div>
+   </div>
+   <div class="mobile-header">
+    <div class="mobile-top">
+     <a href="#top" class="mobile-brand"><img src="assets/brand/wordmark-dark.png" alt="The Cup's" width="1218" height="363"></a>
+     <button id="mobile-account-toggle" class="mobile-icon" type="button" aria-expanded="false" aria-controls="mobile-account-panel" data-i18n-aria="mobile.account" aria-label="Account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></button>
+     <button id="mobile-nav-toggle" class="mobile-icon" type="button" aria-expanded="false" aria-controls="mobile-nav-panel" data-i18n-aria="mobile.navigation" aria-label="Navigation menu"><span aria-hidden="true">☰</span></button>
+    </div>
+    <div class="mobile-bottom">
+     <div class="language-picker rounded-full" data-i18n-aria="aria.language" aria-label="Language selection"><button type="button" class="lang active rounded-full" data-lang="EN">EN</button><button type="button" class="lang rounded-full" data-lang="PT">PT</button><button type="button" class="lang rounded-full" data-lang="DE">DE</button></div>
+     <a href="#pickup" class="pill mobile-order" data-i18n="order.cta">order for pickup</a>
+    </div>
+    <nav id="mobile-nav-panel" class="mobile-panel mobile-nav-panel" data-i18n-aria="aria.nav" aria-label="Primary navigation" hidden>
+     <a href="#menu" data-i18n="nav.menu">Menu</a><a href="#pickup" data-i18n="nav.pickup">Pickup</a><a href="#loyalty" data-i18n="nav.loyalty">Loyalty</a><a href="#find-us" data-i18n="nav.find">Find us</a>
+    </nav>
+    <div id="mobile-account-panel" class="mobile-panel mobile-account-panel" role="group" data-i18n-aria="mobile.account" aria-label="Account" hidden></div>
    </div>
   </header>
   <main id="top">
@@ -82,8 +97,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.espresso" class="font-black lowercase">espresso</h3><span data-price-value="0.75" class="font-black product-price">€0.75</span>
          </div><span data-i18n="tag.single" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">single / double</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="espresso" aria-label="Add espresso" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="espresso" data-price="0.75">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="espresso" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="espresso" aria-label="Add espresso" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="espresso" data-price="0.75">+</button></div>
          </div>
         </div>
        </article>
@@ -96,8 +111,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.cappuccino" class="font-black lowercase">cappuccino</h3><span data-price-value="2.30" class="font-black product-price">€2.30</span>
          </div><span data-i18n="tag.oat" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">oat friendly</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="cappuccino" aria-label="Add cappuccino" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="cappuccino" data-price="2.30">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="cappuccino" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="cappuccino" aria-label="Add cappuccino" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="cappuccino" data-price="2.30">+</button></div>
          </div>
         </div>
        </article>
@@ -110,8 +125,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.galao" class="font-black lowercase">galão</h3><span data-price-value="2.20" class="font-black product-price">€2.20</span>
          </div><span data-i18n="tag.glass" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">big glass</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="galao" aria-label="Add galão" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="galão" data-price="2.20">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="galao" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="galao" aria-label="Add galão" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="galão" data-price="2.20">+</button></div>
          </div>
         </div>
        </article>
@@ -124,8 +139,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.iced" class="font-black lowercase">iced coffee</h3><span data-price-value="2.90" class="font-black product-price">€2.90</span>
          </div><span data-i18n="tag.ice" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">extra ice</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.limited" class="text-xs font-bold lowercase">limited-time</span><button data-product-id="iced" aria-label="Add iced coffee" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="iced coffee" data-price="2.90">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.limited" class="text-xs font-bold lowercase">limited-time</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="iced" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="iced" aria-label="Add iced coffee" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="iced coffee" data-price="2.90">+</button></div>
          </div>
         </div>
        </article>
@@ -138,8 +153,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.green" class="font-black lowercase">fresh juice “Ultimate Green”</h3><span data-price-value="4.00" class="font-black product-price">€4.00</span>
          </div><span data-i18n="tag.fresh" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">fresh pressed</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="green" aria-label="Add Ultimate Green juice" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="Ultimate Green" data-price="4">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="green" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="green" aria-label="Add Ultimate Green juice" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="Ultimate Green" data-price="4">+</button></div>
          </div>
         </div>
        </article>
@@ -152,8 +167,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.tonic" class="font-black lowercase">orange tonic</h3><span data-price-value="3.40" class="font-black product-price">€3.40</span>
          </div><span data-i18n="tag.fizz" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">espresso fizz</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.community" class="text-xs font-bold lowercase">community choice</span><button data-product-id="tonic" aria-label="Add orange tonic" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="orange tonic" data-price="3.40">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.community" class="text-xs font-bold lowercase">community choice</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="tonic" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="tonic" aria-label="Add orange tonic" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="orange tonic" data-price="3.40">+</button></div>
          </div>
         </div>
        </article>
@@ -166,8 +181,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.croissant" class="font-black lowercase">croissant</h3><span data-price-value="1.50" class="font-black product-price">€1.50</span>
          </div><span data-i18n="tag.butter" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">butter baked</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="croissant" aria-label="Add croissant" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="croissant" data-price="1.5">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="croissant" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="croissant" aria-label="Add croissant" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="croissant" data-price="1.5">+</button></div>
          </div>
         </div>
        </article>
@@ -180,8 +195,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.nata" class="font-black lowercase">pastel de nata</h3><span data-price-value="1.20" class="font-black product-price">€1.20</span>
          </div><span data-i18n="tag.warm" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">warm if you like</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="nata" aria-label="Add pastel de nata" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="pastel de nata" data-price="1.2">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="nata" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="nata" aria-label="Add pastel de nata" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="pastel de nata" data-price="1.2">+</button></div>
          </div>
         </div>
        </article>
@@ -194,8 +209,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.tosta" class="font-black lowercase">tosta mista</h3><span data-price-value="3.70" class="font-black product-price">€3.70</span>
          </div><span data-i18n="tag.ham" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">ham + cheese</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="tosta" aria-label="Add tosta mista" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="tosta mista" data-price="3.7">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="tosta" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="tosta" aria-label="Add tosta mista" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="tosta mista" data-price="3.7">+</button></div>
          </div>
         </div>
        </article>
@@ -208,8 +223,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.club" class="font-black lowercase">club sandwich</h3><span data-price-value="6.50" class="font-black product-price">€6.50</span>
          </div><span data-i18n="tag.lunch" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">proper lunch</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="club" aria-label="Add club sandwich" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="club sandwich" data-price="6.5">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="club" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="club" aria-label="Add club sandwich" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="club sandwich" data-price="6.5">+</button></div>
          </div>
         </div>
        </article>
@@ -222,8 +237,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.acai" class="font-black lowercase">açaí bowl</h3><span data-price-value="6.00" class="font-black product-price">€6.00</span>
          </div><span data-i18n="tag.fruit" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">fruit + crunch</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="acai" aria-label="Add açaí bowl" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="açaí bowl" data-price="6">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="acai" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="acai" aria-label="Add açaí bowl" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="açaí bowl" data-price="6">+</button></div>
          </div>
         </div>
        </article>
@@ -236,8 +251,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.breakfast" class="font-black lowercase">breakfast combo: coffee + pastry</h3><span data-price-value="3.50" class="font-black product-price">€3.50</span>
          </div><span data-i18n="tag.morning" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">morning hero</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="breakfast" aria-label="Add breakfast combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="breakfast combo" data-price="3.5">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="breakfast" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="breakfast" aria-label="Add breakfast combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="breakfast combo" data-price="3.5">+</button></div>
          </div>
         </div>
        </article>
@@ -250,8 +265,8 @@
          <div class="flex items-start justify-between gap-2">
           <h3 data-i18n="product.lunch" class="font-black lowercase">lunch combo: sandwich + drink</h3><span data-price-value="8.50" class="font-black product-price">€8.50</span>
          </div><span data-i18n="tag.midday" class="mt-3 w-fit rounded-full border border-[#1E1513] px-2 py-1 text-xs font-bold lowercase">midday sorted</span>
-         <div class="mt-auto flex items-center justify-between pt-4">
-          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><button data-product-id="lunch" aria-label="Add lunch combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="lunch combo" data-price="8.5">+</button>
+         <div class="mt-auto flex items-center justify-between pt-4 product-card-footer">
+          <span data-i18n="tag.ready" class="text-xs font-bold lowercase">ready now</span><div class="product-add-controls"><span class="basket-quantity" data-basket-quantity="lunch" role="status" aria-live="polite" aria-atomic="true" hidden></span><button data-product-id="lunch" aria-label="Add lunch combo" class="add-product flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1E1513] bg-[#FF5A36] text-2xl font-bold" data-product="lunch combo" data-price="8.5">+</button></div>
          </div>
         </div>
        </article>

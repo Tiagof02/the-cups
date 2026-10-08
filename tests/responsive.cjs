@@ -1,6 +1,6 @@
 // Source-level responsive checks. These do not replace rendered browser QA.
 const fs=require('fs'),assert=require('assert/strict'),CSSOM=require('cssom');
-const sheets=['styles.css','account.css','brand.css'].map(name=>CSSOM.parse(fs.readFileSync(require('path').join(__dirname,'..',name),'utf8')));
+const sheets=['styles.css','account.css','brand.css','mobile-cart.css'].map(name=>CSSOM.parse(fs.readFileSync(require('path').join(__dirname,'..',name),'utf8')));
 function matchesMedia(text,width){
  if(/prefers-reduced-motion/.test(text))return false;
  const min=text.match(/min-width:\s*(\d+)px/),max=text.match(/max-width:\s*(\d+)px/);
@@ -12,7 +12,7 @@ function get(selector,prop,width){
  sheets.forEach(s=>visit(s.cssRules));return result;
 }
 let checks=0;const eq=(a,b)=>{assert.equal(a,b);checks++};
-for(const width of [320,375,390,560,768,1024,1366]){
+for(const width of [320,375,390,430,560,768,1024,1366]){
  eq(get('.account-grid','grid-template-columns',width),width<=560?'minmax(0,1fr)':'repeat(2,minmax(0,1fr))');
  eq(get('.profile-summary','grid-template-columns',width),width<=560?'minmax(0,1fr)':'repeat(2,minmax(0,1fr))');
  eq(get('.header-controls','display',width),width<768?'contents':'flex');
@@ -41,4 +41,9 @@ for(const width of [320,390,768,1366]){
  eq(get('.quick-slots','grid-template-columns',width),'repeat(3,minmax(0,1fr))');
  eq(get('.quick-slot','min-height',width),'104px');
 }
-console.log(`${checks} responsive CSS assertions passed across 320, 375, 390, 560, 768, 1024 and 1366px. No rendered-mobile verification is implied.`);
+for(const width of [375,390,430,1366]){
+ eq(get('.mobile-header','display',width),width<768?'grid':'none');
+ eq(get('header > .header-inner','display',width),width<768?'none':undefined);
+ eq(get('.product-add-controls','display',width),'flex');
+}
+console.log(`${checks} responsive CSS assertions passed across 320, 375, 390, 430, 560, 768, 1024 and 1366px. No rendered-mobile verification is implied.`);
