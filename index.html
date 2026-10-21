@@ -11,15 +11,15 @@
   
   
   
- <link href="account.css" rel="stylesheet"><link href="brand.css" rel="stylesheet"><link href="mobile-cart.css" rel="stylesheet"></head>
+ <link href="account.css" rel="stylesheet"><link href="brand.css" rel="stylesheet"><link href="mobile-cart.css" rel="stylesheet"><link rel="stylesheet" href="growth.css"></head>
  <body>
   <header class="sticky top-0 z-40 w-full border-b-2 border-[#1E1513] bg-[#F6EFE3]">
    <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-8 header-inner"><a href="#top" class="brand-home"><img src="assets/brand/wordmark-dark.png" alt="The Cup's" width="1218" height="363"></a>
-    <nav data-i18n-aria="aria.nav" aria-label="Primary navigation" class="hidden items-center gap-5 md:flex header-nav"><a data-i18n="nav.menu" class="nav-link" href="#menu">Menu</a> <a data-i18n="nav.pickup" class="nav-link" href="#pickup">Pickup</a> <a data-i18n="nav.loyalty" class="nav-link" href="#loyalty">Loyalty</a> <a data-i18n="nav.find" class="nav-link" href="#find-us">Find us</a>
+    <nav data-i18n-aria="aria.nav" aria-label="Primary navigation" class="hidden items-center gap-5 md:flex header-nav"><a data-i18n="growth.nav" class="nav-link" href="#our-story">Why The Cup’s?</a> <a data-i18n="nav.menu" class="nav-link" href="#menu">Menu</a> <a data-i18n="nav.pickup" class="nav-link" href="#pickup">Pickup</a> <a data-i18n="nav.loyalty" class="nav-link" href="#loyalty">Loyalty</a> <a data-i18n="nav.find" class="nav-link" href="#find-us">Find us</a>
     </nav>
     <div class="flex items-center gap-2 header-controls">
      <div data-i18n-aria="aria.language" class="rounded-full border-2 border-[#1E1513] p-1 sm:flex language-picker" aria-label="Language selection"><button type="button" class="lang active rounded-full px-2 py-1 text-xs font-bold" data-lang="EN">EN</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="PT">PT</button> <button type="button" class="lang rounded-full px-2 py-1 text-xs font-bold" data-lang="DE">DE</button>
-     </div><a data-i18n="order.cta" href="#pickup" class="pill bg-[#FF5A36] px-3 py-2 text-xs lowercase md:px-4 header-order">order for pickup</a>
+     </div><a data-i18n="order.cta" href="#menu" class="pill bg-[#FF5A36] px-3 py-2 text-xs lowercase md:px-4 header-order">order for pickup</a>
     <div class="header-account" id="header-account"><button type="button" class="account-link" data-open-account="login" data-i18n="account.login">Log in</button><button type="button" class="pill account-create" data-open-account="create" data-i18n="account.create">Create account</button></div></div>
    </div>
    <div class="mobile-header">
@@ -30,10 +30,10 @@
     </div>
     <div class="mobile-bottom">
      <div class="language-picker rounded-full" data-i18n-aria="aria.language" aria-label="Language selection"><button type="button" class="lang active rounded-full" data-lang="EN">EN</button><button type="button" class="lang rounded-full" data-lang="PT">PT</button><button type="button" class="lang rounded-full" data-lang="DE">DE</button></div>
-     <a href="#pickup" class="pill mobile-order" data-i18n="order.cta">order for pickup</a>
+     <a href="#menu" class="pill mobile-order" data-i18n="order.cta">order for pickup</a>
     </div>
     <nav id="mobile-nav-panel" class="mobile-panel mobile-nav-panel" data-i18n-aria="aria.nav" aria-label="Primary navigation" hidden>
-     <a href="#menu" data-i18n="nav.menu">Menu</a><a href="#pickup" data-i18n="nav.pickup">Pickup</a><a href="#loyalty" data-i18n="nav.loyalty">Loyalty</a><a href="#find-us" data-i18n="nav.find">Find us</a>
+     <a href="#our-story" data-i18n="growth.nav">Why The Cup’s?</a><a href="#menu" data-i18n="nav.menu">Menu</a><a href="#pickup" data-i18n="nav.pickup">Pickup</a><a href="#loyalty" data-i18n="nav.loyalty">Loyalty</a><a href="#find-us" data-i18n="nav.find">Find us</a>
     </nav>
     <div id="mobile-account-panel" class="mobile-panel mobile-account-panel" role="group" data-i18n-aria="mobile.account" aria-label="Account" hidden></div>
    </div>
@@ -55,9 +55,17 @@
    <div data-i18n="hero.ticker" class="overflow-hidden bg-[#1E1513] py-3 text-center text-sm font-black tracking-[.14em] text-[#F6EFE3]">
     ORDER AHEAD ✦ PICK UP ✦ KEEP MOVING ✦
    </div>
+   <section id="our-story" class="growth-section" aria-labelledby="story-title">
+    <div class="growth-inner">
+     <p class="eyebrow" data-i18n="growth.storyLabel" data-section-label>01 / A little local, a lot more you</p>
+     <h2 id="story-title" class="display growth-title" data-i18n="growth.storyTitle">Your cup. Your time.</h2>
+     <p class="growth-lead" data-i18n="growth.storyLead">Good coffee, made personal. Ready when you are.</p>
+     <div class="benefit-grid"><article class="benefit-card"><span class="benefit-icon" aria-hidden="true">◷</span><h3 data-i18n="growth.timeTitle"></h3><p data-i18n="growth.timeCopy"></p></article><article class="benefit-card"><span class="benefit-icon" aria-hidden="true">♡</span><h3 data-i18n="growth.personalTitle"></h3><p data-i18n="growth.personalCopy"></p></article><article class="benefit-card"><span class="benefit-icon" aria-hidden="true">€</span><h3 data-i18n="growth.valueTitle"></h3><p data-i18n="growth.valueCopy"></p></article><article class="benefit-card"><span class="benefit-icon" aria-hidden="true">⌂</span><h3 data-i18n="growth.localTitle"></h3><p data-i18n="growth.localCopy"></p></article></div><a class="pill growth-primary" href="#menu" data-i18n="order.cta">Order for Pickup</a>
+    </div>
+   </section>
    <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
     <div class="mx-auto max-w-7xl">
-     <p data-i18n="steps.label" class="eyebrow">01 / how it works</p>
+     <p data-i18n="steps.label" class="eyebrow" data-section-label>02 / how it works</p>
      <h2 data-i18n="steps.title" class="display mt-3 max-w-2xl text-[clamp(2.7rem,6vw,5.2rem)]">three taps to pickup.</h2>
      <div class="mt-9 grid gap-4 md:grid-cols-3">
       <article class="outline bg-[#FF9DC4] p-6">
@@ -78,15 +86,15 @@
    </section>
    <section id="menu" class="w-full border-y-2 border-[#1E1513] bg-[#F6EFE3] px-5 py-16 md:px-8">
     <div class="mx-auto max-w-7xl"><div id="personal-area" class="personal-area" hidden><div class="personal-heading"><p id="personal-greeting" class="font-black"></p><button type="button" class="account-link" data-open-account="profile" data-i18n="account.profile">My account</button></div><p class="eyebrow" data-i18n="profile.favorites">Your favorites</p><div id="personal-favorites" class="favorite-list"></div><div id="personal-last-order" class="personal-last-order"></div></div>
-     <p data-i18n="menu.label" class="eyebrow">04 / MENU</p>
+     <p data-i18n="menu.label" class="eyebrow" data-section-label>03 / MENU</p>
      <div class="flex flex-wrap items-end justify-between gap-5">
       <h2 data-i18n="menu.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">your pickup menu.</h2>
       <p id="language-feedback" class="text-sm font-bold lowercase" aria-live="polite">english menu active.</p>
      </div>
-     <div data-i18n-aria="aria.categories" class="mt-8 flex gap-2 overflow-x-auto pb-3" role="tablist" aria-label="Menu categories"><button data-i18n="category.drinks" class="tab active pill shrink-0 px-4 py-2 lowercase" data-category="drinks" role="tab" aria-selected="true">Drinks</button> <button data-i18n="category.breakfast" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="breakfast" role="tab" aria-selected="false">Breakfast</button> <button data-i18n="category.lunch" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="lunch" role="tab" aria-selected="false">Lunch</button> <button data-i18n="category.pastries" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="pastries" role="tab" aria-selected="false">Pastries &amp; Snacks</button> <button data-i18n="category.bundles" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="bundles" role="tab" aria-selected="false">Bundles</button>
+     <div data-i18n-aria="aria.categories" class="mt-8 flex gap-2 overflow-x-auto pb-3" role="tablist" aria-label="Menu categories"><button data-i18n="category.quick" class="tab active pill shrink-0 px-4 py-2" data-category="quick" role="tab" aria-selected="true">Quick Picks</button><button data-i18n="category.drinks" class="tab active pill shrink-0 px-4 py-2 lowercase" data-category="drinks" role="tab" aria-selected="true">Drinks</button> <button data-i18n="category.breakfast" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="breakfast" role="tab" aria-selected="false">Breakfast</button> <button data-i18n="category.lunch" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="lunch" role="tab" aria-selected="false">Lunch</button> <button data-i18n="category.pastries" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="pastries" role="tab" aria-selected="false">Pastries &amp; Snacks</button> <button data-i18n="category.bundles" class="tab pill shrink-0 px-4 py-2 lowercase" data-category="bundles" role="tab" aria-selected="false">Bundles</button>
      </div>
      <div class="mt-6">
-      <p id="menu-group-title" class="eyebrow mb-3">classics</p>
+      <p id="quick-copy" class="quick-copy" data-i18n="growth.quickCopy">In a hurry? Start here.</p><p id="menu-group-title" class="eyebrow mb-3">classics</p>
       <div class="product-grid grid gap-4">
        <article data-product-id="espresso" class="product-card outline bg-[#F6EFE3]" data-category-card="drinks" data-group="classics" data-product="espresso" data-price="0.75">
         <div class="food-visual bg-[#FF9DC4]">
@@ -282,7 +290,7 @@
    <section id="pickup" class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
     <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_.9fr]">
      <div>
-      <p data-i18n="pickup.label" class="eyebrow">05 / PICKUP</p>
+      <p data-i18n="pickup.label" class="eyebrow" data-section-label>04 / PICKUP</p>
       <h2 data-i18n="pickup.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">pick your minute.</h2>
       <p data-i18n="pickup.copy" class="mt-5 max-w-lg font-semibold lowercase">we only show slots we can really fulfil</p>
       <div id="quick-slots" class="quick-slots" role="group" data-i18n-aria="aria.slots" aria-label="Pickup slots">
@@ -306,18 +314,20 @@
        <div class="flex justify-between font-bold">
         <span data-i18n="cart.subtotal" class="lowercase">subtotal</span><span id="subtotal">€0.00</span>
        </div>
+       <div id="nata-discount-row" class="growth-discount" hidden><span data-i18n="growth.discount">First-order nata</span><span id="nata-discount"></span></div><p id="nata-cart-note" class="account-hint" hidden></p><button type="button" id="nata-offer-button" class="account-link" data-growth-offer hidden data-i18n="growth.offerButton">First order? See your nata offer</button>
        <div class="mt-2 flex justify-between text-lg font-black">
         <span data-i18n="cart.total" class="lowercase">total</span><span id="total">€0.00</span>
        </div>
        <p data-i18n="cart.fees" class="mt-2 text-sm font-bold lowercase">no hidden fees. ever.</p><button data-i18n="cart.pay" id="pay-button" class="pill mt-5 w-full bg-[#FF5A36] px-5 py-4 lowercase">pay online &amp; confirm pickup</button><p class="demo-checkout-note" data-i18n="cart.demo">demo checkout only — no payment is taken.</p>
-       <p id="payment-feedback" class="mt-4 font-bold lowercase" aria-live="polite"></p>
+       <button type="button" class="account-link" data-open-chat data-i18n="growth.chatHelp">Need a hand?</button><p id="payment-feedback" class="mt-4 font-bold lowercase" aria-live="polite"></p>
       </div>
      </aside>
     </div>
    </section>
-   <section class="brand-community w-full bg-[#1E1513] px-5 py-16 text-[#F6EFE3] md:px-8">
+   <section id="community" class="brand-community w-full bg-[#1E1513] px-5 py-16 text-[#F6EFE3] md:px-8">
     <div class="mx-auto max-w-7xl">
-     <p data-i18n="community.label" class="eyebrow !text-[#C8E36B]">06 / community</p>
+     <p data-i18n="community.label" class="eyebrow !text-[#C8E36B]" data-section-label>05 / community</p>
+     <div class="community-neighborhood"><h3 class="display growth-title" data-i18n="growth.reviewsEmptyTitle">A place in your everyday.</h3><p data-i18n="growth.reviewsEmpty">Coffee, campus life and familiar faces. Come by and make yourself at home.</p></div>
      <h2 data-i18n="community.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">community special.</h2>
      <p data-i18n="community.copy" class="mt-4 max-w-lg font-semibold lowercase">vote on the monthly special via Instagram</p>
      <div class="mt-8 grid gap-4 md:grid-cols-3">
@@ -340,43 +350,27 @@
       </div><button data-i18n="coffee.register" id="coffee-break-button" class="pill bg-[#FF5A36] px-5 py-3 lowercase">register for coffee break</button>
      </div>
      <p id="coffee-feedback" class="mt-3 font-bold lowercase text-[#C8E36B]" aria-live="polite"></p>
+   <div id="whatsapp-community" class="community-invitation community-embedded" aria-labelledby="community-invite-title">
+    <div class="growth-inner community-invite-inner"><span class="community-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 25 3 29l7-2a13 13 0 1 0-4-2Z"/><path d="M11 9c-3 4 4 12 9 12l3-3-4-3-2 2-4-4 1-2Z"/></svg></span><div><h2 class="display growth-title" id="community-invite-title" data-i18n="growth.communityTitle">Join The Cup’s Community.</h2><p data-i18n="growth.communityCopy">Coffee, campus life and little surprises. Be part of our local community.</p><p class="account-hint" data-i18n="growth.communityConsent">Join voluntarily for community messages, events and offers. Leave whenever you like.</p></div><div class="community-invite-action"><a id="community-join" class="pill growth-primary" target="_blank" rel="noopener noreferrer" data-i18n="growth.communityJoin" hidden>Join on WhatsApp</a><p id="community-coming" class="community-coming" data-i18n="growth.communitySoon">Community invitations coming soon.</p></div></div>
+   </div>
     </div>
    </section>
    <section id="loyalty" class="w-full bg-[#C8E36B] px-5 py-16 md:px-8">
     <div class="mx-auto max-w-7xl">
-     <p data-i18n="loyalty.label" class="eyebrow">07 / LOYALTY</p>
+     <p data-i18n="loyalty.label" class="eyebrow" data-section-label>06 / LOYALTY</p>
      <h2 data-i18n="loyalty.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">seven visits → one reward.</h2>
      <div data-i18n-aria="loyalty.guest" id="loyalty-stamps" class="mt-8 flex flex-wrap gap-3"><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513] bg-[#FF5A36]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span><span class="h-12 w-12 rounded-full border-[3px] border-[#1E1513]"></span>
      </div><div id="loyalty-customer" class="loyalty-customer" hidden></div>
      <p data-i18n="loyalty.copy" class="mt-5 text-lg font-bold lowercase">every seventh drink is on us.</p>
     </div>
    </section>
-   <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
-    <div class="mx-auto max-w-7xl">
-     <p data-i18n="reviews.label" class="eyebrow">08 / neighbours say</p>
-     <div class="mt-5 flex flex-wrap items-end gap-x-5 gap-y-1">
-      <p class="display text-7xl">4.9 ★</p>
-      <p data-i18n="reviews.rating" class="text-xl font-bold">Google rating</p>
-      <p data-i18n="reviews.count" class="text-xl font-bold">121 reviews</p>
-     </div>
-     <div class="mt-8 grid gap-4 md:grid-cols-3">
-      <blockquote data-i18n="reviews.one" class="outline bg-[#FF9DC4] p-5 font-bold lowercase">
-       “my 9am galão spot. fast, kind, always right.”
-      </blockquote>
-      <blockquote data-i18n="reviews.two" class="outline bg-[#C8E36B] p-5 font-bold lowercase">
-       “the toastie has become a weekly personality trait.”
-      </blockquote>
-      <blockquote data-i18n="reviews.three" class="outline bg-[#FF5A36] p-5 font-bold lowercase">
-       “tiny place, huge good energy.”
-      </blockquote>
-     </div>
-     <p data-i18n="reviews.owner" class="mt-6 font-black lowercase">the owner replies personally.</p>
-    </div>
+   <section id="testimonials" class="growth-section" aria-labelledby="reviews-title">
+    <div class="growth-inner"><p class="eyebrow" data-i18n="growth.reviewsLabel" data-section-label>07 / Our neighborhood</p><h2 class="display growth-title" id="reviews-title" data-i18n="growth.testimonialsTitle">Customer testimonials.</h2><p class="growth-lead" id="reviews-intro" data-i18n="growth.reviewsLead">Good coffee tastes even better when it feels like home.</p><div id="reviews-empty" class="reviews-empty"><h3 data-i18n="growth.reviewsPending">Customer reviews coming soon.</h3><p data-i18n="growth.reviewsPendingCopy">Been in for a coffee? We’d love to hear about your visit.</p><a class="account-link" href="https://wa.me/351920588166" target="_blank" rel="noopener noreferrer" data-i18n="growth.shareFeedback">Share your feedback</a></div><div id="verified-reviews" class="review-grid" hidden></div><a id="google-reviews-link" class="account-link" target="_blank" rel="noopener noreferrer" data-i18n="growth.moreReviews" hidden>Read more Google reviews</a></div>
    </section>
    <section id="find-us" class="w-full border-y-2 border-[#1E1513] bg-[#FF9DC4] px-5 py-16 md:px-8">
     <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
      <div>
-      <p data-i18n="find.label" class="eyebrow">09 / FIND US</p>
+      <p data-i18n="find.label" class="eyebrow" data-section-label>08 / FIND US</p>
       <h2 data-i18n="find.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">come say hi.</h2>
       <p class="mt-6 text-lg font-black">Rua das Laranjeiras 47C, 1600-140 Lisboa</p><a class="mt-2 inline-block font-bold underline" href="tel:+351920588166">+351 920 588 166</a>
       <p data-i18n="find.week" class="mt-6 font-bold">Mon–Fri 8:00–00:30</p>
@@ -393,7 +387,7 @@
    </section>
    <section class="w-full bg-[#F6EFE3] px-5 py-16 md:px-8">
     <div class="mx-auto max-w-4xl">
-     <p data-i18n="faq.label" class="eyebrow">10 / FAQ</p>
+     <p data-i18n="faq.label" class="eyebrow" data-section-label>09 / FAQ</p>
      <h2 data-i18n="faq.title" class="display mt-3 text-[clamp(2.7rem,6vw,5.2rem)]">small questions.</h2>
      <div class="mt-8 border-y-2 border-[#1E1513]">
       <div class="faq-item border-b-2 border-[#1E1513]">
@@ -455,5 +449,8 @@
    </div>
   </footer>
   
- <p id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></p><dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title"><div id="account-content"></div></dialog><dialog id="payment-dialog" class="account-dialog payment-dialog" aria-labelledby="payment-title"><div id="payment-content"></div></dialog><script src="i18n.js"></script><script src="products.js"></script><script src="account-store.js"></script><script src="pickup-times.js"></script><script src="app.js"></script></body>
+ <p id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></p><dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title"><div id="account-content"></div></dialog><dialog id="payment-dialog" class="account-dialog payment-dialog" aria-labelledby="payment-title"><div id="payment-content"></div></dialog><dialog id="visit-dialog" class="account-dialog visit-dialog" aria-labelledby="visit-title"><div class="visit-top"><div class="language-picker" role="group" data-i18n-aria="aria.language"><button type="button" class="lang" data-lang="EN">EN</button><button type="button" class="lang" data-lang="PT">PT</button><button type="button" class="lang" data-lang="DE">DE</button></div><button type="button" class="account-close" data-close-visit data-i18n-aria="growth.close">×</button></div><div id="visit-art" aria-hidden="true"></div><p class="eyebrow" data-i18n="growth.visitLabel">A little something for you</p><h2 id="visit-title" class="account-title"></h2><p id="visit-copy"></p><p id="visit-terms" class="account-hint"></p><button id="visit-action" class="pill growth-primary" type="button"></button><p id="visit-feedback" role="status"></p></dialog>
+<button id="chat-launcher" type="button" aria-haspopup="dialog" aria-controls="chat-dialog" data-i18n-aria="growth.chatOpen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11a9 9 0 0 1-9 9H4l-3 2 1-6A9 9 0 1 1 21 11Z"/><path d="M6 10h10M6 14h7"/></svg></button>
+<dialog id="chat-dialog" class="chat-dialog" aria-labelledby="chat-title"><div class="chat-top"><div><h2 id="chat-title" data-i18n="growth.chatTitle">The Cup’s helper</h2><p id="chat-mode" data-i18n="growth.chatMode">FAQ assistant · not live AI</p></div><button type="button" class="account-close" id="chat-close" data-i18n-aria="growth.close">×</button></div><div class="chat-language-row"><label for="chat-language" data-i18n="growth.replyLanguage">Reply language</label><select id="chat-language"><option value="auto" data-i18n="growth.languageAuto">Automatic</option><option value="EN">English</option><option value="PT">Português</option><option value="DE">Deutsch</option><option value="ES">Español</option><option value="FR">Français</option></select></div><div id="chat-log" role="log" aria-live="polite" aria-relevant="additions text"></div><p id="chat-scope" class="chat-scope" data-i18n="growth.chatScope"></p><div id="chat-suggestions"></div><p id="chat-status" role="status"></p><form id="chat-form"><label class="sr-only" for="chat-input" data-i18n="growth.chatInput">Your question</label><input id="chat-input" maxlength="500" required autocomplete="off" data-i18n-placeholder="growth.chatPlaceholder" placeholder="Ask about the menu, pickup…"><button id="chat-send" type="submit" class="pill growth-primary" data-i18n="growth.send">Send</button></form><p class="chat-privacy" data-i18n="growth.chatPrivacy">Please do not share passwords or payment details.</p></dialog>
+<script src="i18n.js"></script><script src="products.js"></script><script src="account-store.js"></script><script src="pickup-times.js"></script><script src="site-config.js"></script><script src="growth-i18n.js"></script><script src="growth.js"></script><script src="app.js"></script></body>
 </html>

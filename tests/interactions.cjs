@@ -14,10 +14,10 @@ function boot(customStorage=storage,initialTime='2026-10-07T09:30:00Z'){
  dialog.showModal=function(){this.open=true;this.setAttribute('open','')};
  dialog.close=function(){this.open=false;this.removeAttribute('open');this.dispatchEvent(new window.Event('close'))};}
  document.querySelector('#newsletter-form').reset=function(){this.querySelector('input').value=''};
- const sandbox={window,document,localStorage:customStorage,TextEncoder,Uint8Array,Map,Date:class extends Date {constructor(...args){super(...(args.length?args:[nowISO]))}},Math,Number,Object,JSON,Intl,console,setTimeout,clearTimeout};
+ const sandbox={window,document,localStorage:customStorage,TextEncoder,Uint8Array,Map,URL,AbortController,Date:class extends Date {constructor(...args){super(...(args.length?args:[nowISO]))}},Math,Number,Object,JSON,Intl,console,setTimeout,clearTimeout};
  Object.defineProperty(window,'crypto',{value:webcrypto,configurable:true});
  vm.createContext(sandbox);
- for(const file of ['i18n.js','products.js','account-store.js','pickup-times.js','app.js'])vm.runInContext(fs.readFileSync(root+file,'utf8'),sandbox,{filename:file});
+ for(const file of ['i18n.js','products.js','account-store.js','pickup-times.js','site-config.js','growth-i18n.js','growth.js','app.js'])vm.runInContext(fs.readFileSync(root+file,'utf8'),sandbox,{filename:file});
  const q=s=>document.querySelector(s),qa=s=>Array.from(document.querySelectorAll(s));
  const click=s=>{const el=q(s);assert(el,s);el.click()};
  const val=(name,value)=>{q(`[name="${name}"]`).value=value};
@@ -192,7 +192,7 @@ function createValues(a,email='ana@example.test'){
  cache.clear();a=boot();
  ok(a.q('#mobile-nav-panel').hidden);ok(a.q('#mobile-account-panel').hidden);
  a.click('#mobile-nav-toggle');ok(!a.q('#mobile-nav-panel').hidden);eq(a.q('#mobile-nav-toggle').getAttribute('aria-expanded'),'true');
- eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#menu,#pickup,#loyalty,#find-us');
+ eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#our-story,#menu,#pickup,#loyalty,#find-us');
  for(const el of a.qa('#mobile-nav-panel a'))ok(a.q(el.getAttribute('href')));
  a.click('#mobile-nav-panel a[href="#menu"]');ok(a.q('#mobile-nav-panel').hidden);
  a.click('#mobile-nav-toggle');a.click('#mobile-account-toggle');ok(a.q('#mobile-nav-panel').hidden);ok(!a.q('#mobile-account-panel').hidden);

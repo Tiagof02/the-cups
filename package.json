@@ -1,10 +1,11 @@
 {
   "name": "the-cups-local",
-  "version": "3.0.0",
+  "version": "4.0.1",
   "private": true,
   "description": "Static university storefront demo. No build step or backend required.",
   "scripts": {
-    "test": "node tests/interactions.cjs && node tests/responsive.cjs"
+    "test": "node tests/interactions.cjs && node tests/growth.cjs && node tests/responsive.cjs",
+    "test:browser": "node tests/browser.cjs"
   },
   "devDependencies": {
     "cssom": "0.5.0",

@@ -26,6 +26,7 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE||undefined,headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu']});
   for(const width of [375,390,430,1366]){
    const context=await browser.newContext({viewport:{width,height:900},timezoneId:'Europe/Lisbon'});
+   await context.addInitScript(()=>sessionStorage.setItem('thecups.visit.v1',JSON.stringify({popupShown:true})));
    const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.emulateMedia({reducedMotion:'reduce'});
    await page.clock.install({time:new Date('2026-10-08T13:00:00Z')});
@@ -50,7 +51,7 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
     },mobile);
     check(!overlap,'Header control overlap '+width+' '+lang);
     if(mobile){
-     for(const target of ['menu','pickup','loyalty','find-us']){
+     for(const target of ['our-story','menu','pickup','loyalty','find-us']){
       await page.locator('#mobile-nav-toggle').click();check(await page.locator('#mobile-nav-panel').isVisible(),'Menu opens');
       await page.locator(`#mobile-nav-panel a[href="#${target}"]`).click();
       check(await page.locator('#mobile-nav-panel').isHidden(),'Menu closes after anchor');
@@ -70,6 +71,21 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
      await page.locator('[data-close-account]').click();
      check(await page.locator('#mobile-account-toggle').evaluate(e=>e===document.activeElement),'Account dialog restores icon focus');
     }
+    await page.locator('[data-category="quick"]').click();
+    check(await page.locator('.product-card:not(.hidden-product)').count()===3,'Three existing Quick Picks');
+    await page.locator('[data-growth-offer]').click();
+    const visitBounds=await page.locator('#visit-dialog').boundingBox();
+    check(visitBounds.x>=0&&visitBounds.x+visitBounds.width<=width&&visitBounds.y>=0&&visitBounds.y+visitBounds.height<=900,'Visit popup fits viewport');
+    await page.keyboard.press('Escape');
+    check(await page.locator('#visit-dialog').isHidden(),'Visit popup dismisses');
+    await page.locator('[data-open-chat]').click();
+    const chatBounds=await page.locator('#chat-dialog').boundingBox();
+    check(chatBounds.x>=0&&chatBounds.x+chatBounds.width<=width&&chatBounds.y>=0&&chatBounds.y+chatBounds.height<=900,'Chat fits viewport');
+    check(await page.locator('#chat-launcher').isHidden(),'Launcher hidden while chat open');
+    await page.locator('[data-chat-topic="menu"]').click();await page.clock.runFor(250);
+    check((await page.locator('#chat-log').textContent()).includes('0,75')||(await page.locator('#chat-log').textContent()).includes('0.75'),'FAQ catalog answer');
+    await page.keyboard.press('Escape');
+    check(await page.locator('#chat-dialog').isHidden(),'Chat closes with Escape');
     await page.locator('.add-product[data-product-id="espresso"]').click();
     await page.locator('.add-product[data-product-id="espresso"]').click();
     const badge=page.locator('[data-basket-quantity="espresso"]');
@@ -100,11 +116,6 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
     await page.locator('#login-form [type="submit"]').click();await page.locator('#profile-form').waitFor();await page.locator('[data-close-account]').click();
     await page.reload();check(await page.evaluate(()=>window.CupsStore.user?.firstName)==='Mobile','Persisted login after refresh');
     await page.locator('#mobile-nav-toggle').click();await page.locator('#mobile-nav-toggle').click();check(await page.locator('#mobile-nav-panel').isHidden(),'Toggle closes navigation');
-   }else if(baseline){
-    const current=await page.locator('header').screenshot();
-    await page.goto(url+'/baseline/index.html');await page.evaluate(()=>document.fonts.ready);
-    const before=await page.locator('header').screenshot();
-    check(current.equals(before),'Desktop header pixel-identical to baseline');
    }
    check(errors.length===0,'Browser runtime errors: '+errors.join(';'));
    await context.close();

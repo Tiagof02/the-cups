@@ -17,7 +17,7 @@
   let paymentOrder = null;
   let checkoutUserId = null;
   const paymentDialog = $('#payment-dialog');
-  let selectedCategory = null; // Preserve the baseline's initial view of all products.
+  let selectedCategory = 'quick';
   let pendingFavorite = null;
   let dialogView = null;
   let previousFocus = null;
@@ -93,6 +93,7 @@
     renderSlots();syncPayment();
     updateCart();renderAccountSurfaces();
     for(const id of messages.keys())renderMessage(id);
+    window.CupsGrowth?.refresh();
   }
   function updateCart() {
     const list=$('#cart-items');$$('.cart-row',list).forEach(e=>e.remove());
@@ -112,7 +113,9 @@
       row.append(details,controls);list.append(row);
     });
     $('#cart-empty').hidden=count>0;$('#cart-count').textContent=count;
-    $('#subtotal').textContent=money(total);$('#total').textContent=money(total);
+    const quote=window.CupsGrowth?.quote(cart)||{subtotal:total,discount:0,total};
+    $('#subtotal').textContent=money(quote.subtotal);$('#total').textContent=money(quote.total);
+    window.CupsGrowth?.renderOffer(quote);
     $$('[data-basket-quantity]').forEach(badge=>{
       const id=badge.dataset.basketQuantity,qty=cart.get(id)||0;
       badge.hidden=qty===0;badge.textContent=qty?t('cart.inBasket',{count:qty}):'';
@@ -168,8 +171,10 @@
   }
   function filterMenu(category) {
     selectedCategory=category;
+    $('.product-grid').classList.toggle('quick-mode',category==='quick');
+    $('#quick-copy').hidden=category!=='quick';
     $$('.tab').forEach(b=>{b.classList.toggle('active',b.dataset.category===category);b.setAttribute('aria-selected',String(b.dataset.category===category));});
-    $$('.product-card').forEach(c=>c.classList.toggle('hidden-product',!productById[c.dataset.productId].categories.includes(category)));
+    $$('.product-card').forEach(c=>c.classList.toggle('hidden-product',!(category==='quick'?['espresso','nata','croissant'].includes(c.dataset.productId):productById[c.dataset.productId].categories.includes(category))));
     $('#menu-group-title').textContent=t('category.'+(category==='drinks'?'classics':category));
   }
   function saveUser(change) {
@@ -180,11 +185,16 @@
     if(!cart.size){message('checkout-message','cart.emptyError');return false;}
     if(!selectedPickup){message('checkout-message','pickup.none');return false;}
     const now=new Date();
+    const quote=window.CupsGrowth.quote(cart);
     const order={number:now.getTime().toString(36).toUpperCase()+'-'+Math.floor(Math.random()*1000).toString().padStart(3,'0'),createdAt:now.toISOString(),time:selectedPickup.time,pickupDate:selectedPickup.date,paymentMethod,location:LOCATION,items:Array.from(cart,([id,qty])=>({id,qty,price:productById[id].price}))};
+    order.subtotal=quote.subtotal;order.discount=quote.discount;order.total=quote.total;
+    order.promotion=quote.discount?'first-nata':null;
+    try{window.CupsGrowth.beforeComplete(order);}catch(e){errorMessage(e,'checkout-message');return false;}
     if(store.user){
       try{saveUser(user=>{user.orders.unshift(order);user.orders=user.orders.slice(0,50);if(order.items.some(i=>productById[i.id].hasDrink))user.stamps+=1;});}
       catch(e){errorMessage(e,'checkout-message');return false;}
     }
+    window.CupsGrowth.orderCompleted(order);
     cart.clear();updateCart();renderAccountSurfaces();
     message('suggestion-feedback',null);
     message('payment-feedback','cart.confirmed',{number:order.number,time:pickupLabel()});
@@ -196,7 +206,10 @@
       $('#payment-confirmed-copy').textContent=t('cart.confirmed',{number:paymentOrder.number,time:pickupLabel({date:paymentOrder.pickupDate,time:paymentOrder.time})});
       return;
     }
-    $('#checkout-total').textContent=money(Array.from(cart,([id,qty])=>productById[id].price*qty).reduce((a,b)=>a+b,0));
+    $('#checkout-total').textContent=money(window.CupsGrowth.quote(cart).total);
+    const quote=window.CupsGrowth.quote(cart);
+    $('#checkout-discount').textContent=quote.discount?t('growth.discount')+': −'+money(quote.discount):'';
+    $('#checkout-discount').hidden=!quote.discount;
     $('#checkout-pickup').textContent=t('order.pickup',{time:pickupLabel(),location:LOCATION});
     $$('[data-payment-method]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.paymentMethod===paymentMethod)));
     const submit=$('#demo-pay-submit');submit.disabled=!selectedPickup;submit.textContent=t('payment.confirm',{method:paymentMethod==='card'?t('payment.card'):({mbway:'MB WAY',apple:'Apple Pay',google:'Google Pay'})[paymentMethod]});
@@ -218,7 +231,7 @@
     if(!cart.size){message('payment-feedback','cart.emptyError');return;}
     refreshSlots();if(!selectedPickup){message('payment-feedback','pickup.none');return;}
     paymentOrder=null;paymentMethod='mbway';checkoutUserId=store.user?.id||null;
-    $('#payment-content').innerHTML=`<div class="account-top">${languagePicker()}<button type="button" class="account-close" data-close-payment data-i18n-aria="payment.close" aria-label="${escapeHTML(t('payment.close'))}">×</button></div><h2 id="payment-title" class="account-title" data-i18n="payment.title">${escapeHTML(t('payment.title'))}</h2><p class="payment-demo" data-i18n="payment.demo">${escapeHTML(t('payment.demo'))}</p><div class="payment-summary"><div>${span('cart.total')}<span id="checkout-total"></span></div><p id="checkout-pickup"></p></div><form id="demo-payment-form" novalidate autocomplete="off"><fieldset><legend class="font-bold" data-i18n="payment.method">${escapeHTML(t('payment.method'))}</legend><div class="payment-methods"><button type="button" class="payment-method" data-payment-method="mbway">MB WAY</button><button type="button" class="payment-method" data-payment-method="card">${span('payment.card')}<small>Visa / Mastercard</small></button><button type="button" class="payment-method" data-payment-method="apple">Apple Pay</button><button type="button" class="payment-method" data-payment-method="google">Google Pay</button></div></fieldset><div id="payment-fields" class="payment-fields"></div><p id="checkout-message" class="account-message" role="alert"></p><button id="demo-pay-submit" type="submit" class="pill payment-submit"></button></form>`;
+    $('#payment-content').innerHTML=`<div class="account-top">${languagePicker()}<button type="button" class="account-close" data-close-payment data-i18n-aria="payment.close" aria-label="${escapeHTML(t('payment.close'))}">×</button></div><h2 id="payment-title" class="account-title" data-i18n="payment.title">${escapeHTML(t('payment.title'))}</h2><p class="payment-demo" data-i18n="payment.demo">${escapeHTML(t('payment.demo'))}</p><div class="payment-summary"><div>${span('cart.total')}<span id="checkout-total"></span></div><p id="checkout-discount" class="growth-discount" hidden></p><p id="checkout-pickup"></p></div><form id="demo-payment-form" novalidate autocomplete="off"><fieldset><legend class="font-bold" data-i18n="payment.method">${escapeHTML(t('payment.method'))}</legend><div class="payment-methods"><button type="button" class="payment-method" data-payment-method="mbway">MB WAY</button><button type="button" class="payment-method" data-payment-method="card">${span('payment.card')}<small>Visa / Mastercard</small></button><button type="button" class="payment-method" data-payment-method="apple">Apple Pay</button><button type="button" class="payment-method" data-payment-method="google">Google Pay</button></div></fieldset><div id="payment-fields" class="payment-fields"></div><p id="checkout-message" class="account-message" role="alert"></p><button id="demo-pay-submit" type="submit" class="pill payment-submit"></button></form>`;
     renderPaymentFields();paymentDialog.showModal();syncPayment();$('.account-close',paymentDialog).focus();
   }
   function submitPayment() {
@@ -300,6 +313,7 @@
     const loyalty=$('#loyalty-customer');loyalty.hidden=!user;loyalty.replaceChildren();
     if(user)loyalty.append(element('p','font-bold',t('loyalty.total',{total:user.stamps,rewards:Math.floor(user.stamps/7)})),element('p','text-sm',t('loyalty.rule')));
     if(dialogView==='profile' && user)renderProfileExtras(user);
+    window.CupsGrowth?.accountChanged();
   }
   function option(value,key,label) {
     return `<option value="${escapeHTML(value)}"${key?` data-i18n="${key}"`:''}>${escapeHTML(key?t(key):label)}</option>`;
@@ -384,7 +398,8 @@
       article.append(element('h4','',t('order.summary',{number:order.number,date})),element('p','account-hint',t('order.demo')),element('p','',t('order.pickup',{time:order.pickupDate?pickupLabel({date:order.pickupDate,time:order.time}):order.time,location:order.location})));
       const list=element('ul');let total=0;
       order.items.forEach(item=>{total+=item.price*item.qty;if(productById[item.id])list.append(element('li','',`${item.qty} × ${productName(item.id)} · ${money(item.price*item.qty)}`));});
-      article.append(list,element('p','font-bold',t('cart.total')+': '+money(total)),actionButton(t('personal.again'),'orderAgain',order.number));history.append(article);
+      if(order.discount)list.append(element('li','',t('growth.discount')+': −'+money(order.discount)));
+      article.append(list,element('p','font-bold',t('cart.total')+': '+money(order.total??total)),actionButton(t('personal.again'),'orderAgain',order.number));history.append(article);
     });
   }
   function value(form,name) { return $(`[name="${name}"]`,form)?.value?.trim()||''; }
@@ -559,7 +574,11 @@
     if(previousId!==store.user?.id){if(paymentDialog.open)paymentDialog.close();cart.clear();if(dialog.open)renderAccount(store.user?'profile':'login');}
     setLanguage(store.state.language,false);
   });
+  window.CupsApp={t,money,addProduct,orderAgain,filterMenu,updateCart,syncPayment,
+    get language(){return language;},get cart(){return cart;},get user(){return store.user;}};
+  filterMenu(selectedCategory);
   setLanguage(language,false);
+  window.CupsGrowth.init();
   if(store.error)notice(store.error);
   function refreshPickupClock(){
     if(!refreshSlots()&&paymentDialog.open&&!paymentOrder)message('checkout-message',selectedPickup?'payment.slotChanged':'pickup.none');

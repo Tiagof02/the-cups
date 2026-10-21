@@ -1,199 +1,142 @@
-THE CUP'S — LOCAL WEBSITE, STAGE 3 · MOBILE HEADER / PRODUCT QUANTITY BADGES
+THE CUP'S — UPDATED COMPLETE WEBSITE · 15 OCTOBER 2026
 
-RUN IN VS CODE
-1. Extract this complete archive and open the the-cups-local folder in VS Code.
-2. Right-click index.html and choose Open with Live Server.
-3. Use localhost or 127.0.0.1; keep the same hostname and port for saved data.
-No npm installation, build, Canva account or backend is needed. All styles,
-fonts, images and JavaScript are local. Keep the folder and assets together.
+RUN / REPLACE YOUR WEBSITE
+1. Extract the-cups-local.zip.
+2. Copy EVERYTHING INSIDE the-cups-local into your existing repository's site
+   root, replacing matching files. Keep your repository's own .git directory.
+3. In VS Code, open index.html with Live Server, or commit/push the files through
+   your normal GitHub Pages workflow. No build or npm install is needed to run.
 
-UPDATING YOUR EXISTING DEMO
-Replace the project files, then serve them from the SAME browser origin as
-before. The existing thecups.demo.v2 storage key/schema is retained: accounts,
-password verifiers, favorites, preferences, orders and stamps are preserved.
-Do not clear browser storage when updating. Different hostnames/ports use
-separate browser storage. Use fictional account details and a demo password.
+All asset paths remain relative, compatible with /the-cups/ on GitHub Pages.
+This delivery has not been pushed to GitHub or published. Existing demo accounts
+remain compatible when served from the same origin (hostname and port). Do not
+clear storage when replacing the files. HTTPS/localhost is required for Web Crypto.
 
-LATEST CHANGES — 8 OCTOBER 2026
-- Below 768px, a compact two-row header keeps the logo, pickup CTA and EN/PT/DE
-  controls visible. A hamburger opens Menu / Pickup / Loyalty / Find Us links.
-- A small account icon opens Login / Create account, or My account / Log out
-  when signed in. Both panels close via their toggle, Escape, outside click,
-  or navigation/account action. Only one opens at once; keyboard focus returns
-  appropriately. Anchor navigation clears the sticky header.
-- Each product shows a compact translated quantity badge beside its existing
-  orange + button, hidden at zero. Counts come from the existing cart and update
-  on adding, quantity changes, removal, reorder, payment completion and logout.
-- The desktop header is unchanged. A mobile-only minimum-width correction keeps
-  the existing newsletter row from causing horizontal overflow in Portuguese.
-  The hero, same-day pickup slots, account storage, pricing and checkout stay intact.
+LATEST SMALL CORRECTIONS
+- Why The Cup's? now sits immediately below the orange/cream hero ticker and
+  above How it works / Three taps to pickup.
+- Neighborhood copy and WhatsApp invitation are grouped inside Community.
+- Customer Testimonials is a distinct visible section with an honest empty state.
+- Section numbers automatically follow page order, 01 through 09, in EN/PT/DE.
+- FAQ language matching is improved and a response-language selector supports
+  English, Portuguese, German, Spanish and French. This remains a limited FAQ
+  assistant; arbitrary-language general AI still requires the configured backend.
 
-REPLACE FILES IN YOUR EXISTING GITHUB REPOSITORY
-Copy the contents of the extracted the-cups-local folder into the existing site
-folder in your repository, replacing the matching files and adding mobile-cart.css.
-Include the entire updated project; do not upload just index.html. Keep your own
-repository configuration and Git history. No build step is required for GitHub
-Pages. Saved accounts remain compatible on the same deployed website origin.
+WHAT'S NEW
+1. Why The Cup's? section: convenience, personal service, everyday value and
+   local connection, with desktop/mobile navigation and an ordering CTA.
+2. Quick Picks is the first/default category: the existing espresso (EUR 0.75),
+   nata (EUR 1.20) and croissant (EUR 1.50), with existing cart/favorite controls.
+3. First-nata popup: delayed, dismissible, translated and frequency-limited.
+   Claim, add a nata, and ONE nata is deducted from the first demo order.
+   Discounted totals are shown in the basket, checkout and account history.
+4. Welcome-back popup: a genuine return after 30 minutes away; at most daily.
+   Uses real order history for Order Again, or favorites/menu when appropriate.
+   It never stacks with the nata offer or an account/payment/chat dialog.
+5. Floating FAQ helper: real catalog prices and café information, suggested
+   questions, typing indicator, close/reopen and EN/PT/DE UI. Common English,
+   Portuguese, German, Spanish and French questions are supported. It is
+   explicitly labelled FAQ, not live AI. Optional secure proxy configuration.
+6. Sourced-testimonial renderer: three responsive cards, optional supported
+   ratings, attribution and source links. No verified quotes were available;
+   the old untraceable quotes/rating claims are removed. Until sources are
+   provided, this area shows a clear reviews-coming-soon message and feedback link.
+   Neighborhood copy is grouped with the existing Community section.
+7. Order for Pickup: immediately visible orange hero CTA; persistent header CTA
+   now leads straight to the menu. Existing compact mobile header retained.
+8. WhatsApp Community invitation: voluntary membership copy and validated URL
+   configuration, separate from the existing café support link. No invitation
+   URL was supplied, so it honestly displays 'coming soon'.
 
-PRESENTATION-INSPIRED VISUAL UPDATE
-The supplied The Cup's Presentation is now the visual reference. The project
-was extended in place, preserving the catalog, sections and working flows.
-- Original dark/light wordmarks, coral wave and pink splash extracted from
-  the supplied presentation. The hero uses the supplied transparent PNG directly, byte-for-byte,
-  without cropping or modification. Its natural proportions are preserved on
-  the existing cream background, with no card, backdrop or sticker.
-- Presentation palette: cream #F7EDE2, brown #2B1912, coral #FF5A3C and pink
-  #FFB1C8, with a muted green supporting accent.
-- Local League Spartan display headings and DM Sans interface typography.
-- Cream hero, rounded white header and product cards, pink order/loyalty
-  panels, organic wave accents, softer borders and larger tap targets.
-- Existing product CSS illustrations remain. Functional language capitalization
-  is preserved, including German. Order for Pickup remains the primary CTA.
+Every new interface element is translated into EN / Portuguese (Portugal) / DE.
+Language changes do not clear the cart, reset forms or trigger new popups.
+The exact hero PNG, fonts, prices and existing base styles are unchanged.
 
-ACCOUNT VALIDATION
-First name, last name, email and password are required for account creation.
-Blank/whitespace-only required fields are all highlighted and creation is
-blocked with a translated message. Email syntax and password length (8–128
-characters) are checked. Age, drink/food categories, dietary preferences,
-pickup location, usual pickup time and marketing consent are ALL optional.
-Consent starts unchecked. Names remain required when editing the profile.
+CONFIGURATION / EXTERNAL REQUIREMENTS
+Edit site-config.js. It contains PUBLIC settings only, never secrets.
+- whatsappCommunityUrl: the real https://chat.whatsapp.com/... invitation.
+- reviews and googleReviewsUrl: verified review excerpts/attribution/source URLs.
+- chatEndpoint: optional HTTPS backend/serverless proxy. Blank = working FAQ.
+- firstNataEnabled: enable/disable the university demo first-order offer.
+See IMPLEMENTATION.md for review fields, proxy contract and source decisions.
 
-PICKUP TIMES
-Pickup orders are for the current Lisbon calendar day only. Three quick-access
-boxes show the earliest three available slots; the first is labelled Next
-available and selected by default. Near closing, only the remaining valid
-slots are shown (one or two if fewer than three remain). No tomorrow slots
-are manufactured. The quick boxes always track the earliest available slots,
-even if the customer selects a later time in the expanded schedule.
+PROTOTYPE LIMITATIONS RETAINED
+Accounts, preferences, favorites, history and stamps remain browser-local.
+Authentication is a demonstration, not production security. Use fictional
+identity details and a demo-only password. No server receives orders or payments.
+There is no live stock/capacity system, real newsletter or payment processing.
+The existing product options are descriptive labels, not configurable line-item
+modifiers. The update does not invent ingredients, surcharges or availability.
+The current product visuals are CSS illustrations; no actual product photos were
+available in the repository. Quick Picks and the offer reuse those illustrations.
+Uncompleted carts do not survive refresh, matching the previous implementation.
 
-More times opens a compact scrollable dropdown with the full daily schedule;
-it is closed by default. Quick buttons, dropdown selection, selected-time
-feedback, hero banner, cart pickup summary and checkout share one selected
-slot. If a later dropdown time is outside the quick boxes, none of those boxes
-is falsely marked selected. All labels are translated in EN/PT/DE. Saved
-usual-time preferences remain editable but do not override the earliest default.
-Labels contain HH:MM only.
+Promotion eligibility can only be checked in this browser/account; clearing data
+or changing device defeats it. It cannot enforce a real one-per-person offer.
+The project gives a first-online-order nata offer, but no complete approved terms,
+minimum spend or exact launch dates. This demo invents none of those restrictions
+and does not make marketing consent mandatory. Confirm live rules with the café.
 
-Past times and slots within the existing 15-minute preparation allowance
-remain visible but are disabled and greyed out. Future selectable times are
-in 15-minute intervals. The opening hours remain unchanged: weekdays 08:00,
-weekends 08:30, until 00:30. To enforce the same-calendar-day rule, the full
-list is 00:00, 00:15 (today's early-morning service), then 08:00/08:30 through
-23:45. At an afternoon visit the early-morning slots are therefore disabled;
-no tomorrow slots, dates or date selector are displayed.
+PAYMENT TEST DETAILS
+Card: 4242 4242 4242 4242 or 5555 5555 5555 4444
+Expiry: 12/30     CVV: 123     MB WAY: +351 900 000 000
+The modal has a Fill test details control. Use ONLY these public test details.
+Apple Pay / Google Pay simulate confirmation without opening real wallets.
+Payment values are transient, never saved in an order or sent to chat.
 
-If no time remains today, checkout is disabled and a localized message is
-shown. No order is shifted to tomorrow. The clock refreshes automatically,
-on tab focus and before slot selection/checkout. A midnight rollover replaces
-the schedule with the new CURRENT day; stale IDs cannot select a past/future
-day. An expired selection moves to the next valid slot, or becomes unavailable
-if none remain. Availability remains simulated, with no live capacity service.
+PICKUP / ACCOUNTS / LOYALTY
+The three next available slots, same-day schedule, past-slot disabling and one
+shared selection are preserved. Lisbon time and the 15-minute preparation buffer
+remain. Existing weekday/weekend hours and midnight handling are unchanged.
+Signup requires first name, last name, email and password. Preferences, usual
+pickup time and marketing consent remain optional. Guest checkout remains open.
+Existing loyalty is unchanged: one stamp per completed demo order with a drink;
+seven stamps show a demo reward. There is no real loyalty redemption service.
+Orders are retained up to 50; the account shows the latest 10. Order Again adds
+items to the current basket at current catalog prices, without replaying discounts.
 
-SIMULATED PAYMENT — NO REAL PAYMENT DETAILS
-Checkout opens a translated branded modal showing the total, pickup time
-and location. Choose MB WAY, Card (Visa/Mastercard), Apple Pay or Google Pay.
-Card/MB WAY fields accept ONLY the public dummy details below. Use the
-"Use test details" button to fill them. Never enter real payment information.
+VERIFICATION — THIS UPDATE
+npm test passed:
+- 2,636 existing-flow / translation assertions (many are dictionary checks).
+- 221 new-feature assertions.
+- 183 responsive CSS assertions at 320, 375, 390, 430, 560, 768, 1024, 1366px.
+JS syntax, local asset paths and anchor targets passed. No build step is required.
+Hero PNG and all existing brand/font assets are unchanged from the repository.
 
-Visa test number:       4242 4242 4242 4242
-Mastercard test number: 5555 5555 5555 4444
-Test expiry:           12/30 (fixed demo fixture, not a real expiry check)
-Test CVV:              123
-MB WAY test phone:     +351 900 000 000
+These are DOM simulations and source-level CSS checks. Rendered desktop/mobile
+browser QA could not be run in this session because the required browser-control
+capability was unavailable. Previous version's browser results DO NOT validate
+these additions. No current pixel-matching/no-overlap/Safari claim is made.
+The updated optional browser test is included but was NOT run in this session.
 
-Apple Pay and Google Pay simulate payment without opening a real wallet.
-No processor, SDK, wallet, SMS or MB WAY service is contacted. Payment inputs
-stay transient in the modal, are discarded on method change/close/success,
-and are never written to storage, sent over the network or included in orders.
-Only the method name (e.g. "card") is saved with a signed-in demo order.
+HOW TO TEST EACH FEATURE
+Use a separate browser profile with fictional details. Keep your normal account
+storage intact. Detailed test instructions are in IMPLEMENTATION.md.
+- Open Why The Cup's? from both navigations and use its order button.
+- Quick Picks: add all three, change/remove quantities, then try other categories.
+- New browser: wait 12 seconds away from the cart and other open dialogs. Dismiss
+  the offer, reload: it should not repeat. The basket offer link remains available.
+- Claim, add two natas and an espresso: subtotal EUR 3.15, discount EUR 1.20,
+  total EUR 1.95. Finish checkout; another order must not get the discount.
+- Return after 30 minutes away: welcome message. For a logged-in buyer, Order
+  Again adds the previous products. Reloads/anchor changes must not trigger it.
+- Ask the helper about espresso, allergens, hours and pickup in different languages.
+- In a test copy, configure genuine sourced reviews and a community invite; check
+  source links, translations and voluntary joining. Empty settings show no fake data.
+- At 375/390/430px and desktop, check menu/account panels, popup scrolling, chat,
+  sticky header, keyboard focus, overflow and the complete guest/account checkout.
 
-A successful demo payment displays an order number and pickup time,
-clears the cart, and saves the order/stamps if logged in. Guest checkout is
-fully available without an account. Canceling retains the cart and creates
-no order. No real money moves and the café does not receive or prepare orders.
+OPTIONAL DEVELOPER TESTS
+npm ci
+npm test
+For rendered checks on your machine:
+npm install --no-save playwright
+npx playwright install chromium
+npm run test:browser
+CHROMIUM_EXECUTABLE may point to an existing compatible Chromium binary.
+Test packages are development-only; the website itself adds no dependencies.
 
-FEATURES RETAINED
-EN / European Portuguese / German switching covers all original and new
-interface text, forms, messages, accessible labels and payment controls.
-Language changes preserve entered form values. Language/account state persists.
-Names, email, preferences, marketing choice, product favorites, personalized
-greetings, recent history and reorder remain available in My account.
-The latest 50 orders are stored; the profile shows 10. Reorder adds products
-to the current basket at current catalog prices.
-
-The existing loyalty rule is retained: one stamp per completed demo order
-containing a drink, including drink bundles. Seven stamps display one demo
-reward. Rewards have no real discount/redemption service. Guests see the
-original example stamp card. Logout clears the basket/customer UI but keeps
-saved account data for later login. Uncompleted carts do not survive refresh.
-
-PROTOTYPE LIMITATIONS
-Authentication is a front-end demonstration, not production security.
-Passwords use a random salt and PBKDF2-SHA256 verifier rather than plaintext;
-anyone controlling the browser can still inspect/edit local data and sessions.
-There is no backend, identity verification, password recovery, cross-device
-sync, live inventory, real payment, order transmission or email service.
-Web Crypto requires localhost/127.0.0.1 or HTTPS. Avoid an insecure LAN URL.
-Newsletter signup and community interactions provide local demo feedback;
-marketing consent is only a saved preference. Existing generic social links
-and privacy/terms anchors remain. The hero cup contains no lettering; the functional interface switches languages.
-
-FILES
-index.html        Existing storefront and dialogs.
-styles.css        Original layout/utilities, updated brand color values.
-account.css       Existing account and personalization structure.
-brand.css         Presentation identity, responsive styling, payment/slot UI.
-mobile-cart.css   Mobile-only header and shared product quantity badge styles.
-i18n.js           Shared EN/PT/DE translations; add keys to all three locales.
-products.js       Stable products/categories/prices/translation keys.
-account-store.js  Compatible local account storage and password verification.
-pickup-times.js   Lisbon-time demo schedule and 15-minute intervals.
-app.js            Localization, account, cart, favorites, pickup and checkout.
-assets/           Local fonts/licenses and presentation brand artwork.
-tests/            Optional DOM, responsive-CSS and rendered browser tests.
-
-VERIFICATION
-2,157 DOM/translation assertions pass, including all required blank fields in
-EN/PT/DE, optional-only preferences, signup, login/logout, profile editing,
-favorites, refresh persistence, customer isolation, pickup dropdown/intervals,
-Card and MB WAY dummy validation, four payment methods, guest/signed-in orders,
-payment input disposal, history, reorder, loyalty, FAQ and storage errors.
-Most assertions check translation coverage; these are DOM simulations.
-113 source-level responsive CSS assertions pass at 320, 375, 390, 430, 560, 768, 1024
-and 1366px. Additional checks cover the complete same-day schedule, disabled
-past slots, consistent time selection, late-day closure, midnight rollover and
-Lisbon daylight-saving boundaries. The hero PNG matches the attachment byte-for-byte, including its alpha
-transparency; responsive CSS preserves its aspect ratio. Checks also cover
-quick-button selection in EN/PT/DE, synchronization with the full schedule,
-cart and checkout, and one/two-slot end-of-day availability.
-JavaScript syntax and local asset references also pass.
-
-Rendered Chromium verification also passed: 334 assertions across 375px, 390px,
-430px and 1366px in EN/PT/DE. Checks included global horizontal overflow, header
-control overlap, compact header height, correct section scrolling, disclosure
-opening/closing, Escape/focus handling, mobile account access, signup/login/
-logout and refresh persistence, per-product quantity changes/removal, badge
-placement and no browser runtime errors. Mobile/desktop screenshots were
-visually inspected. The desktop header screenshot was pixel-identical to the
-previous version. Physical iPhone/Safari testing was not performed.
-
-Optional developer tests: npm install, then npm test (Node.js).
-For rendered tests: npm install --no-save playwright; npx playwright install
-chromium; node tests/browser.cjs. These dependencies are for testing only.
-CHROMIUM_EXECUTABLE can point to an existing compatible Chromium binary.
-Suggested browser smoke check in Live Server:
-- At desktop and 375px/390px/430px mobile widths, switch EN/PT/DE and scroll sections.
-- Submit blank signup: four required fields highlight. Enter the four core
-  details only; leave all preferences empty/default and create the account.
-- Edit preferences, favorite a product, reload, log out/in, verify saved state.
-- Expand the pickup arrow, choose a later slot, add a drink and check total.
-- Try invalid/empty payment fields; then use test details to complete Card
-  and MB WAY. Verify pickup, history, stamps and Order again.
-- Cancel checkout once: the cart should remain and no order should be saved.
-- Log out, repeat guest checkout, and try Apple Pay/Google Pay demo buttons.
-- Verify the cart, FAQ, keyboard focus, modal scrolling and tap targets.
-
-RESET ONLY THIS DEMO
-Remove the Local Storage entry thecups.demo.v2 in browser developer tools,
-then refresh. This deletes this demo's accounts, preferences, favorites,
-sessions and order history. Do not clear unrelated website storage.
+RESET ONLY A DISPOSABLE TEST PROFILE
+Local Storage: thecups.demo.v2 (accounts) and thecups.visitor.v1 (visits/offer).
+Session Storage: thecups.visit.v1 (per-visit popup frequency).
+Removing these deletes this demo data. Never clear unrelated website storage.

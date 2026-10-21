@@ -1,0 +1,94 @@
+/* Scoped additions; hero, account, mobile navigation and catalog retain their styles. */
+.growth-section { padding:64px 20px; }
+.growth-inner { max-width:1216px; margin:auto; }
+.growth-title { font-size:clamp(2.3rem,5vw,4.2rem); margin:16px 0; }
+.growth-lead { font-size:1.1rem; max-width:650px; margin:16px 0 28px; }
+.benefit-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin:28px 0; }
+.benefit-card { min-width:0; border-radius:22px; background:white; padding:24px; }
+.benefit-card:nth-child(2) { background:var(--pink); }
+.benefit-icon { display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:var(--ink); color:var(--cream); font-size:28px; margin-bottom:20px; }
+.benefit-card h3 { font-family:'League Spartan',sans-serif; font-size:1.6rem; font-weight:700; line-height:1.1; margin-bottom:12px; }
+.growth-primary { display:inline-flex; align-items:center; justify-content:center; text-align:center; padding:12px 22px; background:var(--orange); color:var(--ink); font-weight:700; min-height:48px; }
+.quick-copy { margin-bottom:12px; font-weight:700; }
+.product-grid.quick-mode { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.quick-mode [data-product-id="espresso"] { order:1; }
+.quick-mode [data-product-id="nata"] { order:2; }
+.quick-mode [data-product-id="croissant"] { order:3; }
+.growth-discount { display:flex; justify-content:space-between; gap:12px; padding:8px 0; font-weight:700; }
+#nata-offer-button { text-align:left; text-decoration:underline; }
+.review-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.review-card { min-width:0; background:var(--pink); border-radius:22px; padding:24px; }
+.review-card:nth-child(2) { background:white; }
+.review-card:nth-child(3) { background:#f9d7b6; }
+.review-card blockquote { margin:16px 0; font-size:1.1rem; }
+.review-card figcaption { font-weight:700; }
+.review-card a, .review-card small { display:block; margin-top:12px; }
+.community-invitation { background:var(--pink); }
+.community-invite-inner { display:flex; align-items:center; gap:24px; }
+.community-invite-inner > div { min-width:0; }
+.community-invite-inner > div:nth-child(2) { flex:1; }
+.community-invite-inner .growth-title { font-size:clamp(2rem,4vw,3.2rem); }
+.community-icon { flex:0 0 58px; color:var(--ink); }
+.community-invite-action { flex:0 1 240px; }
+.community-coming { padding:12px 18px; border-radius:20px; background:var(--cream); font-weight:700; }
+.visit-dialog { width:min(460px,calc(100% - 24px)); padding:24px; background:var(--cream); max-height:calc(100dvh - 32px); }
+.visit-dialog::backdrop, .chat-dialog::backdrop { background:#28180e70; }
+.visit-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+#visit-art .food-visual { height:100px; background:var(--pink); border-radius:18px; margin:8px 0 20px; overflow:hidden; }
+.visit-dialog .account-title { font-size:clamp(2rem,7vw,2.7rem); margin:16px 0; }
+#visit-terms { margin:16px 0; font-size:.8rem; }
+#visit-action { width:100%; }
+#visit-feedback { font-weight:700; margin-top:8px; }
+#chat-launcher { position:fixed; right:18px; bottom:max(18px,env(safe-area-inset-bottom)); z-index:35; display:grid; place-items:center; width:56px; height:56px; border-radius:50%; background:var(--ink); color:var(--cream); border:3px solid var(--orange); box-shadow:0 4px 16px #28180e30; }
+.chat-dialog { position:fixed; inset:auto 18px 18px auto; margin:0; width:min(390px,calc(100% - 24px)); height:min(540px,calc(100dvh - 180px)); padding:0; max-width:none; max-height:none; border:1px solid #2b191233; border-radius:22px; background:var(--cream); color:var(--ink); overflow:hidden; }
+.chat-dialog[open] { display:flex; flex-direction:column; }
+.chat-top { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:16px; background:var(--pink); }
+.chat-top h2 { font-family:'League Spartan',sans-serif; font-size:1.35rem; font-weight:800; }
+#chat-mode { font-size:.75rem; }
+#chat-log { overflow-y:auto; overscroll-behavior:contain; min-height:50px; flex:1; padding:14px; }
+.chat-bubble { padding:12px; margin-bottom:10px; border-radius:14px; background:white; white-space:pre-wrap; overflow-wrap:anywhere; font-size:.9rem; }
+.chat-bubble.user { margin-left:24px; background:var(--pink); }
+#chat-suggestions { display:flex; gap:6px; overflow-x:auto; padding:6px 12px; flex-shrink:0; }
+#chat-suggestions button { flex-shrink:0; border:1px solid #2b191233; border-radius:18px; padding:8px 12px; min-height:44px; font-size:.75rem; background:white; }
+#chat-form { display:flex; gap:8px; padding:8px 12px; flex-shrink:0; }
+#chat-input { flex:1; min-width:0; width:100%; border:1px solid #2b191255; border-radius:14px; padding:10px; font-size:16px; color:var(--ink); background:white; }
+#chat-send { padding:10px 14px; }
+#chat-status { min-height:20px; padding:0 14px; font-size:.75rem; }
+.chat-privacy { padding:0 14px 12px; font-size:.65rem; }
+#chat-launcher[hidden], .growth-discount[hidden], .review-grid[hidden], #community-join[hidden], #google-reviews-link[hidden] { display:none; }
+@media (min-width:768px) and (max-width:1100px) { .header-nav { gap:14px; } }
+@media (max-width:900px) {
+  .benefit-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .community-invite-inner { flex-wrap:wrap; }
+  .community-invite-action { flex:1 1 100%; }
+}
+@media (max-width:767px) {
+  .growth-section { padding:44px 20px; }
+  .benefit-grid { grid-template-columns:minmax(0,1fr); }
+  .benefit-card { padding:22px; }
+  .product-grid.quick-mode { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .review-grid { grid-template-columns:minmax(0,1fr); }
+  .community-icon { display:none; }
+  .visit-dialog { padding:18px; }
+  .chat-dialog { right:12px; bottom:max(12px,env(safe-area-inset-bottom)); height:min(500px,calc(100dvh - 170px)); }
+  #chat-launcher { right:12px; bottom:max(12px,env(safe-area-inset-bottom)); }
+}
+@media (max-width:360px) { .product-grid.quick-mode { grid-template-columns:minmax(0,1fr); } }
+@media (max-height:500px) { .chat-dialog { height:calc(100dvh - 24px); } #visit-art { display:none; } }
+
+/* Requested section grouping and explicit chat response language. */
+.community-neighborhood { margin:22px 0 36px; max-width:700px; }
+.community-neighborhood .growth-title { font-size:clamp(2rem,4vw,3.2rem); }
+.community-embedded { margin-top:32px; padding:28px; border-radius:22px; color:var(--ink); }
+.community-embedded .community-invite-inner { flex-wrap:wrap; }
+.community-embedded .community-invite-action { flex-basis:100%; }
+.reviews-empty { padding:24px; border-radius:22px; background:white; max-width:700px; }
+.reviews-empty h3 { font-family:'League Spartan',sans-serif; font-size:1.6rem; font-weight:700; }
+.reviews-empty p { margin:10px 0; }
+.reviews-empty a { display:inline-flex; align-items:center; text-decoration:underline; }
+.chat-language-row { display:flex; align-items:center; gap:8px; padding:8px 12px; flex-shrink:0; }
+.chat-language-row label { font-size:.75rem; flex-shrink:0; }
+#chat-language { flex:1; min-width:0; width:100%; min-height:44px; border:1px solid #2b191233; border-radius:12px; background:white; color:var(--ink); padding:6px; font-size:16px; }
+.chat-scope { font-size:.7rem; padding:0 14px 6px; }
+@media(max-width:767px) { .community-embedded { padding:20px; } .chat-dialog { height:min(580px,calc(100dvh - 150px)); } }
+@media(max-height:600px) { .chat-dialog { height:calc(100dvh - 24px); } .chat-scope { display:none; } #chat-suggestions { display:none; } }

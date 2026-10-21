@@ -1,6 +1,6 @@
 // Source-level responsive checks. These do not replace rendered browser QA.
 const fs=require('fs'),assert=require('assert/strict'),CSSOM=require('cssom');
-const sheets=['styles.css','account.css','brand.css','mobile-cart.css'].map(name=>CSSOM.parse(fs.readFileSync(require('path').join(__dirname,'..',name),'utf8')));
+const sheets=['styles.css','account.css','brand.css','mobile-cart.css','growth.css'].map(name=>CSSOM.parse(fs.readFileSync(require('path').join(__dirname,'..',name),'utf8')));
 function matchesMedia(text,width){
  if(/prefers-reduced-motion/.test(text))return false;
  const min=text.match(/min-width:\s*(\d+)px/),max=text.match(/max-width:\s*(\d+)px/);
@@ -45,5 +45,17 @@ for(const width of [375,390,430,1366]){
  eq(get('.mobile-header','display',width),width<768?'grid':'none');
  eq(get('header > .header-inner','display',width),width<768?'none':undefined);
  eq(get('.product-add-controls','display',width),'flex');
+}
+for(const width of [320,375,390,430,768,1024,1366]){
+ eq(get('.benefit-grid','grid-template-columns',width),width<768?'minmax(0,1fr)':width<=900?'repeat(2,minmax(0,1fr))':'repeat(4,minmax(0,1fr))');
+ eq(get('.product-grid.quick-mode','grid-template-columns',width),width<=360?'minmax(0,1fr)':width<768?'repeat(2,minmax(0,1fr))':'repeat(3,minmax(0,1fr))');
+ eq(get('.review-grid','grid-template-columns',width),width<768?'minmax(0,1fr)':'repeat(3,minmax(0,1fr))');
+ eq(get('.chat-dialog','width',width),'min(390px,calc(100% - 24px))');
+ eq(get('.chat-dialog','overflow',width),'hidden');
+ eq(get('#chat-input','min-width',width),'0');
+ eq(get('#chat-log','overflow-y',width),'auto');
+ eq(get('.visit-dialog','width',width),'min(460px,calc(100% - 24px))');
+ eq(get('.visit-dialog','max-height',width),'calc(100dvh - 32px)');
+ eq(get('.growth-primary','min-height',width),'48px');
 }
 console.log(`${checks} responsive CSS assertions passed across 320, 375, 390, 430, 560, 768, 1024 and 1366px. No rendered-mobile verification is implied.`);
