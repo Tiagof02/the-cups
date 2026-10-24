@@ -58,4 +58,9 @@ for(const width of [320,375,390,430,768,1024,1366]){
  eq(get('.visit-dialog','max-height',width),'calc(100dvh - 32px)');
  eq(get('.growth-primary','min-height',width),'48px');
 }
+for(const width of [320,375,390,430,768,1024,1366]){
+ eq(get('.menu-photo','width',width),'145px');eq(get('.menu-photo','height',width),'145px');
+ eq(get('.menu-photo','object-fit',width),'contain');eq(get('.merch-card img','aspect-ratio',width),'1');
+ eq(get('.brand-hero h1','white-space',width),'pre-line');
+}
 console.log(`${checks} responsive CSS assertions passed across 320, 375, 390, 430, 560, 768, 1024 and 1366px. No rendered-mobile verification is implied.`);

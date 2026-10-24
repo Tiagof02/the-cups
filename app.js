@@ -74,6 +74,7 @@
     });
     $$('[data-i18n-aria]',root).forEach(e=>e.setAttribute('aria-label',t(e.getAttribute('data-i18n-aria'))));
     $$('[data-i18n-placeholder]',root).forEach(e=>e.placeholder=t(e.getAttribute('data-i18n-placeholder')));
+    $$('[data-i18n-alt]',root).forEach(e=>e.setAttribute('alt',t(e.getAttribute('data-i18n-alt'))));
     $$('.lang',root).forEach(e=>{
       const active=e.dataset.lang===language;
       e.classList.toggle('active',active);e.setAttribute('aria-pressed',String(active));

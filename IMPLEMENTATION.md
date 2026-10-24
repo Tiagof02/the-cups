@@ -8,7 +8,7 @@ The retrieved live GitHub Pages homepage matched the repository's original `inde
 - **Working Document**, business concept, positioning, UX/UI, email marketing §16 and associated segmentation/calendar tables: order ahead, personal service, accessible prices, local campus/workday audience; a free nata on the first online order; optional accounts and marketing consent.
 - **Digital Marketing Strategy Order-Ahead Webstore & Communication Plan — The Cup's**, pages 21–22 (UX/identity), 31–32 (first-order nata and opt-in email): consistent cream/brown/coral/pink identity, short checkout and repeat-order loop. Existing extracted assets and fonts remain unchanged.
 - The plan mentions a first-order nata acquisition offer and a subscriber welcome message, but supplies no complete approved eligibility terms, exact launch dates, minimum basket or mandatory code. The implemented **university demo** uses one existing nata on the first completed online order, explicitly claimed, without inventing a minimum spend or forcing newsletter consent. An order consisting of one nata can therefore total €0.00. Validate official rules before a commercial launch.
-- Repository product records remain authoritative for prices and IDs. There are no product photographs or live stock rules in the repository; existing illustrations and add handlers are reused. There are no functioning product modifiers to preserve beyond existing descriptive labels.
+- Repository product records remain authoritative for prices and IDs. The final content update adds supplied menu photographs; existing add handlers and product records are reused. No live stock rules were added. There are no functioning product modifiers to preserve beyond existing descriptive labels.
 - The old testimonial quotations had no attribution or traceable sources. The strategy's historical aggregate rating does not verify individual quotes. Public searches did not yield verifiable matching review excerpts. No fabricated quotes, customer names or current rating statistics are published. The section supports three sourced cards but currently displays an explicit customer-review empty state.
 - No WhatsApp Community invite or live AI backend credentials were present. The current customer-support WhatsApp link remains unchanged. No new external subscription or automatic group joining occurs.
 - The existing loyalty implementation differs from the plan's proposed seventh-drink redemption. It is intentionally preserved: one stamp per qualifying demo order, and a displayed reward at seven stamps, with no real redemption.
@@ -134,7 +134,7 @@ neighborhood copy and WhatsApp invitation now belong to `#community`.
 honest pending-reviews state and a feedback link; supplied verified reviews
 replace that empty state automatically.
 
-Major section labels derive their consecutive 01–09 prefixes from actual DOM
+Major section labels derive their consecutive 01–10 prefixes from actual DOM
 order after every language change. This avoids stale manual numbering.
 
 The FAQ now scores language cues across EN/PT/DE/ES/FR, recognizes additional
@@ -148,3 +148,15 @@ the chosen code. This does not make the local FAQ a general AI service.
 The follow-up passed 2,636 existing-flow/translation assertions, 221 feature
 assertions and 183 responsive CSS assertions. Rendered testing remains unavailable;
 no new desktop/mobile screenshot verification is claimed.
+
+## Final content update — 24 October 2026
+
+See FINAL-CONTENT-UPDATE.txt for the new photography, display-only Merch gallery, FAQ source integration and current QA results. The only app.js change translates image alt text; ordering and account logic are unchanged.
+
+### Final refinements
+
+Menu images now have fixed 145 × 145px display boxes. The existing pop-up
+uses a 100 × 100px photo in its unchanged illustration band. The hero uses
+a newline plus `white-space: pre-line` to retain its two-line layout without
+decorative periods. The promotion is definite and limited to the first 50
+eligible customers in copy only; no tracking mechanism was added.

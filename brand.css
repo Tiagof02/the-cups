@@ -107,7 +107,7 @@ footer input { border-radius:999px; }
 .payment-success { text-align:center; padding-top:8px; }
 .payment-success-mark { margin:0 auto 16px; display:grid; place-items:center; width:70px; height:70px; font-size:38px; border-radius:50%; background:var(--pink); }
 .payment-success p { margin:14px 0; overflow-wrap:anywhere; }
-@media (min-width:768px) and (max-width:1250px) {
+@media (min-width:768px) and (max-width:1450px) {
   .header-nav { order:3; flex-basis:100%; justify-content:center; }
 }
 @media (min-width:768px) { .product-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
@@ -143,3 +143,24 @@ footer input { border-radius:999px; }
 /* Same-day pickup: expired options stay visible in the compact panel. */
 .slot-options option:disabled { color:#827871; background:#e9e4df; }
 #pay-button:disabled, #demo-pay-submit:disabled { opacity:.5; cursor:not-allowed; }
+
+/* Supplied menu photography: fixed existing image area, whole image visible. */
+.food-visual.product-photo { display:grid; place-items:center; background:var(--cream); }
+.menu-photo { display:block; width:145px; height:145px; aspect-ratio:1; object-fit:contain; object-position:center; }
+/* Display-only merchandise, using the existing section spacing and brand palette. */
+.merch-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.merch-card { min-width:0; margin:0; overflow:hidden; border-radius:22px; background:white; }
+.merch-card img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:var(--cream); }
+.merch-card figcaption { padding:18px 22px; font-family:'League Spartan','DM Sans',sans-serif; font-size:1.4rem; font-weight:700; }
+.merch-card:nth-child(2) figcaption { background:var(--pink); }
+#faq .faq-answer p { white-space:pre-line; }
+#faq .faq-plus { flex-shrink:0; margin-left:16px; }
+.header-nav { flex-wrap:wrap; row-gap:0; }
+@media (max-width:767px) {
+  .merch-grid { grid-template-columns:minmax(0,1fr); }
+}
+
+/* Keep the two-line hero headline after removing decorative full stops. */
+.brand-hero h1 { white-space:pre-line; }
+/* The pop-up reuses the nata photo inside its existing 100px illustration band. */
+#visit-art .menu-photo { width:100px; height:100px; }

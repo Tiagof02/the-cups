@@ -1,0 +1,153 @@
+THE CUP'S — FINAL CONTENT, NAVIGATION AND DESIGN UPDATE
+24 October 2026
+Based on GitHub main d074191, including the previous brand-colour fixes.
+
+IMPLEMENTED
+- Added supplied photos to all 13 existing menu cards, including Quick Picks.
+  Names, descriptions, prices, categories, product IDs and favorite/add buttons
+  are preserved. All menu photos now use identical centered 145 x 145px square display boxes
+  inside the existing image areas, with object-fit:contain:
+  no cropping, stretching or distortion. Native image dimensions reserve space.
+- Added the three supplied merchandise images in a display-only Merch gallery,
+  between Community and Loyalty. Three columns on desktop/tablet, one on mobile.
+  No prices, buy buttons, product records or checkout integration were added.
+- Added Merch and FAQ to desktop and mobile navigation. FAQ immediately follows
+  Find Us; Merch appears between Pickup and Loyalty. Both use native smooth
+  section anchors. Extended the existing stacked-header breakpoint to 1450px
+  and allowed navigation wrapping to accommodate longer translations.
+- Removed final and internal decorative full stops from main-section and
+  supporting card headings in EN/PT/DE. The hero retains its two-line layout
+  using an explicit line break. Ordinary paragraph punctuation and brand
+  materials remain unchanged.
+- Added translated image alternative text using the existing language system.
+
+FINAL NUMBERED SECTIONS
+01 Why The Cup's / A little local, a lot more you
+02 How it works
+03 Menu
+04 Pickup
+05 Community
+06 Merch
+07 Loyalty
+08 Customer testimonials
+09 Find Us
+10 FAQ
+The hero and small menu suggestion strip remain unnumbered, as before.
+Labels are numbered from actual DOM order after every language switch.
+
+FAQ INTEGRATION
+All six questions/answers from the supplied FAQ.docx were incorporated. The
+existing ordering, account and order-problem answers were replaced by their
+more detailed supplied equivalents, avoiding duplicates. The pickup-counter
+answer remains, including the order-number instruction. A payment question
+accurately describes the existing simulated checkout; no payment policy was
+invented. Eight accordions, in this customer-journey order:
+1. Ordering and pickup
+2. Pickup counter / order number
+3. Online payment
+4. Personalizing the order and cup
+5. Optional account
+6. Loyalty, favorites and usual order
+7. Location and opening hours
+8. Late, incorrect or missing orders
+The six supplied answers retain their meaning, paragraph breaks, address,
+hours, phone contact, sticker details, seasonal qualification and six-drink
+eligibility statement. A stray isolated full-stop paragraph in FAQ.docx was
+joined to the preceding loyalty sentence. PT-PT and German translations cover
+all new content, including merchandise, alt text and navigation.
+
+SOURCE IMAGE MAPPING
+Untitled.png -> assets/menu/espresso.webp
+Untitled4.png -> assets/menu/cappuccino.webp
+Untitled5.png -> assets/menu/galao.webp
+Untitled6.png -> assets/menu/iced.webp
+Untitled7.png -> assets/menu/green.webp
+Untitled8.png -> assets/menu/tonic.webp
+Untitled12.png -> assets/menu/croissant.webp
+Untitled13.png -> assets/menu/nata.webp
+Untitled10.png -> assets/menu/tosta.webp
+Untitled11.png -> assets/menu/club.webp
+Untitled11-1.png -> assets/menu/acai.webp
+Untitled14.png -> assets/menu/breakfast.webp
+Untitled15.png -> assets/menu/lunch.webp
+MERCH 1.png -> assets/merch/tote.webp
+MERCH 2.png -> assets/merch/notebook.webp
+MERCH 3.png -> assets/merch/pen.webp
+
+Repeated supplied files were deduplicated: Untitled4.1 = Untitled;
+Untitled2 = Untitled13; Untitled3 / Untitled9.1 = Untitled12;
+Untitled9 = Untitled11-1. Each unique menu image is used once.
+WebP copies are optimized to a maximum 1000px dimension and retain the full
+source composition. No generated replacement images or new dependencies.
+assets/content-manifest.json records source names and output dimensions.
+
+VERIFICATION
+3,863 automated assertions passed via npm test:
+- 2,777: translations, account validation/create/login/logout, profile editing,
+  persistence, favorite isolation, cart, pickup scheduling, all four simulated
+  payment methods, guest/account checkout, saved orders/reorder, loyalty,
+  FAQ, newsletter and storage failures.
+- 257: Quick Picks, pop-up timing/eligibility, offer discount, multilingual
+  chatbot and proxy fallback, safe configurable reviews/links, asset paths.
+- 218: responsive CSS checks at 320/375/390/430/560/768/1024/1366px.
+- 611: new photo references and unchanged product controls, translated image
+  alternatives, eight accordions, nav order/anchors, sequential numbering,
+  heading punctuation, definite promotional copy and display-only merchandise.
+
+Rendered Chromium checks:
+- Desktop preview at 1363px; responsive iframe widths 320, 390, 768, 1024,
+  1440px in EN/PT/DE in the content update. No horizontal overflow or
+  overlapping header controls. Final image-sizing checks across these widths
+  and Quick Picks/Drinks/Lunch/Bundles confirm every menu image is 145 x 145px.
+- Menu categories switched; all 13 product and all 3 merch images loaded.
+- Desktop Merch and FAQ anchors; mobile hamburger navigation opens/closes,
+  both new anchors land on the correct section clear of the sticky header.
+- Inspected menu photos, tablet/mobile Merch, and long German FAQ wrapping.
+- All 8 FAQs expanded and collapsed in all 3 languages at 320px: 24 checks,
+  no clipped answer containers. Enter key also opens the focused accordion.
+- Add espresso, choose 20:00 pickup through More times, complete simulated
+  MB WAY checkout, confirm the selected time in the success message.
+- Promotional pop-up opens/closes. Existing chatbot returns hours/location.
+- Final promotional copy verified in EN/PT/DE, including the first-50 limit.
+  At 320px all three translations fit the existing scrollable dialog. The
+  reused nata photo remains 100 x 100px in the existing pop-up illustration band.
+- Claiming the offer and adding a nata still applies the existing EUR 1.20
+  discount and produces a EUR 0.00 total for a single-nata demo order.
+
+Integrity checks: every new WebP decoded; asset filenames/case and relative
+paths verified; product records and all account/pickup/payment business logic
+unchanged. app.js has only the added image-alt translation line. ZIP CRC tested.
+
+LIMITATIONS / EXISTING DEMO BEHAVIOUR
+The supplied FAQ describes the cafe's planned service. The existing prototype
+has no selectable product modifiers or real reward redemption. It awards a
+demo stamp per completed drink-containing order and shows a reward at seven
+stamps. The provided FAQ says the seventh eligible drink is free after six.
+The FAQ includes a translated explanation of this difference; the requested
+existing loyalty and ordering logic was not changed.
+Accounts and saved history remain browser-local. Payments/orders are simulated.
+The chatbot remains the existing multilingual FAQ helper unless a live endpoint
+is configured. Real testimonials and a WhatsApp Community invite still require
+configuration; support WhatsApp links are preserved. No external transaction,
+message or production account was created. No live AI backend was tested.
+Browser QA used Chromium and responsive iframes, not physical devices or a full
+Safari/Firefox matrix. GitHub Pages paths are compatible, but this ZIP was not
+published to the live GitHub repository, so its deployed version was not tested.
+
+DEPLOYMENT
+Extract the-cups-local and copy its contents into the GitHub repository root.
+Include assets/menu and assets/merch along with all updated HTML/CSS/JS files.
+No build step is required. GitHub Pages can continue serving index.html.
+The archive excludes preview wrappers, development dependencies and Git data.
+
+FINAL PROMOTION COPY UPDATE
+EN: Your first nata is on us!
+PT: O teu primeiro pastel de nata é por nossa conta!
+DE: Dein erstes Pastel de Nata geht auf uns!
+The body and terms state that the offer is limited to the first 50 eligible
+customers. Existing one-per-new-customer / first-completed-order conditions
+remain. EN/PT/DE chatbot promotion answers use the updated terms; the two
+additional ES/FR chatbot answers also communicate the limit.
+No campaign counter, inventory tracker, redemption database, global cap or
+new tracking code has been added. Existing per-visitor demo eligibility and
+discount behaviour remain unchanged. The 50-customer limit is copy only.

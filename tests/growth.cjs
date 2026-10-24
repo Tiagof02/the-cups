@@ -64,7 +64,7 @@ const claim=a=>{a.click('[data-growth-offer]');a.click('#visit-action');};
  ok(a.q('#community #whatsapp-community'));ok(a.q('#community .community-neighborhood'));ok(!a.q('#testimonials #whatsapp-community'));
  for(const lang of ['EN','PT','DE']){
    a.click(`.lang[data-lang="${lang}"]`);
-   eq(a.qa('[data-section-label]').map(e=>e.textContent.slice(0,2)).join(','),'01,02,03,04,05,06,07,08,09');
+   eq(a.qa('[data-section-label]').map(e=>e.textContent.slice(0,2)).join(','),'01,02,03,04,05,06,07,08,09,10');
    eq(a.q('#reviews-title').textContent,a.window.CupsTranslations[lang]['growth.testimonialsTitle']);ok(!a.q('#reviews-empty').hidden);
  }
  a.click('.lang[data-lang="EN"]');

@@ -51,7 +51,7 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
     },mobile);
     check(!overlap,'Header control overlap '+width+' '+lang);
     if(mobile){
-     for(const target of ['our-story','menu','pickup','loyalty','find-us']){
+     for(const target of ['our-story','menu','pickup','merch','loyalty','find-us','faq']){
       await page.locator('#mobile-nav-toggle').click();check(await page.locator('#mobile-nav-panel').isVisible(),'Menu opens');
       await page.locator(`#mobile-nav-panel a[href="#${target}"]`).click();
       check(await page.locator('#mobile-nav-panel').isHidden(),'Menu closes after anchor');

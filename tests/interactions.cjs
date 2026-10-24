@@ -123,7 +123,8 @@ function createValues(a,email='ana@example.test'){
  }
  a.q('#demo-cvv').value='999';a.submit('#demo-payment-form');eq(a.window.CupsStore.user.orders.length,0);eq(text(a,'#checkout-message'),langs.DE['payment.invalidDemo']);
  a.click('[data-fill-demo]');a.submit('#demo-payment-form');eq(a.window.CupsStore.user.orders.length,1);eq(a.window.CupsStore.user.orders[0].paymentMethod,'card');eq(a.window.CupsStore.user.orders[0].time,chosen.slice(11));eq(a.window.CupsStore.user.stamps,1);eq(a.qa('[data-payment-sensitive]').length,0);
- ok(!cache.get('thecups.demo.v2').includes('4242'));ok(!cache.get('thecups.demo.v2').includes('900000000'));
+ // Check the full test PAN: a random password hash may legitimately contain four digits such as 4242.
+ ok(!cache.get('thecups.demo.v2').replace(/\s/g,'').includes('4242424242424242'));ok(!cache.get('thecups.demo.v2').includes('900000000'));
  a.click('[data-close-payment]');
  a.click('.add-product[data-product-id="nata"]');a.click('#pay-button');a.click('[data-fill-demo]');a.click('[data-close-payment]');eq(a.window.CupsStore.user.orders.length,1);eq(text(a,'#cart-count'),'1');eq(a.qa('[data-payment-sensitive]').length,0);
  pay(a,'mbway');eq(a.window.CupsStore.user.orders.length,2);eq(a.window.CupsStore.user.orders[0].paymentMethod,'mbway');eq(a.window.CupsStore.user.stamps,1);
@@ -192,7 +193,7 @@ function createValues(a,email='ana@example.test'){
  cache.clear();a=boot();
  ok(a.q('#mobile-nav-panel').hidden);ok(a.q('#mobile-account-panel').hidden);
  a.click('#mobile-nav-toggle');ok(!a.q('#mobile-nav-panel').hidden);eq(a.q('#mobile-nav-toggle').getAttribute('aria-expanded'),'true');
- eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#our-story,#menu,#pickup,#loyalty,#find-us');
+ eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#our-story,#menu,#pickup,#merch,#loyalty,#find-us,#faq');
  for(const el of a.qa('#mobile-nav-panel a'))ok(a.q(el.getAttribute('href')));
  a.click('#mobile-nav-panel a[href="#menu"]');ok(a.q('#mobile-nav-panel').hidden);
  a.click('#mobile-nav-toggle');a.click('#mobile-account-toggle');ok(a.q('#mobile-nav-panel').hidden);ok(!a.q('#mobile-account-panel').hidden);

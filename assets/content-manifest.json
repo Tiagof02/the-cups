@@ -1,0 +1,98 @@
+[
+  {
+    "source": "Untitled.png",
+    "asset": "assets/menu/espresso.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled4.png",
+    "asset": "assets/menu/cappuccino.webp",
+    "width": 800,
+    "height": 1000
+  },
+  {
+    "source": "Untitled5.png",
+    "asset": "assets/menu/galao.webp",
+    "width": 800,
+    "height": 1000
+  },
+  {
+    "source": "Untitled6.png",
+    "asset": "assets/menu/iced.webp",
+    "width": 800,
+    "height": 1000
+  },
+  {
+    "source": "Untitled7.png",
+    "asset": "assets/menu/green.webp",
+    "width": 667,
+    "height": 1000
+  },
+  {
+    "source": "Untitled8.png",
+    "asset": "assets/menu/tonic.webp",
+    "width": 667,
+    "height": 1000
+  },
+  {
+    "source": "Untitled12.png",
+    "asset": "assets/menu/croissant.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled13.png",
+    "asset": "assets/menu/nata.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled10.png",
+    "asset": "assets/menu/tosta.webp",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "source": "Untitled11.png",
+    "asset": "assets/menu/club.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled11-1.png",
+    "asset": "assets/menu/acai.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled14.png",
+    "asset": "assets/menu/breakfast.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "Untitled15.png",
+    "asset": "assets/menu/lunch.webp",
+    "width": 1000,
+    "height": 914
+  },
+  {
+    "source": "MERCH 1.png",
+    "asset": "assets/merch/tote.webp",
+    "width": 1000,
+    "height": 667
+  },
+  {
+    "source": "MERCH 2.png",
+    "asset": "assets/merch/notebook.webp",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "source": "MERCH 3.png",
+    "asset": "assets/merch/pen.webp",
+    "width": 1000,
+    "height": 1000
+  }
+]

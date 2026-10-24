@@ -1,3 +1,14 @@
+FINAL REFINEMENTS — 24 October 2026
+Menu images: identical 145 x 145px squares; Merch images: matching square frames.
+Hero/display headings: decorative periods removed, hero line break preserved.
+Nata promotion: definite free welcome treat for first 50 eligible customers;
+copy only, no new tracking or changes to discount eligibility logic.
+
+FINAL CONTENT UPDATE — 24 October 2026
+See FINAL-CONTENT-UPDATE.txt for the complete change list, image mapping and QA.
+13 supplied menu photos; 3 display-only Merch images; 8 EN/PT/DE FAQs.
+Merch and FAQ navigation links; sections numbered 01–10; heading full stops removed.
+
 THE CUP'S — UPDATED COMPLETE WEBSITE · 15 OCTOBER 2026
 
 RUN / REPLACE YOUR WEBSITE
@@ -67,8 +78,9 @@ identity details and a demo-only password. No server receives orders or payments
 There is no live stock/capacity system, real newsletter or payment processing.
 The existing product options are descriptive labels, not configurable line-item
 modifiers. The update does not invent ingredients, surcharges or availability.
-The current product visuals are CSS illustrations; no actual product photos were
-available in the repository. Quick Picks and the offer reuse those illustrations.
+The menu now uses supplied, optimized WebP product photos. The promotional
+pop-up retains its existing decorative illustration. See assets/content-manifest.json
+for the supplied filenames and their menu/merch asset mappings.
 Uncompleted carts do not survive refresh, matching the previous implementation.
 
 Promotion eligibility can only be checked in this browser/account; clearing data
