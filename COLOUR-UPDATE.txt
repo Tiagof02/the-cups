@@ -1,0 +1,56 @@
+THE CUP'S — COLOUR CONSISTENCY UPDATE
+24 October 2026
+
+Scope: colour-only update to the current GitHub repository.
+Changed runtime files: index.html, styles.css, account.css.
+No JavaScript, translations, images, fonts, links, structure, spacing,
+typography, animations or ordering/account behaviour changed.
+
+PALETTE (existing exact brand values)
+Cream #F7EDE2: neutral surfaces and formerly green product-card backgrounds.
+Espresso #2B1912: existing text, navigation, borders and contrast.
+Coral #FF5A3C: primary CTAs, newsletter submission, selected votes,
+pickup fallback selection and decorative product-card blobs.
+Pink #FFB1C8: secondary buttons, community borders/labels/feedback,
+loyalty, personal-area fallback, map surface and small CTA strip.
+Existing muted error, focus and disabled colours are preserved.
+The selected vote has a specific colour rule so the existing JS coral
+selection continues to override the new pink idle colour.
+Removed the obsolete lime variable and green utility declarations.
+
+INTENTIONAL EXCEPTIONS
+#5F9E61 remains only as lettuce in the existing CSS sandwich illustration.
+Product artwork/assets and external brand identities are unchanged.
+The product name 'Ultimate Green' and all translations are unchanged.
+
+VALIDATION
+All 3,040 existing automated assertions pass:
+- 2,636 interaction assertions: all translations, accounts/login/logout,
+  favorites, persistence, cart, pickup, four simulated payment methods,
+  guest/account checkout, saved orders/reorder, loyalty, FAQ, newsletter.
+- 221 growth assertions: Quick Picks, promotional pop-ups and eligibility,
+  multilingual chatbot FAQ/proxy fallback, configured links and assets.
+- 183 responsive CSS assertions across 320, 375, 390, 430, 560, 768,
+  1024 and 1366px.
+Source audit: HTML/CSS/JS colour literals and generated utilities inspected.
+No green UI declarations remain; only the lettuce illustration is retained.
+Desktop computed-style scan found no green foreground/background/border.
+Rendered browser spot checks at 1363px and a 390x844 mobile iframe:
+EN/PT/DE language switching, header/hero, community/loyalty, mobile menu,
+add-to-cart, simulated MB WAY checkout confirmation, Portuguese chatbot.
+Selected vote confirmed coral with brown text.
+Changed text pair contrast: brown/cream 14.53:1, brown/pink 9.90:1,
+brown/coral 5.42:1. This is not a full accessibility certification.
+HTML verified identical to baseline after removing class attributes;
+all JavaScript and asset files remain byte-for-byte unchanged.
+
+LIMITATIONS / DEPLOYMENT
+Browser checks are desktop Chromium and a mobile-sized iframe, not physical
+mobile devices or a complete browser/device matrix. Automated responsive
+checks inspect CSS; they do not substitute for rendered-device testing.
+Existing prototype limitations remain: simulated payments/orders,
+browser-local accounts, FAQ chatbot without a configured live AI service,
+and configured community/testimonial placeholders. No live payment,
+external account service or live AI backend was tested or added.
+Extract the the-cups-local folder and copy its contents into the repository.
+No build step is required. No GitHub publication was performed.

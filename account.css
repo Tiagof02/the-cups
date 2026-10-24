@@ -17,7 +17,7 @@
 .cart-row > :first-child { flex:1 1 110px; min-width:0; overflow-wrap:anywhere; }
 .cart-row > :last-child { flex-shrink:0; }
 .display { overflow-wrap:break-word; }
-.personal-area { border:2px solid var(--ink); padding:1.25rem; margin-bottom:2rem; background:var(--lime); box-shadow:4px 4px 0 var(--ink); }
+.personal-area { border:2px solid var(--ink); padding:1.25rem; margin-bottom:2rem; background:var(--pink); box-shadow:4px 4px 0 var(--ink); }
 .personal-heading, .personal-last-order { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
 .personal-heading { margin-bottom:.65rem; }
 .personal-heading p { overflow-wrap:anywhere; }
