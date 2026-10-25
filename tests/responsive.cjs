@@ -42,8 +42,8 @@ for(const width of [320,390,768,1366]){
  eq(get('.quick-slot','min-height',width),'104px');
 }
 for(const width of [375,390,430,1366]){
- eq(get('.mobile-header','display',width),width<768?'grid':'none');
- eq(get('header > .header-inner','display',width),width<768?'none':undefined);
+ eq(get('.mobile-header','display',width),width<1100?'grid':'none');
+ eq(get('header > .header-inner','display',width),width<1100?'none':undefined);
  eq(get('.product-add-controls','display',width),'flex');
 }
 for(const width of [320,375,390,430,768,1024,1366]){

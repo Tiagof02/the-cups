@@ -92,3 +92,21 @@
 .chat-scope { font-size:.7rem; padding:0 14px 6px; }
 @media(max-width:767px) { .community-embedded { padding:20px; } .chat-dialog { height:min(580px,calc(100dvh - 150px)); } }
 @media(max-height:600px) { .chat-dialog { height:calc(100dvh - 24px); } .chat-scope { display:none; } #chat-suggestions { display:none; } }
+
+/* Shared multilingual navigation metrics; keep every item accessible. */
+.nav-link { font-size:.7rem; letter-spacing:.03em; white-space:nowrap; }
+@media (min-width:1100px) {
+  .header-inner { max-width:calc(100% - 32px); width:1480px; gap:12px; padding:10px 16px; }
+  .header-nav { gap:12px; flex-wrap:nowrap; }
+  .header-controls, .header-account { flex-wrap:nowrap; gap:8px; }
+  .header-controls { flex-shrink:0; }
+  .header-order { font-size:.78rem; padding:12px; white-space:nowrap; }
+  .header-account .account-link, .header-account .account-create { font-size:.75rem; white-space:nowrap; }
+  .header-account .account-create { padding:10px 12px; }
+  .header-controls .lang { min-width:36px; }
+}
+@media (min-width:1280px) {
+  html { scroll-padding-top:100px; }
+  .header-inner { flex-wrap:nowrap; }
+  .header-nav { order:0; flex-basis:auto; }
+}

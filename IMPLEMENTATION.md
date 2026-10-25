@@ -1,3 +1,7 @@
+Latest update: see LAST-CHANGES.txt for the final content, six FAQs,
+multilingual header correction and current verification/limitations.
+Earlier implementation history follows.
+
 # The Cup’s implementation notes
 
 Delivered 15 October 2026 from repository commit `c0039edbba8264989c6eb0d76b4da92ef7d57582`.

@@ -54,6 +54,8 @@
     $('#reviews-intro').textContent=t('growth.reviewsLead');
     const url=httpURL(config.googleReviewsUrl,isGoogle),link=$('#google-reviews-link');link.hidden=!url;
     if(url)link.href=url;else link.removeAttribute('href');
+    const feedback=$('#share-feedback');feedback.hidden=!url;
+    if(url)feedback.href=url;else feedback.removeAttribute('href');
   }
   function renderCommunity(){
     const url=httpURL(config.whatsappCommunityUrl,h=>h==='chat.whatsapp.com');

@@ -536,11 +536,6 @@
     if(b.hasAttribute('data-close-payment')){paymentDialog.close();return;}
     if(b.dataset.paymentMethod){paymentMethod=b.dataset.paymentMethod;renderPaymentFields();syncPayment();return;}
     if(b.hasAttribute('data-fill-demo')){fillDemoPayment();return;}
-    if(b.matches('.vote-button')){
-      $$('.vote-button').forEach(el=>el.classList.remove('bg-[#FF5A36]'));b.classList.add('bg-[#FF5A36]');
-      message('vote-feedback','vote.saved',{specialId:b.dataset.vote});return;
-    }
-    if(b.id==='coffee-break-button'){b.disabled=true;b.classList.add('opacity-60');message('coffee-feedback','coffee.saved');return;}
     if(b.matches('.faq-item > button')){
       const opened=b.parentElement.classList.toggle('open');b.setAttribute('aria-expanded',String(opened));
     }

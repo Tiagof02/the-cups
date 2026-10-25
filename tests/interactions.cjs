@@ -83,11 +83,11 @@ function createValues(a,email='ana@example.test'){
  a.click('[data-close-account]');a.click('.tab[data-category="pastries"]');a.click('.add-product[data-product-id="nata"]');pay(a);eq(a.window.CupsStore.user.orders.length,1);eq(a.window.CupsStore.user.stamps,0);
  // Reward boundary: each completed drink order adds one stamp, including bundles.
  for(let i=0;i<7;i++){a.click('.add-product[data-product-id="espresso"]');pay(a)}
- eq(a.window.CupsStore.user.stamps,7);eq(a.qa('#loyalty-stamps .bg-\\[\\#FF5A36\\]').length,7);ok(text(a,'#loyalty-customer').includes('1 Demo-Belohnungen'));
+ eq(a.window.CupsStore.user.stamps,7);eq(a.qa('#loyalty-stamps .bg-\\[\\#FF5A36\\]').length,7);ok(text(a,'#loyalty-customer').includes('1 Belohnungen'));
  a.click('[data-open-account="profile"]');a.val('firstName','<img src=x onerror=alert(1)>');a.submit('#profile-form');eq(a.qa('#profile-greeting img').length,0);ok(text(a,'#profile-greeting').includes('<img'));
  a.click('[data-logout]');a.click('[data-favorite="croissant"]');ok(a.q('dialog').open);a.val('email','ana@example.test');a.val('password','demoPass123!');a.submit('#login-form');await until(()=>a.q('#profile-form'));ok(a.window.CupsStore.user.favorites.includes('croissant'));
  a.click('[data-close-account]');a.click('[data-logout]');a.click('.add-product[data-product-id="club"]');pay(a);ok(text(a,'#payment-feedback').includes('Demo-Bestellung'));eq(a.window.CupsStore.state.accounts[0].orders.length,1);
- for(const lang of ['EN','PT','DE']){a.click(`.lang[data-lang="${lang}"]`);a.click('.vote-button');ok(text(a,'#vote-feedback').includes(a.window.CupsTranslations[lang]['special.matcha']));a.click('.faq-item > button');eq(a.q('.faq-item > button').getAttribute('aria-expanded'),a.q('.faq-item').classList.contains('open')?'true':'false');}
+ for(const lang of ['EN','PT','DE']){a.click(`.lang[data-lang="${lang}"]`);ok(!a.q('.vote-button'));ok(!a.q('#coffee-break-button'));a.click('.faq-item > button');eq(a.q('.faq-item > button').getAttribute('aria-expanded'),a.q('.faq-item').classList.contains('open')?'true':'false');}
  a.q('#newsletter-email').value='bad';a.submit('#newsletter-form');eq(text(a,'#newsletter-feedback'),langs.DE['newsletter.error']);a.q('#newsletter-email').value='test@example.test';a.submit('#newsletter-form');eq(text(a,'#newsletter-feedback'),langs.DE['newsletter.saved']);
  // Storage write failures do not create a pretend saved account/order.
  const failing={...storage,setItem(){throw new Error('QuotaExceededError')}};

@@ -1,0 +1,104 @@
+THE CUP'S — FINAL CONTENT AND MULTILINGUAL HEADER UPDATE
+25 October 2026
+
+Source and scope
+Based on the previous delivered ZIP and GitHub main b01495d (runtime files match).
+Read Pasted text(5).txt, all six rendered pages of Website.docx, and the original
+FAQ.docx in SITE IMAGES + FAQ + MERCH(2).zip. No separate new header screenshot
+was available; the written header requirements and rendered website were used.
+
+Implemented
+- Removed Community Special voting cards, vote feedback, Tiny Coffee Break
+  event/registration, related handlers and translation strings. Kept the local
+  community introduction and existing WhatsApp integration/configuration.
+- Hero and Benefits now use the official English brand slogan, Your Cup. Your
+  Time., in every locale. Hero retains two lines. This is the requested brand
+  slogan exception; surrounding copy remains translated.
+- Hero supporting label: PERSONALIZED COFFEE / CAFÉ PERSONALIZADO /
+  KAFFEE GANZ NACH DEINEM GESCHMACK.
+- Benefits label: THE BENEFITS / OS BENEFÍCIOS / DIE VORTEILE. Updated the two
+  card headings to Less waiting. More living and Your coffee. Your name, with
+  Portuguese and German equivalents; descriptions and icons unchanged.
+- Lowercased the initial word of step 2's description in each locale.
+- Orange Tonic descriptive badge: natural / natural / natürlich. Name, image,
+  price, category and product controls unchanged.
+- Enlarged Merch's available section width, reduced card gaps and mobile side
+  padding, and used consistent square image frames. Only the tote's empty
+  lateral background is cropped; the complete product remains visible. Source
+  image files unchanged. Added translated Available in-store badge. No selling
+  controls or commerce integration added.
+- Loyalty totals and earning rule now use natural wording without demo terms.
+  Stamp calculations, seven-stamp reward boundary and account storage unchanged.
+  Existing checkout/account/FAQ prototype disclosures remain in place.
+- Share your feedback and Read more Google reviews link to the verified current
+  Google business profile, opening a new tab with noopener/noreferrer. Verified
+  the business name, Rua das Laranjeiras 47C address and +351 920 588 166 phone
+  against Google Maps. The current listing is distinct from an older closed
+  Cup's listing at the same address. No review was submitted or copied.
+  Used the verified profile with its Reviews and Write a review controls, not
+  an invented direct review-writing URL. URL is centralized in site-config.js.
+- FAQ now contains exactly the six supplied questions, in this order:
+  ordering/pickup; personalization; optional account; loyalty/favorites/usual;
+  location/hours; late/incorrect/missing orders. All six EN questions and answers
+  match FAQ.docx after whitespace normalization; the existing PT/DE translations
+  are retained. Removed the extra collection-counter and payment FAQs. The
+  prototype explanation remains a separate note, not a seventh question.
+- Removed footer tagline and its translations; logo, links and signup remain.
+- Header: shared 0.7rem navigation type (previously 0.73rem), reduced letter
+  spacing/gaps, wider desktop container, compact button padding and no accidental
+  wrapping. At 1280px and above all elements fit on one row in EN/PT/DE. At
+  1100–1279px the intentionally compact two-row layout keeps controls together;
+  below 1100px the existing hamburger/account menu is used. No links removed.
+- Section order/numbering remains 01 Benefits, 02 How it works, 03 Menu,
+  04 Pickup, 05 Community, 06 Merch, 07 Loyalty, 08 Customer Reviews,
+  09 Find Us, 10 FAQ. Existing FAQ/Merch anchors preserved.
+
+Verification completed
+- npm test: 3,705 assertions passed (2,668 interactions, 257 growth/chat/popup,
+  218 responsive CSS, 562 content assertions).
+- Automated coverage includes account creation/login/logout, validation, browser
+  persistence, account isolation, favorites, cart, pickup intervals and expired
+  times, four simulated payment methods, guest and account checkout, reorders,
+  loyalty, popup eligibility/discount, FAQ and multilingual chatbot/fallback.
+- Browser-rendered EN/PT/DE at 320, 390, 768, 1024, 1100, 1200, 1280, 1366 and
+  1440px: no horizontal overflow or header overlap. Checked both logged-out
+  and signed-in header layouts (54 combinations). Signed-in visual checks used
+  an isolated in-memory test fixture; no fixture is included in this ZIP.
+- Visual inspections: Portuguese desktop header, narrow mobile hero, mobile,
+  tablet and desktop merchandise. Equal square image frames and complete
+  merchandise products visible; all three images loaded successfully.
+- All 18 language/FAQ combinations opened and closed in the browser at 320px.
+  Desktop Merch and mobile Merch/FAQ anchors work; hamburger closes on selection.
+- Browser simulated MB WAY checkout: espresso EUR0.75, pickup 08:30, confirmation
+  shown; fixture loyalty increased from 3 to 4 and rendered the revised copy.
+- Core account-store.js, products.js, pickup-times.js and all image assets are
+  byte-identical to the previous ZIP. Runtime logic edits are limited to removal
+  of the requested event handlers and routing feedback through review config.
+- ZIP integrity, required assets and exclusion of preview/test fixture files
+  checked before delivery.
+
+Limits and existing prototype behavior
+- The HTTP preview lacks Web Crypto's secure context, so live browser account
+  creation stops with the existing localhost instruction. Automated tests use
+  real Node Web Crypto and passed creation/login/persistence. Signed-in layout
+  was separately rendered using a fixture. Production account logic unchanged;
+  serve through HTTPS (GitHub Pages) or a secure localhost context.
+- Tests used Chromium and responsive iframes, not physical devices, Safari or
+  Firefox. The new ZIP has not been published to GitHub Pages.
+- Payments and orders remain simulated; no real charge or café order is sent.
+  Accounts/history remain browser-local. Product modifiers and real reward
+  redemption are not implemented by the existing prototype. FAQ service copy
+  is preserved as supplied, with its existing explanatory note retained.
+- The actual WhatsApp community invitation and approved testimonial entries
+  are still not configured. Existing placeholders and support links remain.
+- Chatbot remains its working multilingual local FAQ assistant unless a server
+  proxy is configured. No backend, real purchase tracking or first-50 counter
+  was added. No Google sign-in or review submission was performed.
+
+Deployment
+Extract the contents of the-cups-local/ into the GitHub repository root.
+Keep index.html and assets/ at the same level; no build step is needed.
+All website dependencies/fonts/images are included. QA-only dist/, .openai/,
+node_modules and fixtures are excluded. tests/ and project docs are included.
+This report supersedes the earlier content/colour update reports where they
+refer to the old eight-FAQ layout, punctuation, community features or header.

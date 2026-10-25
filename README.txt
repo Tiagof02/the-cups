@@ -1,3 +1,7 @@
+Latest update: see LAST-CHANGES.txt for the final content, six FAQs,
+multilingual header correction and current verification/limitations.
+Earlier implementation history follows.
+
 FINAL REFINEMENTS — 24 October 2026
 Menu images: identical 145 x 145px squares; Merch images: matching square frames.
 Hero/display headings: decorative periods removed, hero line break preserved.

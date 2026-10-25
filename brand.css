@@ -148,9 +148,11 @@ footer input { border-radius:999px; }
 .food-visual.product-photo { display:grid; place-items:center; background:var(--cream); }
 .menu-photo { display:block; width:145px; height:145px; aspect-ratio:1; object-fit:contain; object-position:center; }
 /* Display-only merchandise, using the existing section spacing and brand palette. */
-.merch-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.merch-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+#merch .growth-inner { max-width:1440px; }
+.merch-availability { display:inline-block; margin:0 0 24px; padding:8px 16px; border-radius:999px; background:var(--pink); font-weight:700; }
 .merch-card { min-width:0; margin:0; overflow:hidden; border-radius:22px; background:white; }
-.merch-card img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:contain; background:var(--cream); }
+.merch-card img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; object-position:center; background:var(--cream); }
 .merch-card figcaption { padding:18px 22px; font-family:'League Spartan','DM Sans',sans-serif; font-size:1.4rem; font-weight:700; }
 .merch-card:nth-child(2) figcaption { background:var(--pink); }
 #faq .faq-answer p { white-space:pre-line; }
@@ -160,7 +162,9 @@ footer input { border-radius:999px; }
   .merch-grid { grid-template-columns:minmax(0,1fr); }
 }
 
-/* Keep the two-line hero headline after removing decorative full stops. */
+/* The official slogan retains its punctuation and two-line hero layout. */
 .brand-hero h1 { white-space:pre-line; }
 /* The pop-up reuses the nata photo inside its existing 100px illustration band. */
 #visit-art .menu-photo { width:100px; height:100px; }
+
+@media (max-width:767px) { #merch { padding-left:12px; padding-right:12px; } }

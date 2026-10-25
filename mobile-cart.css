@@ -4,7 +4,7 @@
 .product-add-controls { display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-left:auto; min-width:0; max-width:100%; }
 .basket-quantity { min-width:0; padding:5px 8px; border-radius:999px; background:var(--pink); color:var(--ink); font-size:.72rem; font-weight:700; line-height:1.25; text-align:center; overflow-wrap:anywhere; }
 .product-add-controls .add-product { flex:0 0 44px; }
-@media (max-width:767px) {
+@media (max-width:1099px) {
   html { scroll-padding-top:144px; }
   /* Keep the existing newsletter row within the viewport in longer languages. */
   footer > .grid > div { min-width:0; }

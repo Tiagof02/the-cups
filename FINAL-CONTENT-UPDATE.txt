@@ -1,3 +1,7 @@
+Latest update: see LAST-CHANGES.txt for the final content, six FAQs,
+multilingual header correction and current verification/limitations.
+Earlier implementation history follows.
+
 THE CUP'S — FINAL CONTENT, NAVIGATION AND DESIGN UPDATE
 24 October 2026
 Based on GitHub main d074191, including the previous brand-colour fixes.
