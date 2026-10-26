@@ -1,0 +1,5 @@
+# Host-root placement is required for crawler directives; see SEO-UPDATE.txt.
+User-agent: *
+Allow: /
+
+Sitemap: https://tiagof02.github.io/the-cups/sitemap.xml

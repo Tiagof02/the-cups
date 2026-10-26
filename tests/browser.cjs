@@ -51,7 +51,7 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
     },mobile);
     check(!overlap,'Header control overlap '+width+' '+lang);
     if(mobile){
-     for(const target of ['our-story','menu','pickup','merch','loyalty','find-us','faq']){
+     for(const target of ['takeaway-coffee-laranjeiras-lisbon','menu','pickup','merch','loyalty','breakfast-near-me','faq']){
       await page.locator('#mobile-nav-toggle').click();check(await page.locator('#mobile-nav-panel').isVisible(),'Menu opens');
       await page.locator(`#mobile-nav-panel a[href="#${target}"]`).click();
       check(await page.locator('#mobile-nav-panel').isHidden(),'Menu closes after anchor');
@@ -83,7 +83,7 @@ let checks=0;const check=(value,message)=>{assert(value,message);checks++};
     check(chatBounds.x>=0&&chatBounds.x+chatBounds.width<=width&&chatBounds.y>=0&&chatBounds.y+chatBounds.height<=900,'Chat fits viewport');
     check(await page.locator('#chat-launcher').isHidden(),'Launcher hidden while chat open');
     await page.locator('[data-chat-topic="menu"]').click();await page.clock.runFor(250);
-    check((await page.locator('#chat-log').textContent()).includes('0,75')||(await page.locator('#chat-log').textContent()).includes('0.75'),'FAQ catalog answer');
+    check((await page.locator('#chat-log').textContent()).includes('1,20')||(await page.locator('#chat-log').textContent()).includes('1.20'),'FAQ catalog answer');
     await page.keyboard.press('Escape');
     check(await page.locator('#chat-dialog').isHidden(),'Chat closes with Escape');
     await page.locator('.add-product[data-product-id="espresso"]').click();

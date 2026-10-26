@@ -3,7 +3,7 @@ const assert=require('assert/strict'),fs=require('fs'),path=require('path');
 const {boot}=require('./helpers.cjs');
 let checks=0;const eq=(a,b,label)=>{assert.deepEqual(a,b,label);checks++};const ok=(v,label)=>{assert(v,label);checks++};
 const a=boot();
-const order=['our-story','','menu','pickup','community','merch','loyalty','testimonials','find-us','faq'];
+const order=['takeaway-coffee-laranjeiras-lisbon','','menu','pickup','community','merch','loyalty','testimonials','breakfast-near-me','faq'];
 eq(a.qa('[data-section-label]').map(e=>e.closest('section').id),order,'Actual numbered section order');
 eq(a.qa('#merch img').length,3);
 eq(a.qa('.vote-button,#coffee-break-button,#vote-feedback,#coffee-feedback,[data-i18n="footer.tagline"]').length,0);
@@ -33,7 +33,7 @@ eq(d['hero.title'],'Your Cup.\nYour Time.');eq(d['growth.storyTitle'],'Your Cup.
  for(const h of a.qa('main .display:not([data-i18n="hero.title"]):not([data-i18n="growth.storyTitle"])'))ok(!h.textContent.includes('.'),h.textContent);
  eq(a.qa('[data-section-label]').map(e=>e.textContent.slice(0,2)).join(','),'01,02,03,04,05,06,07,08,09,10');
  for(const nav of ['.header-nav','#mobile-nav-panel']){
-  eq(a.qa(nav+' a').map(e=>e.getAttribute('href')),['#our-story','#menu','#pickup','#merch','#loyalty','#find-us','#faq']);
+  eq(a.qa(nav+' a').map(e=>e.getAttribute('href')),['#takeaway-coffee-laranjeiras-lisbon','#menu','#pickup','#merch','#loyalty','#breakfast-near-me','#faq']);
   eq(a.q(nav+' a[href="#faq"]').textContent,d['nav.faq']);
   eq(a.q(nav+' a[href="#merch"]').textContent,d['nav.merch']);
  }

@@ -74,6 +74,7 @@
     });
     $$('[data-i18n-aria]',root).forEach(e=>e.setAttribute('aria-label',t(e.getAttribute('data-i18n-aria'))));
     $$('[data-i18n-placeholder]',root).forEach(e=>e.placeholder=t(e.getAttribute('data-i18n-placeholder')));
+    $$('[data-i18n-content]',root).forEach(e=>e.setAttribute('content',t(e.getAttribute('data-i18n-content'))));
     $$('[data-i18n-alt]',root).forEach(e=>e.setAttribute('alt',t(e.getAttribute('data-i18n-alt'))));
     $$('.lang',root).forEach(e=>{
       const active=e.dataset.lang===language;
@@ -86,6 +87,7 @@
     if(persist){try{store.commit(s=>s.language=next)}catch(e){notice(e.message)}}
     document.documentElement.lang=localeCodes[next];
     document.title=t('page.title');
+    $('meta[property="og:locale"]').setAttribute('content',localeCodes[next].replace('-','_'));
     translateStatic();
     $('[id="language-feedback"]').textContent=t('language.active');
     $('#menu-group-title').textContent=t('category.'+(selectedCategory==='drinks'||!selectedCategory?'classics':selectedCategory));

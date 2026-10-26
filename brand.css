@@ -70,7 +70,7 @@ main > section { border-color:#2b19121a; }
 #loyalty-stamps { padding:22px; border-radius:22px; background:var(--cream); width:fit-content; max-width:100%; }
 #loyalty-stamps > span { width:44px; height:44px; border-width:2px; }
 #loyalty-stamps > span:last-child { border-color:var(--orange); }
-#find-us { background:var(--cream); border-top:1px solid #2b19121a; }
+#breakfast-near-me { background:var(--cream); border-top:1px solid #2b19121a; }
 .personal-area { background:var(--pink); border:0; border-radius:22px; box-shadow:none; }
 .favorite-chip { min-height:44px; border:1px solid #2b19121f; }
 .account-dialog { border:0; border-radius:24px; box-shadow:0 20px 90px #2b19124d; }
@@ -168,3 +168,6 @@ footer input { border-radius:999px; }
 #visit-art .menu-photo { width:100px; height:100px; }
 
 @media (max-width:767px) { #merch { padding-left:12px; padding-right:12px; } }
+
+/* Zero-height aliases keep historical section bookmarks working. */
+.legacy-anchor { display:block; height:0; }

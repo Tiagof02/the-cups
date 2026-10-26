@@ -3,7 +3,7 @@ window.CupsProducts = [
   {
     "id": "espresso",
     "nameKey": "product.espresso",
-    "price": 0.75,
+    "price": 1.2,
     "categories": [
       "drinks"
     ],
@@ -104,7 +104,7 @@ window.CupsProducts = [
   {
     "id": "breakfast",
     "nameKey": "product.breakfast",
-    "price": 3.5,
+    "price": 2.3,
     "categories": [
       "bundles"
     ],

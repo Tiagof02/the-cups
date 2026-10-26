@@ -86,13 +86,13 @@ function createValues(a,email='ana@example.test'){
  eq(a.window.CupsStore.user.stamps,7);eq(a.qa('#loyalty-stamps .bg-\\[\\#FF5A36\\]').length,7);ok(text(a,'#loyalty-customer').includes('1 Belohnungen'));
  a.click('[data-open-account="profile"]');a.val('firstName','<img src=x onerror=alert(1)>');a.submit('#profile-form');eq(a.qa('#profile-greeting img').length,0);ok(text(a,'#profile-greeting').includes('<img'));
  a.click('[data-logout]');a.click('[data-favorite="croissant"]');ok(a.q('dialog').open);a.val('email','ana@example.test');a.val('password','demoPass123!');a.submit('#login-form');await until(()=>a.q('#profile-form'));ok(a.window.CupsStore.user.favorites.includes('croissant'));
- a.click('[data-close-account]');a.click('[data-logout]');a.click('.add-product[data-product-id="club"]');pay(a);ok(text(a,'#payment-feedback').includes('Demo-Bestellung'));eq(a.window.CupsStore.state.accounts[0].orders.length,1);
+ a.click('[data-close-account]');a.click('[data-logout]');a.click('.add-product[data-product-id="club"]');pay(a);ok(text(a,'#payment-feedback').includes('Testbestellung'));eq(a.window.CupsStore.state.accounts[0].orders.length,1);
  for(const lang of ['EN','PT','DE']){a.click(`.lang[data-lang="${lang}"]`);ok(!a.q('.vote-button'));ok(!a.q('#coffee-break-button'));a.click('.faq-item > button');eq(a.q('.faq-item > button').getAttribute('aria-expanded'),a.q('.faq-item').classList.contains('open')?'true':'false');}
  a.q('#newsletter-email').value='bad';a.submit('#newsletter-form');eq(text(a,'#newsletter-feedback'),langs.DE['newsletter.error']);a.q('#newsletter-email').value='test@example.test';a.submit('#newsletter-form');eq(text(a,'#newsletter-feedback'),langs.DE['newsletter.saved']);
  // Storage write failures do not create a pretend saved account/order.
  const failing={...storage,setItem(){throw new Error('QuotaExceededError')}};
  let b=boot(failing);b.click('[data-open-account="create"]');createValues(b,'failure@example.test');b.submit('#create-account-form');await until(()=>text(b,'#account-message')===langs.DE['account.storageError']);eq(b.window.CupsStore.user,null);
- const corrupt=boot({getItem(){return 'not json'},setItem(){}});ok(text(corrupt,'#site-notice').includes('Saved demo data'));corrupt.click('[data-open-account="login"]');ok(text(corrupt,'#account-message').includes('Saved demo data'));
+ const corrupt=boot({getItem(){return 'not json'},setItem(){}});ok(text(corrupt,'#site-notice').includes('Saved account data'));corrupt.click('[data-open-account="login"]');ok(text(corrupt,'#account-message').includes('Saved account data'));
  // Stage 3: all required fields, optional preferences and payment lifecycle.
  cache.clear();a=boot();
  a.click('[data-open-account="create"]');
@@ -140,8 +140,8 @@ function createValues(a,email='ana@example.test'){
  eq(full.length,66);eq(full[0].time,'00:00');eq(full[1].time,'00:15');eq(full[2].time,'08:00');eq(full[65].time,'23:45');
  ok(full.every(x=>x.date==='2026-10-07'));ok(full.find(x=>x.time==='08:00').disabled);ok(full.find(x=>x.time==='18:00').disabled);ok(!full.find(x=>x.time==='18:15').disabled);
  eq(text(a,'.quick-slot-time'),'18:15');eq(a.qa('#quick-slots .quick-slot:not([hidden])').length,3);eq(a.qa('.hero-art-note').length,0);
- eq(a.q('.hero-art img').getAttribute('src'),'assets/brand/hero-cup.png');
- eq(a.q('.hero-art img').getAttribute('width'),'1283');eq(a.q('.hero-art img').getAttribute('height'),'1226');
+ eq(a.q('.hero-art img').getAttribute('src'),'assets/brand/hero-personalized.png');
+ eq(a.q('.hero-art img').getAttribute('width'),'1241');eq(a.q('.hero-art img').getAttribute('height'),'1267');
  for(const lang of ['EN','PT','DE']){
    a.click(`.lang[data-lang="${lang}"]`);a.click('#slot-toggle');
    eq(a.q('#pickup-time-select').options.length,66);
@@ -193,7 +193,7 @@ function createValues(a,email='ana@example.test'){
  cache.clear();a=boot();
  ok(a.q('#mobile-nav-panel').hidden);ok(a.q('#mobile-account-panel').hidden);
  a.click('#mobile-nav-toggle');ok(!a.q('#mobile-nav-panel').hidden);eq(a.q('#mobile-nav-toggle').getAttribute('aria-expanded'),'true');
- eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#our-story,#menu,#pickup,#merch,#loyalty,#find-us,#faq');
+ eq(a.qa('#mobile-nav-panel a').map(e=>e.getAttribute('href')).join(','),'#takeaway-coffee-laranjeiras-lisbon,#menu,#pickup,#merch,#loyalty,#breakfast-near-me,#faq');
  for(const el of a.qa('#mobile-nav-panel a'))ok(a.q(el.getAttribute('href')));
  a.click('#mobile-nav-panel a[href="#menu"]');ok(a.q('#mobile-nav-panel').hidden);
  a.click('#mobile-nav-toggle');a.click('#mobile-account-toggle');ok(a.q('#mobile-nav-panel').hidden);ok(!a.q('#mobile-account-panel').hidden);

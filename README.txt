@@ -1,3 +1,5 @@
+LATEST UPDATE: See SEO-UPDATE.txt for the final content, pricing, SEO and verification report. Earlier notes below describe previous versions.
+
 Latest update: see LAST-CHANGES.txt for the final content, six FAQs,
 multilingual header correction and current verification/limitations.
 Earlier implementation history follows.

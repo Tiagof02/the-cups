@@ -1,0 +1,37 @@
+THE CUP'S — FINAL CONTENT, SEO AND PRICING UPDATE
+26 October 2026. Based on repository commit 0c87e1c.
+
+IMPLEMENTED
+- Replaced hero artwork with the supplied Martha cup, with transparent background; preserved existing hero layout and proportions. Translated descriptive alt text in EN/PT/DE.
+- FAQ institution references now say Católica; all six questions retained.
+- New section anchors: #takeaway-coffee-laranjeiras-lisbon and #breakfast-near-me. Navigation and styling updated; legacy #our-story and #find-us targets retained.
+- Browser title: The Cup's – Your Cup. Your Time.
+- Shortened academic/demo copy across FAQs, accounts, checkout and helper in EN/PT/DE. Clear simulated-payment/no-real-order disclosures and test-password guidance remain.
+- Removed academic footer attribution.
+- Espresso is €1.20 and breakfast bundle is €2.30 in catalog, cards and calculations. Lunch bundle remains €8.50. Saved historical orders keep their original prices; new orders/reorders use current catalog prices.
+- Added canonical, translated description, Open Graph metadata, local CafeOrCoffeeShop structured data, sitemap.xml and robots.txt. Only existing business address, telephone and opening hours are used; no invented ratings.
+- Existing promotional eligibility and visitor-state logic retained after regression tests. No redemption counter added.
+- No paid services, domain registration, custom-domain configuration or backend introduced.
+
+VERIFICATION
+npm test: 3,865 assertions passed (2,673 interactions, 257 growth features, 218 responsive CSS, 565 content, 152 SEO/pricing).
+Automated coverage: EN/PT/DE translations; account creation/login/logout, validation, persistence and isolation; favorites and reorder; cart and customization; pickup intervals/dropdown; four simulated payment methods; guest/account checkout; payment-data disposal; loyalty; FAQ; newsletter; storage failures; popup timing, recurrence and exclusivity; chatbot local answers/fallback; navigation, metadata and asset integrity.
+Pricing checks include 2 espressos + 1 breakfast bundle = €4.70 in cart and checkout in all three languages.
+Rendered Chrome preview: EN/PT/DE at iframe widths 320, 390, 768, 1024, 1280 and 1366px (scrollbar reduces content width by 15px). No horizontal content overflow or broken images observed. Desktop and mobile hero visually reviewed; mobile menu/new Find Us anchor confirmed visually. Legacy anchor targets resolve beside their sections. Existing branding and layouts preserved.
+
+DEPLOYMENT
+Copy the contents of this folder into the existing repository root. GitHub Pages remains https://tiagof02.github.io/the-cups/ . All local asset paths are relative. No build step is needed for deployment. package.json/tests are for optional developer checks, not runtime dependencies.
+
+LIMITATIONS / EXISTING PROTOTYPE BEHAVIOR
+- Not pushed or deployed; public post-deployment crawling and social-card refresh are not verified.
+- robots.txt is supplied at repository root and is accessible at /the-cups/robots.txt. Search engines only apply robots directives from the HOST root (https://tiagof02.github.io/robots.txt). A project repository cannot control that file. The sitemap is valid and can be submitted through free Search Console; no submission was performed. This package does not block crawling.
+- Accounts remain browser-local test accounts, orders/payments simulated. Rendered preview uses HTTP; secure-context account creation was covered by automated WebCrypto tests rather than weakening security for preview. No real credentials/payment data used.
+- Responsive checks are Chrome preview checks, not physical-device or Safari/Firefox certification.
+- Chatbot local EN/PT/DE answers and fallback tested; no paid AI API introduced or external AI backend availability guaranteed.
+- Existing community invitations and customer testimonials remain in their configured coming-soon state; no fabricated reviews or invitation links added. Existing generic social/privacy/terms links are unchanged.
+- Popup returning-visitor timing was verified in automated tests; dismissal and absence on immediate preview navigation also observed.
+
+IMAGE PROVENANCE
+Input: supplied WhatsApp JPEG of Martha cup. Built-in image editing used only to remove white background and clean edge flecks while preserving cup, lid, Martha name, logo, orange wave and motivational stickers. Final asset: assets/brand/hero-personalized.png (1241 x 1267 RGBA).
+
+Historical documentation is retained for context; this report supersedes earlier price, title and anchor descriptions.

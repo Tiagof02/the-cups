@@ -31,12 +31,12 @@ Object.assign(window.CupsTranslations.EN, {
   "growth.visitLabel": "A little something for you",
   "growth.nataTitle": "Your first nata is on us!",
   "growth.nataCopy": "A little welcome treat: enjoy one free pastel de nata with your first online order. Limited to the first 50 eligible customers.",
-  "growth.nataTerms": "Limited to the first 50 eligible customers. Demo offer: one nata per new customer, on the first completed online order only. Add a nata to your basket; its price is deducted before payment. No account or newsletter signup is required.",
+  "growth.nataTerms": "Limited to the first 50 eligible customers. One nata per new customer, on the first completed online order only. Add a nata to your basket; its price is deducted before payment. No account or newsletter signup is required.",
   "growth.claim": "Claim your first-order treat",
   "growth.claimed": "Offer saved. Add a nata to use it.",
   "growth.offerButton": "First order? See your nata offer",
   "growth.discount": "First-order nata",
-  "growth.applied": "One nata is included at no cost in this demo order.",
+  "growth.applied": "One nata is included at no cost.",
   "growth.addNata": "Your offer is saved. Add a pastel de nata to apply it.",
   "growth.ineligible": "This offer is for a first online order only.",
   "growth.welcomeTitle": "Nice to see you back!",
@@ -64,12 +64,12 @@ Object.assign(window.CupsTranslations.EN, {
   "growth.topicPromo": "First nata offer",
   "growth.chatUnknown": "I can answer common café questions in English, Portuguese, German, Spanish and French. Try the suggestions or contact the café for anything else.",
   "growth.chatIngredients": "The menu does not provide a verified ingredient or allergen list. Please ask the café before ordering if you have an allergy or dietary requirement. Product labels are not an allergen guarantee.",
-  "growth.chatCustom": "The menu shows options such as single/double espresso and oat-friendly cappuccino. The current demo has no configurable product options. Ask the café to confirm changes and any extra cost.",
-  "growth.chatOrder": "Choose products, select one of today’s pickup slots, complete demo payment and collect at Rua das Laranjeiras 47C with your order number. No real order is sent by this university prototype.",
+  "growth.chatCustom": "Product changes are not selectable online. Ask the café about options and any extra cost.",
+  "growth.chatOrder": "Choose products, a pickup time and a simulated payment. No real order is sent to the café.",
   "growth.chatPayment": "MB WAY, Visa/Mastercard, Apple Pay and Google Pay are simulated. No money is charged. Card and MB WAY accept only the displayed test details.",
-  "growth.chatAccount": "You can order as a guest. A demo account saves favorites, order history and loyalty progress in this browser only. Use a demo-only password.",
-  "growth.chatLoyalty": "Each completed demo order containing a drink earns one stamp. The existing prototype shows a demo reward at seven stamps; rewards are not redeemable for real drinks.",
-  "growth.chatPickup": "Same-day pickup only, in 15-minute intervals with at least 15 minutes to prepare. Times use Lisbon time. Next available: {time}. This is demo availability.",
+  "growth.chatAccount": "Test account: use fictional details and a password you never use elsewhere. Saved only in this browser.",
+  "growth.chatLoyalty": "One stamp per completed test order containing a drink; a reward appears at seven stamps. Online rewards cannot be redeemed for real drinks.",
+  "growth.chatPickup": "Same-day pickup in 15-minute intervals with at least 15 minutes to prepare. Lisbon time. Next available: {time}.",
   "order.cta": "Order for Pickup"
 });
 Object.assign(window.CupsTranslations.PT, {
@@ -104,12 +104,12 @@ Object.assign(window.CupsTranslations.PT, {
   "growth.visitLabel": "Um miminho para ti",
   "growth.nataTitle": "O teu primeiro pastel de nata é por nossa conta!",
   "growth.nataCopy": "Um miminho de boas-vindas: oferecemos-te um pastel de nata na tua primeira encomenda online. Oferta limitada aos primeiros 50 clientes elegíveis.",
-  "growth.nataTerms": "Oferta limitada aos primeiros 50 clientes elegíveis. Oferta de demonstração: um pastel de nata por novo cliente, apenas na primeira encomenda online concluída. Adiciona um pastel ao carrinho; o valor é descontado antes do pagamento. Não é necessário criar conta nem subscrever novidades.",
+  "growth.nataTerms": "Oferta limitada aos primeiros 50 clientes elegíveis. Um pastel de nata por novo cliente, apenas na primeira encomenda online concluída. Adiciona um pastel ao carrinho; o valor é descontado antes do pagamento. Não é necessário criar conta nem subscrever novidades.",
   "growth.claim": "Pedir a oferta da primeira encomenda",
   "growth.claimed": "Oferta guardada. Adiciona um pastel de nata para a usar.",
   "growth.offerButton": "Primeira encomenda? Vê a oferta de nata",
   "growth.discount": "Nata da primeira encomenda",
-  "growth.applied": "Um pastel de nata é gratuito nesta encomenda de demonstração.",
+  "growth.applied": "Um pastel de nata está incluído sem custo.",
   "growth.addNata": "A tua oferta está guardada. Adiciona um pastel de nata para a aplicar.",
   "growth.ineligible": "Esta oferta é válida apenas na primeira encomenda online.",
   "growth.welcomeTitle": "Que bom ter-te de volta!",
@@ -137,12 +137,12 @@ Object.assign(window.CupsTranslations.PT, {
   "growth.topicPromo": "Oferta do primeiro nata",
   "growth.chatUnknown": "Respondo a perguntas frequentes em português, inglês, alemão, espanhol e francês. Experimenta as sugestões ou contacta o café para outras questões.",
   "growth.chatIngredients": "O menu não inclui uma lista verificada de ingredientes ou alergénios. Se tens alergias ou requisitos alimentares, confirma com o café antes de encomendar. As etiquetas dos produtos não garantem a ausência de alergénios.",
-  "growth.chatCustom": "O menu indica opções como espresso simples/duplo e cappuccino com opção de aveia. A demonstração atual não permite configurar produtos. Confirma alterações e eventuais custos com o café.",
-  "growth.chatOrder": "Escolhe os produtos, seleciona um horário de hoje, conclui o pagamento de demonstração e recolhe na Rua das Laranjeiras 47C com o número da encomenda. Este protótipo universitário não envia encomendas reais.",
+  "growth.chatCustom": "Não é possível selecionar alterações aos produtos online. Confirma as opções e os custos com o café.",
+  "growth.chatOrder": "Escolhe os produtos, a hora de recolha e um pagamento simulado. Não é enviada uma encomenda real ao café.",
   "growth.chatPayment": "MB WAY, Visa/Mastercard, Apple Pay e Google Pay são simulados. Não é cobrado qualquer valor. Cartão e MB WAY aceitam apenas os dados de teste indicados.",
-  "growth.chatAccount": "Podes encomendar sem conta. Uma conta de demonstração guarda favoritos, histórico e carimbos apenas neste navegador. Usa uma palavra-passe exclusiva para a demonstração.",
-  "growth.chatLoyalty": "Cada encomenda de demonstração concluída com uma bebida dá um carimbo. O protótipo apresenta uma recompensa de demonstração aos sete carimbos; não pode ser trocada por bebidas reais.",
-  "growth.chatPickup": "Recolha apenas no próprio dia, em intervalos de 15 minutos, com pelo menos 15 minutos de preparação. Hora de Lisboa. Próximo horário: {time}. A disponibilidade é de demonstração.",
+  "growth.chatAccount": "Conta de teste: usa dados fictícios e uma palavra-passe que não uses noutros locais. Guardada apenas neste navegador.",
+  "growth.chatLoyalty": "Um carimbo por encomenda de teste concluída com uma bebida; aparece uma oferta aos sete carimbos. As ofertas online não podem ser trocadas por bebidas reais.",
+  "growth.chatPickup": "Recolha no próprio dia, em intervalos de 15 minutos e com pelo menos 15 minutos de preparação. Hora de Lisboa. Próximo horário: {time}.",
   "order.cta": "Encomendar para recolher"
 });
 Object.assign(window.CupsTranslations.DE, {
@@ -177,12 +177,12 @@ Object.assign(window.CupsTranslations.DE, {
   "growth.visitLabel": "Eine Kleinigkeit für dich",
   "growth.nataTitle": "Dein erstes Pastel de Nata geht auf uns!",
   "growth.nataCopy": "Ein kleines Willkommensgeschenk: Zu deiner ersten Online-Bestellung schenken wir dir ein Pastel de Nata. Das Angebot gilt für die ersten 50 berechtigten Neukunden.",
-  "growth.nataTerms": "Das Angebot gilt für die ersten 50 berechtigten Neukunden. Demo-Angebot: ein Pastel de Nata pro Neukunde, nur bei der ersten abgeschlossenen Online-Bestellung. Lege es in den Warenkorb; der Preis wird vor der Zahlung abgezogen. Kein Konto oder Newsletter-Abo nötig.",
+  "growth.nataTerms": "Das Angebot gilt für die ersten 50 berechtigten Neukunden. Ein Pastel de Nata pro Neukunde, nur bei der ersten abgeschlossenen Online-Bestellung. Lege es in den Warenkorb; der Preis wird vor der Zahlung abgezogen. Kein Konto oder Newsletter-Abo nötig.",
   "growth.claim": "Erstbestellungsangebot sichern",
   "growth.claimed": "Angebot gespeichert. Lege ein Pastel de Nata in den Warenkorb.",
   "growth.offerButton": "Erste Bestellung? Entdecke dein Nata-Angebot",
   "growth.discount": "Nata zur Erstbestellung",
-  "growth.applied": "Ein Pastel de Nata ist in dieser Demo-Bestellung kostenlos.",
+  "growth.applied": "Ein Pastel de Nata ist kostenlos enthalten.",
   "growth.addNata": "Dein Angebot ist gespeichert. Füge ein Pastel de Nata hinzu, um es einzulösen.",
   "growth.ineligible": "Dieses Angebot gilt nur für die erste Online-Bestellung.",
   "growth.welcomeTitle": "Schön, dass du wieder da bist!",
@@ -210,18 +210,18 @@ Object.assign(window.CupsTranslations.DE, {
   "growth.topicPromo": "Erstes Nata gratis",
   "growth.chatUnknown": "Ich beantworte häufige Café-Fragen auf Deutsch, Englisch, Portugiesisch, Spanisch und Französisch. Nutze die Vorschläge oder kontaktiere das Café bei weiteren Fragen.",
   "growth.chatIngredients": "Die Speisekarte enthält keine geprüfte Zutaten- oder Allergenliste. Frage vor der Bestellung im Café nach, wenn du Allergien oder besondere Ernährungsbedürfnisse hast. Produktetiketten sind keine Allergengarantie.",
-  "growth.chatCustom": "Die Speisekarte nennt etwa einfachen/doppelten Espresso und Cappuccino mit Haferoption. Die aktuelle Demo hat keine konfigurierbaren Produktoptionen. Frage im Café nach Änderungen und möglichen Aufpreisen.",
-  "growth.chatOrder": "Wähle Produkte und eine heutige Abholzeit, schließe die Demo-Zahlung ab und hole an der Rua das Laranjeiras 47C mit deiner Bestellnummer ab. Dieser Hochschulprototyp sendet keine echten Bestellungen.",
+  "growth.chatCustom": "Produktänderungen sind online nicht auswählbar. Frage im Café nach Optionen und Aufpreisen.",
+  "growth.chatOrder": "Wähle Produkte, eine Abholzeit und eine simulierte Zahlung. Es wird keine echte Bestellung ans Café gesendet.",
   "growth.chatPayment": "MB WAY, Visa/Mastercard, Apple Pay und Google Pay werden simuliert. Es wird nichts abgebucht. Karte und MB WAY akzeptieren nur die angezeigten Testdaten.",
-  "growth.chatAccount": "Du kannst als Gast bestellen. Ein Demo-Konto speichert Favoriten, Bestellhistorie und Stempel nur in diesem Browser. Verwende ein reines Demo-Passwort.",
-  "growth.chatLoyalty": "Jede abgeschlossene Demo-Bestellung mit Getränk bringt einen Stempel. Der bestehende Prototyp zeigt bei sieben Stempeln eine Demo-Belohnung; sie lässt sich nicht gegen echte Getränke einlösen.",
-  "growth.chatPickup": "Abholung nur am selben Tag, im 15-Minuten-Takt mit mindestens 15 Minuten Vorbereitungszeit. Es gilt Lissabonner Zeit. Nächster Termin: {time}. Dies ist Demo-Verfügbarkeit.",
+  "growth.chatAccount": "Testkonto: Nutze fiktive Angaben und ein Passwort, das du sonst nirgends verwendest. Nur in diesem Browser gespeichert.",
+  "growth.chatLoyalty": "Ein Stempel pro abgeschlossener Testbestellung mit Getränk; bei sieben Stempeln erscheint eine Prämie. Online-Prämien sind nicht gegen echte Getränke einlösbar.",
+  "growth.chatPickup": "Abholung am selben Tag im 15-Minuten-Takt mit mindestens 15 Minuten Vorbereitung. Lissabonner Zeit. Nächster Termin: {time}.",
   "order.cta": "Zur Abholung bestellen"
 });
 
-window.CupsTranslations.EN["growth.noPromo"] = "There are no active offers in this demo.";
-window.CupsTranslations.PT["growth.noPromo"] = "Não há ofertas ativas nesta demonstração.";
-window.CupsTranslations.DE["growth.noPromo"] = "In dieser Demo gibt es keine aktiven Angebote.";
+window.CupsTranslations.EN["growth.noPromo"] = "There are no active offers.";
+window.CupsTranslations.PT["growth.noPromo"] = "Não há ofertas ativas.";
+window.CupsTranslations.DE["growth.noPromo"] = "Es gibt keine aktiven Angebote.";
 
 /* Section and chat refinements. */
 Object.assign(window.CupsTranslations.EN,{

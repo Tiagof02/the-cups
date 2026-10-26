@@ -4,7 +4,7 @@
   "private": true,
   "description": "Static university storefront demo. No build step or backend required.",
   "scripts": {
-    "test": "node tests/interactions.cjs && node tests/growth.cjs && node tests/responsive.cjs && node tests/content.cjs",
+    "test": "node tests/interactions.cjs && node tests/growth.cjs && node tests/responsive.cjs && node tests/content.cjs && node tests/seo.cjs",
     "test:browser": "node tests/browser.cjs"
   },
   "devDependencies": {
